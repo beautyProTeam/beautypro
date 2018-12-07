@@ -210,6 +210,8 @@ export default {
           height: 30px
           line-height: 30px
           font-size: 12px
+          span
+            font-size: 12px
   .header-search
     clear: both
     min-width:1190px
