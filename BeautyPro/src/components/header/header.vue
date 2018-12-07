@@ -407,7 +407,7 @@ export default {
             padding-left: 40px
             display: block
             list-style-type: disc
-            margin-block-start: 1em
+            // margin-block-start: 1em
             margin-block-end: 1em
             margin-inline-start: 0px
             margin-inline-end: 0px
