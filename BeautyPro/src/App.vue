@@ -8,20 +8,21 @@
 </template>
 
 <script type="text/ecmascript-6">
-import header from './components/header/header.vue';
-import main from './components/main/main';
-import footer from './components/footer/footer';
+ import "./stylus/base.styl";
+import HeaderComponent from './components/HeaderComponent/HeaderComponent';
+import MainComponent from './components/MainComponent/MainComponent';
+import FooterComponent from './components/FooterComponent/FooterComponent';
 export default {
   components: {
-    'v-header': header,
-    'v-main': main,
-    'v-footer': footer
+    'v-header': HeaderComponent,
+    'v-main': MainComponent,
+    'v-footer': FooterComponent
   }
 };
 </script>
 
 <style lang="stylus">
-@import "./stylus/base.styl";
+
 #app {
 
 }

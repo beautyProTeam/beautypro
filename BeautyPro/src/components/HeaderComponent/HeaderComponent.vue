@@ -32,7 +32,7 @@
         <div class="header-search-content">
           <div class="left">
            <a>
-              <img src="./logo.png" title="琦色美妆" alt="">
+              <img src="/static/img/logo.png" title="琦色美妆" alt="">
             </a>
           </div>
           <div class="center">
@@ -62,7 +62,7 @@
               </a>
             </div>
           </div>
-          <a class="logo-promiss"><img src="./navigation_shopping.png"></a>
+          <a class="logo-promiss"><img src="/static/img/navigation_shopping.png"></a>
         </div>
       </div>
       <div class="header-bottom">
@@ -157,16 +157,18 @@
     </div>
 </template>
 
+
 <script type="text/ecmascript-6">
 import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 export default {
-  name: 'header'
+  name: 'HeaderComponent'
 };
 </script>
 
 <style lang="stylus">
-  @import "bootstrap/dist/css/bootstrap.css";
+
 
   .header
     .header-top
@@ -286,7 +288,7 @@ export default {
               height: 26px
               margin-right: 10px
               margin-left: 10px
-              background-image: url(./shopping_bag.png)
+              background-image: url(/static/img/shopping_bag.png)
               content: ""
             span
               font-size: 16px
@@ -314,7 +316,7 @@ export default {
           width: 240px
           height: 36px
           line-height: 36px
-          background: url(./classified.png)
+          background: url(/static/img/classified.png)
           background-size: 100% 100%
           .menu-href
             margin-left: 15px
@@ -337,7 +339,7 @@ export default {
               z-index: -1
               background-repeat: no-repeat
               position: absolute
-              background-image: url(./navigation_sprite_wrap.png)
+              background-image: url(/static/img/navigation_sprite_wrap.png)
               content: ""
             .leftUl
               min-height: 320px
@@ -388,7 +390,7 @@ export default {
               height: 55px
               background-repeat: no-repeat
               position: absolute
-              background-image: url(./navigation_sprite_wrap.png)
+              background-image: url(/static/img/navigation_sprite_wrap.png)
               content: ""
           .menu-list-content
             width: 950px
