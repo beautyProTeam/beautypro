@@ -4,7 +4,8 @@
         <div class="header-top-content">
           <span class="left">
             <a class="welcome">欢迎来到琦色美妆</a>
-            <a>请登录</a>
+
+            <router-link tag="a" to="/login">请登录</router-link>
             <i></i>
             <a>免费注册</a>
             <a style="display: none">手机验证码登录</a>

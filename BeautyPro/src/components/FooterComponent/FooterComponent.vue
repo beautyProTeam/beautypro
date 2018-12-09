@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-
+      版权所有
     </div>
 </template>
 
@@ -11,5 +11,11 @@ export default {
 </script>
 
 <style lang="stylus">
-
+  .footer{
+    background:black;
+    padding:20px 0px;
+    text-align center;
+    color white;
+    font-size 12px;
+  }
 </style>
