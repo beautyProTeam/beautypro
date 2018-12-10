@@ -29,7 +29,7 @@
           </span>
         </div>
       </div>
-      <div class="header-search">
+      <div class="header-search clearfix">
         <div class="header-search-content">
           <div class="left">
            <a>
