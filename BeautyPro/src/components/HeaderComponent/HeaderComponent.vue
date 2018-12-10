@@ -29,8 +29,8 @@
           </span>
         </div>
       </div>
-      <div class="header-search clearfix">
-        <div class="header-search-content">
+      <div class="header-search ">
+        <div class="header-search-content clearfix">
           <div class="left">
            <a>
               <img src="/static/img/logo.png" title="琦色美妆" alt="">
@@ -68,8 +68,8 @@
       </div>
       <div class="header-bottom">
         <div class="header-bottom-info">
-          <div class="header-bottom-info-content">
-            <div class="left">
+          <div class="header-bottom-info-content clearfix">
+            <div class="left clearfix">
               <a class="menu-href">全部商品类目</a>
               <div class="menu-list">
                 <em class="icon-love-left"></em>
@@ -302,8 +302,8 @@ export default {
   .header-bottom
     min-width: 1190px
     position: relative
-    top: 84px
-    z-index: -1
+    margin-top: 84px
+
     .header-bottom-info
       width: 100%
       background-color: #fff
@@ -311,11 +311,11 @@ export default {
         width: 1190px
         margin: 0 auto
         position: relative
-        height: 36px
+
         .left
           float: left
           width: 240px
-          height: 36px
+          /*height: 240px*/
           line-height: 36px
           background: url(/static/img/classified.png)
           background-size: 100% 100%
