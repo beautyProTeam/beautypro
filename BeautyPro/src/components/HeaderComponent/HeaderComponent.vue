@@ -71,76 +71,78 @@
           <div class="header-bottom-info-content clearfix">
             <div class="left clearfix">
               <a class="menu-href">全部商品类目</a>
-              <div class="menu-list">
-                <em class="icon-love-left"></em>
-                <ul class="leftUl">
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                  <li class="leftUlLi">
-                    <span></span>
-                    <a class="bigKind up">热门</a>
-                    <ul class="smallUl">
-                      <li><a>魅惑美唇</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <em class="icon-love-right"></em>
+              <div v-show="isShow">
+                <div class="menu-list">
+                  <em class="icon-love-left"></em>
+                  <ul class="leftUl">
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                    <li class="leftUlLi">
+                      <span></span>
+                      <a class="bigKind up">热门</a>
+                      <ul class="smallUl">
+                        <li><a>魅惑美唇</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <em class="icon-love-right"></em>
+                </div>
+                <div class="menu-list-content"></div>
               </div>
-              <div class="menu-list-content"></div>
             </div>
             <div class="right">
               <ul>
@@ -164,13 +166,20 @@ import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 export default {
-  name: 'HeaderComponent'
+  /*name: 'HeaderComponent'*/
+  methods: {
+    isShow(){
+      let currentPathname = window.location.pathname;
+      if(currentPathname == '/'){
+        return false;
+      }
+      return true;
+    }
+  }
 };
 </script>
 
 <style lang="stylus">
-
-
   .header
     .header-top
       width: 100%
@@ -337,7 +346,7 @@ export default {
               background-position: 0px 5px
               width: 55px
               height: 55px
-              z-index: -1
+              /*z-index: -1*/
               background-repeat: no-repeat
               position: absolute
               background-image: url(/static/img/navigation_sprite_wrap.png)

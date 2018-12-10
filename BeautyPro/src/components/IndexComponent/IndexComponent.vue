@@ -1,20 +1,23 @@
 <template>
   <div>
     <v-header></v-header>
-    <v-main></v-main>
+    <v-indexmain></v-indexmain>
     <v-footer></v-footer>
   </div>
 </template>
 
 <script>
   import HeaderComponent from '../HeaderComponent/HeaderComponent';
-  import MainComponent from '../MainComponent/MainComponent';
+  import IndexMainComponent from '../MainComponent/IndexMainComponent';
   import FooterComponent from '../FooterComponent/FooterComponent';
+  import $ from 'jquery';
+  import 'bootstrap/dist/js/bootstrap.js';
+  import 'bootstrap/dist/css/bootstrap.css';
   export default {
     name: "IndexComponent",
     components: {
       'v-header': HeaderComponent,
-      'v-main': MainComponent,
+      'v-indexmain': IndexMainComponent,
       'v-footer': FooterComponent
     }
   }
