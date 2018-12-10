@@ -7,7 +7,7 @@
 
             <router-link tag="a" to="/login">请登录</router-link>
             <i></i>
-            <a>免费注册</a>
+            <router-link to="register" tag="a">免费注册</router-link>
             <a style="display: none">手机验证码登录</a>
           </span>
           <div class="promiss-question">
