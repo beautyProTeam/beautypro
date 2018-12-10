@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-      版权所有·测试
+      版权所有
     </div>
 </template>
 
