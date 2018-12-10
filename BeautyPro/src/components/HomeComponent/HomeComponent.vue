@@ -1,6 +1,6 @@
 <template>
   <div class="home-component">
-
+    123
   </div>
 </template>
 
