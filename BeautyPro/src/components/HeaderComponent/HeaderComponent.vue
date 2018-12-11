@@ -167,15 +167,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 export default {
   /*name: 'HeaderComponent'*/
-  methods: {
-    isShow(){
-      let currentPathname = window.location.pathname;
-      if(currentPathname == '/'){
-        return false;
-      }
-      return true;
+  data(){
+    let currentPathname=window.location.pathname=='/'?true:false;
+    return {
+      isShow: currentPathname
     }
   }
+
 };
 </script>
 
