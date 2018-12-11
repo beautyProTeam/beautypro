@@ -50,6 +50,37 @@
         <!--bootstap轮播图结束-->
         <div class="bannerRightWhite"></div>
       </div>
+      <div class="bannerBottom">
+        <div class="bannerBottomInfo">
+          <div class="bannerBottomInfoContent">
+            <div class="bannerBottom-content">
+              <img src="/static/img/banner/bannerBottom1.jpg">
+            </div>
+            <div class="bannerBottom-content banner-bottom-img-margin">
+              <img src="/static/img/banner/bannerBottom2.jpg">
+            </div>
+            <div class="bannerBottom-content banner-bottom-img-margin">
+              <img src="/static/img/banner/bannerBottom3.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="indexBrand">
+        <div class="indexBrand-title">
+          <div class="indexBrand-title-content">
+            <h2 class="left">
+              全部品牌
+              <span>ALL BRANDS</span>
+            </h2>
+            <ul class="indexbrand-words">
+              <li class="indexbrand-words-li">热门品牌</li>
+              <li class="indexbrand-words-li">独家品牌</li>
+              <li class="indexbrand-words-li">全部品牌</li>
+            </ul>
+          </div>
+        </div>
+        <div class="indexBrand-body"></div>
+      </div>
     </div>
 </template>
 
@@ -87,4 +118,62 @@
               height: 100%
       .bannerRightWhite
         width: 120px
+    .bannerBottom
+      min-width: 1190px
+      margin-top: 10px
+      overflow: hidden
+      .bannerBottomInfo
+        width: 1190px
+        margin: 0 auto
+        overflow: hidden
+        .bannerBottomInfoContent
+          margin-left: 250px
+          height: 140px
+          display: block
+          .bannerBottom-content
+            float: left
+            &.banner-bottom-img-margin
+              margin-left: 10px
+    .indexBrand
+      margin-top: 70px
+      min-width: 1190px
+      .indexBrand-title
+        height: 36px
+        margin: 10px 0
+        margin-bottom: 3px
+        .indexBrand-title-content
+          width: 1190px
+          margin: 0 auto
+          height: 36px
+          position: relative
+          .left
+            float: left
+            width: 387px
+            height: 36px
+            font-weight: bold
+            font-size: 22px
+            margin-top: 3px
+            span
+              display: inline-block
+              color: #000
+              font-size: 20px
+              margin-left: 10px
+          .indexbrand-words
+            float: right
+            height: 36px
+            position: absolute
+            right: 0
+            bottom: -7px
+            .indexbrand-words-li
+              display: inline-block
+              line-height: 36px
+              cursor: pointer
+              list-style: none
+              vertical-align: bottom
+              list-style-type: none
+              font-size: 12px
+              color: #000
+      .indexBrand-body
+        height: 317px
+        margin-bottom: 80px
 </style>
