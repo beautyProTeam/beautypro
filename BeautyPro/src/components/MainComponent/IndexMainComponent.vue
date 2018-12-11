@@ -67,7 +67,7 @@
       </div>
       <div class="indexBrand">
         <div class="indexBrand-title">
-          <div class="indexBrand-title-content">
+          <div class="indexBrand-title-content clearfix">
             <h2 class="left">
               全部品牌
               <span>ALL BRANDS</span>
@@ -80,8 +80,8 @@
           </div>
         </div>
         <div class="indexBrand-body">
-          <div class="indexBrand-body-info">
-            <div class="left">
+          <div class="indexBrand-body-info clearfix">
+            <div class="indexBrand-body-info-left">
               <!--bootstrap设置brand轮播图开始-->
               <div id="brand-carousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -118,54 +118,42 @@
               </div>
               <!--bootstrap设置brand轮播图结束-->
             </div>
-            <div class="right">
+            <div class="indexBrand-body-info-right">
               <ul class="rightUL">
                 <li class="rightULLi">
                   <img src="/static/img/brand/brandName1.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName2.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName3.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName4.png">
                 </li>
                 <li class="rightULLi">
                   <img src="/static/img/brand/brandName5.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName6.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName7.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName8.png">
                 </li>
                 <li class="rightULLi">
                   <img src="/static/img/brand/brandName9.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName10.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName11.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName12.png">
                 </li>
                 <li class="rightULLi">
                   <img src="/static/img/brand/brandName13.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName14.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName15.png">
-                </li>
-                <li class="rightULLi">
+                </li><li class="rightULLi">
                   <img src="/static/img/brand/brandName16.png">
                 </li>
               </ul>
@@ -241,7 +229,6 @@
           .left
             float: left
             width: 387px
-            height: 36px
             font-weight: bold
             font-size: 22px
             margin-top: 3px
@@ -272,13 +259,15 @@
           height: 320px
           width: 1190px
           margin: 0 auto
-          .left
+          .indexBrand-body-info-left
             height: 320px
-            width: 590px
-          .right
+            width: 590px;
+            float:left;
+          .indexBrand-body-info-right
             width: 600px
             display: block
-            height: 320px
+            height: 320px;
+            float :left;
             .rightUL
               opacity: 1
               z-index: 10
@@ -297,4 +286,9 @@
                 position: relative
                 background-color: #fff
                 vertical-align: bottom
+                list-style: none
+                list-style-type: none
+                padding 0
+                margin 0
+                box-sizing unset;
 </style>
