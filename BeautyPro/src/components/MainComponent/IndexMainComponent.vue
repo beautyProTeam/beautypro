@@ -118,7 +118,58 @@
               </div>
               <!--bootstrap设置brand轮播图结束-->
             </div>
-            <div class="right"></div>
+            <div class="right">
+              <ul class="rightUL">
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName1.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName2.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName3.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName4.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName5.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName6.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName7.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName8.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName9.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName10.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName11.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName12.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName13.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName14.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName15.png">
+                </li>
+                <li class="rightULLi">
+                  <img src="/static/img/brand/brandName16.png">
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -224,4 +275,26 @@
           .left
             height: 320px
             width: 590px
+          .right
+            width: 600px
+            display: block
+            height: 320px
+            .rightUL
+              opacity: 1
+              z-index: 10
+              width: 600px
+              height: 320px
+              transition-duration: 1.2s
+              display: block
+              position: absolute
+              .rightULLi
+                width: 149px
+                height: 79px
+                border-right: 1px solid #f5f5f5
+                border-bottom: 1px solid #f5f5f5
+                display: inline-block
+                overflow: hidden
+                position: relative
+                background-color: #fff
+                vertical-align: bottom
 </style>
