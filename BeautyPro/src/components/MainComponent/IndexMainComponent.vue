@@ -79,7 +79,48 @@
             </ul>
           </div>
         </div>
-        <div class="indexBrand-body"></div>
+        <div class="indexBrand-body">
+          <div class="indexBrand-body-info">
+            <div class="left">
+              <!--bootstrap设置brand轮播图开始-->
+              <div id="brand-carousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#brand-carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#brand-carousel" data-slide-to="1"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <img src="/static/img/brand/brand1.jpg" alt="brand1.jpg">
+                    <div class="carousel-caption">
+
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="/static/img/brand/brand2.jpg" alt="brand2.jpg">
+                    <div class="carousel-caption">
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#brand-carousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#brand-carousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <!--bootstrap设置brand轮播图结束-->
+            </div>
+            <div class="right"></div>
+          </div>
+        </div>
       </div>
     </div>
 </template>
@@ -176,4 +217,11 @@
       .indexBrand-body
         height: 317px
         margin-bottom: 80px
+        .indexBrand-body-info
+          height: 320px
+          width: 1190px
+          margin: 0 auto
+          .left
+            height: 320px
+            width: 590px
 </style>
