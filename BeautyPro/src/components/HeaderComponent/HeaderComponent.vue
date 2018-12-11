@@ -69,7 +69,7 @@
       <div class="header-bottom">
         <div class="header-bottom-info">
           <div class="header-bottom-info-content clearfix">
-            <div class="left clearfix">
+            <div class="left clearfix" onmouseover="mouseOver()" onmouseout="mouseOut()">
               <a class="menu-href">全部商品类目</a>
               <div v-show="isShow">
                 <div class="menu-list">
@@ -172,8 +172,21 @@ export default {
     return {
       isShow: currentPathname
     }
+  },
+  methods: {
+    mouseOver(){
+      let currentPathname=window.location.pathname=='/'?true:false;
+      if(currentPathname!='/'){
+        isShow=true;
+      }
+    },
+    mouseOut(){
+      let currentPathname=window.location.pathname=='/'?true:false;
+      if(currentPathname!='/'){
+        isShow=false;
+      }
+    }
   }
-
 };
 </script>
 

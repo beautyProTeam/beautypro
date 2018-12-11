@@ -17,7 +17,7 @@
             <div class="PhoneStepFirst">
               <p>邮箱</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
-                <input type="text" placeholder="请输入邮箱" value="" style="width: 298px;">
+                <input type="text" placeholder="请输入邮箱" value="" style="width: 298px;" :email="email">
               </div>
               <div class="errorTip"></div>
               <p>验证码</p>
@@ -27,7 +27,7 @@
               <div class="errorTip"></div>
               <p>输入密码</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
-                <input type="password" placeholder="6~16位大小写英文字母、数字或符号的组合" value="" style="width: 298px;">
+                <input type="password" placeholder="6~16位大小写英文字母、数字或符号的组合" value="" style="width: 298px;" :password="password">
               </div>
               <div class="errorTip"></div>
               <p>确认密码</p>
@@ -35,7 +35,7 @@
                 <input type="password" placeholder="请再次输入密码" value="" style="width: 298px;">
               </div>
               <div class="errorTip"></div>
-              <div class="confirmButton2">注册</div>
+              <div class="confirmButton2" @click="regist">注册</div>
 
             </div>
             <div class="clearFix"></div>
@@ -49,11 +49,30 @@
 
 <script>
   import  FooterComponent from '../FooterComponent/FooterComponent';
+  import  Axios from 'axios';
+
     export default {
       name: "RegisterComponent",
       components:{
         "v-footer":FooterComponent,
       },
+      data(){
+        email: '';
+        password: ''
+      },
+      methods: {
+        regist(){
+          Axios.post('locahost:8080/api/vi/regist',{email:this.email,password: this.password}).then((response) => {
+            if(response>0){
+              alert("注册成功");
+            }else{
+              alert("注册失败");
+            }
+          }).catch((response) => {
+            alert("注册失败");
+          });
+        }
+      }
     }
 </script>
 
