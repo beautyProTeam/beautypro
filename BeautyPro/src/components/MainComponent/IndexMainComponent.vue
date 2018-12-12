@@ -253,7 +253,6 @@
               font-size: 12px
               color: #000
       .indexBrand-body
-        height: 317px
         margin-bottom: 80px
         .indexBrand-body-info
           height: 320px
