@@ -17,7 +17,7 @@
             <div class="PhoneStepFirst">
               <p>邮箱</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
-                <input type="text" placeholder="请输入邮箱" value="" style="width: 298px;" :email="email">
+                <input type="text" placeholder="请输入邮箱" value="" style="width: 298px;" :name="user.email" v-model="user.email">
               </div>
               <div class="errorTip"></div>
               <p>验证码</p>
@@ -27,7 +27,7 @@
               <div class="errorTip"></div>
               <p>输入密码</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
-                <input type="password" placeholder="6~16位大小写英文字母、数字或符号的组合" value="" style="width: 298px;" :password="password">
+                <input type="password" placeholder="6~16位大小写英文字母、数字或符号的组合" value="" style="width: 298px;" :name="user.password" v-model="user.password">
               </div>
               <div class="errorTip"></div>
               <p>确认密码</p>
@@ -50,27 +50,54 @@
 <script>
   import  FooterComponent from '../FooterComponent/FooterComponent';
   import  Axios from 'axios';
-
+  import  qs from 'qs';
     export default {
       name: "RegisterComponent",
       components:{
         "v-footer":FooterComponent,
       },
       data(){
-        email: '';
-        password: ''
+        return {
+          user: {
+            email: '',
+            password: ''/*,
+            nickname: '',
+            phonenum: '',
+            updateUser: 0*/
+          }
+        }
       },
       methods: {
         regist(){
-          Axios.post('locahost:8080/api/vi/regist',{email:this.email,password: this.password}).then((response) => {
+          /*Axios.post('/apis/api/v1/regist',*/
+          Axios.post('/apis/api/v1/regist',qs.stringify(this.user),
+            /*{email:this.email,password: this.password},*/
+            {headers:{'Content-Type': 'application/json; charset=utf-8'}}).then((response) => {
             if(response>0){
               alert("注册成功");
             }else{
               alert("注册失败");
             }
           }).catch((response) => {
+            console.log(response);
             alert("注册失败");
           });
+         /* Axios({
+            method: 'post',
+            url: '/apis/api/v1/regist',
+            data: {
+              email: this.email,
+              password: this.password
+            },
+            contentType: "application/json; charset=utf-8",
+            headers: {'X-Requested-With': 'XMLHttpRequest'}
+          }).then((response) => {
+            if(response>0){
+            alert("注册成功");
+            }else{
+              alert("注册失败");
+            }
+          }).catch((response) => {alert("注册失败");});*/
         }
       }
     }
