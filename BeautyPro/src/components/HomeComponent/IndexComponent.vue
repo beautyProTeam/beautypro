@@ -48,6 +48,7 @@
             <div class="hr"></div>
             <ul class="order-main-header clearfix">
               <li class="product-ms">商品</li>
+              <li class="product-unit-price">单价</li>
               <li class="product-number">数量</li>
               <li class="product-paid">实付金额</li>
             </ul>
@@ -60,6 +61,7 @@
                   <p>测试测试测试测试测试测试测试测试测试测试</p>
                   <p>规格：2*s</p>
                 </div>
+                <div class="product-unit-price">123</div>
                 <div class="product-number">12</div>
                 <div class="product-paid">12</div>
               </li>
@@ -71,6 +73,7 @@
                   <p>测试测试测试测试测试测试测试测试测试测试</p>
                   <p>规格：2*s</p>
                 </div>
+                <div class="product-unit-price">123</div>
                 <div class="product-number">12</div>
                 <div class="product-paid">12</div>
               </li>
@@ -87,6 +90,7 @@
             <div class="hr"></div>
             <ul class="order-main-header clearfix">
               <li class="product-ms">商品</li>
+              <li class="product-unit-price">单价</li>
               <li class="product-number">数量</li>
               <li class="product-paid">实付金额</li>
             </ul>
@@ -99,6 +103,7 @@
                   <p>测试测试测试测试测试测试测试测试测试测试</p>
                   <p>规格：2*s</p>
                 </div>
+                <div class="product-unit-price">123</div>
                 <div class="product-number">12</div>
                 <div class="product-paid">12</div>
               </li>
@@ -110,6 +115,7 @@
                   <p>测试测试测试测试测试测试测试测试测试测试</p>
                   <p>规格：2*s</p>
                 </div>
+                <div class="product-unit-price">123</div>
                 <div class="product-number">12</div>
                 <div class="product-paid">12</div>
               </li>
@@ -195,6 +201,10 @@
   .order-main-header .product-paid{
     width: 200px;
   }
+  .order-main-header .product-unit-price{
+    width: 100px;
+  }
+  .wait-order-list .product-unit-price,
   .wait-order-list .product-img,
   .wait-order-list .product-name,
   .wait-order-list .product-paid,
@@ -209,6 +219,12 @@
     width: 120px;
     height: 120px;
   }
+  .order-main .product-unit-price,
+  .order-main .product-paid,
+  .order-main .product-name,
+  .order-main .product-number{
+    padding: 15px;
+  }
   .wait-order-list .product-name,
   .wait-order-list .product-specification{
     width: 400px;
@@ -218,17 +234,19 @@
   }
   .wait-order-list .product-number{
     width: 100px;
-    height: 100%;
     text-align: center;
     color: black;
-    padding: 15px;
+
+  }
+  .wait-order-list .product-unit-price{
+    width: 100px;
+    text-align: center;
+    color: black;
   }
   .wait-order-list .product-paid{
     width: 200px;
-    height: 100%;
     text-align: center;
     color: black;
-    padding: 15px;
   }
   .wait-order-list li>.hr{
     border-bottom: 1px solid #f0f3ef;

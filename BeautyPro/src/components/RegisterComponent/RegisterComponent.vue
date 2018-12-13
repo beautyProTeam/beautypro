@@ -70,7 +70,8 @@
       methods: {
         regist(){
           /*Axios.post('/apis/api/v1/regist',*/
-          Axios.post('/apis/api/v1/regist',qs.stringify(this.user),
+
+          Axios.post('/api/regist',qs.stringify(this.user),
             /*{email:this.email,password: this.password},*/
             {headers:{'Content-Type': 'application/json; charset=utf-8'}}).then((response) => {
             if(response>0){
