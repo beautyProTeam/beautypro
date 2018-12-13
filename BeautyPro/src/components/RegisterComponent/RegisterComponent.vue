@@ -73,8 +73,9 @@
 
           Axios.post('/api/regist',qs.stringify(this.user),
             /*{email:this.email,password: this.password},*/
-            {headers:{'Content-Type': 'application/json; charset=utf-8'}}).then((response) => {
-            if(response>0){
+           ).then((response) => {
+             console.log(response);
+            if(response.status === 200 && response.data === 1){
               alert("注册成功");
             }else{
               alert("注册失败");
