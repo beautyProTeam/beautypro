@@ -328,7 +328,7 @@
             </div>
           </div>
           <div class="item-box-body clearfix">
-            <div class="category-body-content">
+            <div class="category-body-content clearfix">
               <div class="category-body-content-left floatL">
                 <router-link to="/"><img src="/static/img/hp_skinfloor_20181213.jpg"></router-link>
               </div>
@@ -400,8 +400,1254 @@
               </ul>
             </div>
             <div class="category-footer">
-
+              <ul>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/lancome_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/sk-ii_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/esteelauder_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/sephoracollection_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/fresh_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/peterthomasroth_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/caudalie_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/guerlain_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+              </ul>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="category_makeUp">
+        <div class="item-box">
+          <div class="item-box-title clearfix">
+            <div class="title-img"></div>
+            <div class="title-content">
+              <ul class="category-title-content-right">
+                <li>
+                  <router-link to="/">热销彩盘集锦</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">丝芙兰染唇膏</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">贝玲妃圣诞节日版</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">芭比布朗奢金唇膏</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">兰蔻'磨皮'粉底</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">热门眉部产品</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">全部</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-box-body clearfix">
+            <div class="category-body-content clearfix">
+              <div class="category-body-content-left floatL">
+                <router-link to="/"><img src="/static/img/hp_mufloor_20181213.jpg"></router-link>
+              </div>
+              <ul class="category-body-content-right floatR">
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+            <div class="category-footer">
+              <ul>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/dior_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/givenchy_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/makeupforever_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/lancome_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/guerlain_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/esteelauder_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/benefit_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/giorgioarmani_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="category_fragrance">
+        <div class="item-box">
+          <div class="item-box-title clearfix">
+            <div class="title-img"></div>
+            <div class="title-content">
+              <ul class="category-title-content-right">
+                <li>
+                  <router-link to="/">全新古驰花悦绿意</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">阿玛尼“SI”迷情挚爱</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">蔻依恋旅女士香氛</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">香水圣诞礼盒</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">小众'香水</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">新品女香大赏</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">迪奥悦之欢</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">全部</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-box-body clearfix">
+            <div class="category-body-content clearfix">
+              <div class="category-body-content-left floatL">
+                <router-link to="/"><img src="/static/img/hp_frafloor_20181213.jpg"></router-link>
+              </div>
+              <ul class="category-body-content-right floatR">
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+            <div class="category-footer">
+              <ul>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/loewe_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/miumiu_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/dior_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/marcjacobs_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/kenzo_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/acquadiparma_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/bvlgari_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/gucci_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="category_tools">
+        <div class="item-box">
+          <div class="item-box-title clearfix">
+            <div class="title-img"></div>
+            <div class="title-content">
+              <ul class="category-title-content-right">
+                <li>
+                  <router-link to="/">玫瑰金恋爱物语礼盒</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">独家网红刷</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">芭比波朗彩妆刷</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">眼影刷</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">化妆刷套组</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">55号粉底刷</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">芭比波朗工具</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">全部</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-box-body clearfix">
+            <div class="category-body-content clearfix">
+              <div class="category-body-content-left floatL">
+                <router-link to="/"><img src="/static/img/hp_toolfloor_20181206.jpg"></router-link>
+              </div>
+              <ul class="category-body-content-right floatR">
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+            <div class="category-footer">
+              <ul>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/beautyblender_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/sephoracollection_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/shuuemura_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/makeupforever_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/tangleteezer_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/tweezerman_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/mac_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/bobbibrown_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="category_manSkinCare">
+        <div class="item-box">
+          <div class="item-box-title clearfix">
+            <div class="title-img"></div>
+            <div class="title-content">
+              <ul class="category-title-content-right">
+                <li>
+                  <router-link to="/">惠选套装</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">控油平衡</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">保湿水润</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">滋养紧致</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">剃须护理</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">眼部护理</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">全部</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-box-body clearfix">
+            <div class="category-body-content clearfix">
+              <div class="category-body-content-left floatL">
+                <router-link to="/"><img src="/static/img/hp_manfloor_20181129.jpg"></router-link>
+              </div>
+              <ul class="category-body-content-right floatR">
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+            <div class="category-footer">
+              <ul>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/labseries_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/biotherm_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/dtrt_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/shiseido_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/skii_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/dior_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/clarins_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/clinique_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="category_bodyCare">
+        <div class="item-box">
+          <div class="item-box-title clearfix">
+            <div class="title-img"></div>
+            <div class="title-content">
+              <ul class="category-title-content-right">
+                <li>
+                  <router-link to="/">惠选套装</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">沐浴清洁</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">身体护理</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">手部护理</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">胸部护理</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">足部护理</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">全部</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-box-body clearfix">
+            <div class="category-body-content clearfix">
+              <div class="category-body-content-left floatL">
+                <router-link to="/"><img src="/static/img/hp_bodyfloor_20181213.jpg"></router-link>
+              </div>
+              <ul class="category-body-content-right floatR">
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+            <div class="category-footer">
+              <ul>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/sephoracollection_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/clarins_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/fresh_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/lancaster_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/kenzoki_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/yaman_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/foreo_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/nuxe_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="category_hairCare">
+        <div class="item-box">
+          <div class="item-box-title clearfix">
+            <div class="title-img"></div>
+            <div class="title-content">
+              <ul class="category-title-content-right">
+                <li>
+                  <router-link to="/">惠选套装</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">美发工具</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">洗发产品</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">护发产品</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">头皮护理</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">美发产品</router-link>
+                  <em>|</em>
+                </li>
+                <li>
+                  <router-link to="/">全部</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-box-body clearfix">
+            <div class="category-body-content clearfix">
+              <div class="category-body-content-left floatL">
+                <router-link to="/"><img src="/static/img/hp_hairfloor_20181213.jpg"></router-link>
+              </div>
+              <ul class="category-body-content-right floatR">
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <div class="a">SK-II</div>
+                    <div class="b">SK-II护肤精华露面膜II护肤精华露面膜</div>
+                    <div class="c">￥2190.00</div>
+                    <img src="/static/img/pr1.jpg">
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+            <div class="category-footer">
+              <ul>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/wella_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/sp_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/sebastian_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/percyandreed_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/labseries_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/phyto_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/sephoracollection_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+                <li>
+                  <router-link to="/">
+                    <img src="/static/img/philips_144X60.png">
+                  </router-link>
+                  <em></em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="GuessYouLike">
+        <div class="item-box">
+          <div class="item-box-title clearfix">
+            <div class="title-img"></div>
+          </div>
+          <div class="item-box-body clearfix">
+             <ul class="guessyoulike-info-content-list clearfix">
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+               <li>
+                 <router-link to="/">
+                   <img src="/static/img/1_n_06178_280x280.jpg">
+                 </router-link>
+                 <div class="guessyoulike-info-list-brand">CAUDALIE</div>
+                 <router-link to="/" class="guessyoulike-info-list-content">
+                   欧缇丽葡萄籽滋养护唇膏欧缇丽葡萄籽滋养护唇膏
+                 </router-link>
+                 <div class="guessyoulike-info-list-price">￥<span>145.00</span></div>
+               </li>
+             </ul>
           </div>
         </div>
       </div>
@@ -460,8 +1706,17 @@
   }
   .Brand,
   .Picks,
+  .category_makeUp,
+  .category_fragrance,
+  .category_tools,
+  .category_manSkinCare,
+  .category_bodyCare,
+  .category_hairCare,
   .category_skinCare{
     margin-top: 70px;
+  }
+  .GuessYouLike{
+
   }
   .item-box{
     width :1190px;
@@ -472,6 +1727,7 @@
      margin-bottom: 3px;
      height :36px;
      line-height :36px;
+     position :relative;
    }
   .item-box  .title-img{
     float :left;
@@ -483,7 +1739,9 @@
     background-image :url("/static/img/sprite_title.png");
   }
   .item-box .item-box-title .title-content{
-    float :right ;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
     display :inline-block;
   }
   .Brand .item-box-title .title-content span{
@@ -596,7 +1854,28 @@
   .category_skinCare .title-img{
     background-position: -20px -78px;
   }
-   .category-title-content-right li{
+  .category_makeUp .title-img{
+    background-position: -20px -113px;
+  }
+  .category_fragrance .title-img{
+    background-position: -20px -146px;
+  }
+  .category_tools .title-img{
+    background-position: -20px -247px;
+  }
+  .category_manSkinCare .title-img{
+    background-position: -20px -279px;
+  }
+  .category_bodyCare .title-img{
+    background-position: -20px -179px;
+  }
+  .category_hairCare .title-img{
+    background-position: -20px -212px;
+  }
+  .GuessYouLike .title-img{
+    background-position: -20px -313px;
+  }
+  .category-title-content-right li{
      float :left;
    }
   .category-title-content-right a{
@@ -647,9 +1926,17 @@
    .category-body-content-right a{
      text-decoration :none;
    }
+  .category-body-content-right li:hover img{
+    right :0px;
+  }
   .category-body-content-right img{
+    position:absolute;
+    bottom :0px;
+    right :-5px;
     width :180px;
     height :180px;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
   }
   .category-body-content-right div{
     display: block;
@@ -665,5 +1952,75 @@
 
   .category-body-content-right .a{
     font-weight :bolder ;
+  }
+  .category-footer{
+    height :60px;
+    background:#fff;
+  }
+  .category-footer em{
+    float: right;
+    height: 16px;
+    width: 2px;
+    background-color: #b1b1b1;
+    margin-top: 22px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .category-footer li{
+    float :left;
+    display: inline-block;
+    width: 149px;
+    height: 56px;
+    overflow: hidden;
+  }
+  .category-footer li:last-child{
+    width: 147px;
+  }
+  .GuessYouLike{
+
+    margin :0 auto;
+    margin-top :80px;
+    width: 1190px;
+    min-height: 300px;
+    border-top: 1px solid #f7f7f7;
+    border-left: 1px solid #f7f7f7;
+  }
+  .guessyoulike-info-content-list img{
+    width :180px;
+    height :180px;
+  }
+  .guessyoulike-info-content-list li{
+    width: 237px;
+    height: 259px;
+    border-right: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    display: inline-block;
+    background-color: #fff;
+    float :left;
+  }
+  .guessyoulike-info-content-list li * {
+    color :#333;
+  }
+  .guessyoulike-info-list-brand,
+  .guessyoulike-info-list-content,
+  .guessyoulike-info-list-price {
+    width: 196px;
+    margin: 0 20px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .guessyoulike-info-list-brand{
+    font-weight: bolder;
+    font-size: 12px;
+  }
+  .guessyoulike-info-list-content{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    text-decoration :none!important;
+  }
+  .guessyoulike-info-list-content:hover{
+    color :#dc002f;
   }
 </style>
