@@ -10,7 +10,6 @@
   import HeaderComponent from '../HeaderComponent/HeaderComponent';
   import IndexMainComponent from '../MainComponent/IndexMainComponent';
   import FooterComponent from '../FooterComponent/FooterComponent';
-  import $ from 'jquery';
   import 'bootstrap/dist/js/bootstrap.js';
   import 'bootstrap/dist/css/bootstrap.css';
   export default {

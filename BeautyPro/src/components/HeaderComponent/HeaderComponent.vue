@@ -1,450 +1,607 @@
 <template>
-    <div class="header">
-      <div class="header-top">
-        <div class="header-top-content">
-          <span class="left">
-            <a class="welcome">欢迎来到琦色美妆</a>
-
-            <router-link tag="a" to="/login">请登录</router-link>
-            <i></i>
-            <router-link to="register" tag="a">免费注册</router-link>
-            <a style="display: none">手机验证码登录</a>
-          </span>
-          <div class="promiss-question">
-            <!--<div class="content">
-              <div class="content-detail">-->
-                <ul>
-                  <li>琦色美妆正品承诺</li>
-                  <li>常见问题</li>
-                </ul>
-              <!--</div>
-            </div>-->
+  <div class="HeaderComponent">
+    <div class="top-wrap">
+      <div class="top-content">
+        <div class="a">
+          <span class="sephora-logo">欢迎来到丝芙兰</span>
+          <router-link to="/login">登录</router-link>
+          <span class="vertical-span"></span>
+          <router-link to="/register">免费注册</router-link>
+        </div>
+        <div class="b"></div>
+        <div class="c">
+          <div class="d">
+            <div class="my-sephora"></div>
+            <router-link to="/home" class="homo-a">我的丝芙兰</router-link>
           </div>
-          <span class="right">
-            <span>我的琦色美妆</span>
-            <span>会员俱乐部</span>
-            <span>手机琦色美妆</span>
-            <span>美丽事业</span>
-            <span>帮助中心</span>
-          </span>
+          <div class="e">
+            <router-link to="/">我的购物车</router-link>
+          </div>
+          <div class="e">
+            <router-link to="/">帮助中心</router-link>
+          </div>
+          <div class="e">
+            <router-link to="/">关于我们</router-link>
+          </div>
         </div>
       </div>
-      <div class="header-search ">
-        <div class="header-search-content clearfix">
-          <div class="left">
-           <a>
-              <img src="/static/img/logo.png" title="琦色美妆" alt="">
-            </a>
-          </div>
-          <div class="center">
-            <div class="input">
-              <input type="text" class="form-control" placeholder="">
-              <div class="icon">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="words">
-              <ul>
-                <li><a>热销秋冬好物</a></li>
-                <li><a>冬季保湿清单</a></li>
-                <li><a>速成通勤妆</a></li>
-                <li><a>年度精选套装</a></li>
-                <li><a>2018圣诞星选</a></li>
-                <li><a>年度香氛盛典</a></li>
-              </ul>
+    </div>
+    <div class="search-wrap">
+      <div class="search-content clearfix">
+        <img class="search-info-content-logo floatL" src="/static/img/sep_top_Logo.png">
+        <div class="search-info-content-searchWrap floatL">
+          <div class="search-info-content-inputBox">
+            <div class="input-box">
+              <input type="text" placeholder="商品"><button>搜索</button>
             </div>
           </div>
-          <div class="right">
-            <div class="cart">
-              <a class="cart-href">
-                <em></em>
-                购物袋
-                <span>0</span>件
-              </a>
-            </div>
+          <div class="search-info-content-hotWord">
+            <router-link to="/">热门搜索</router-link>
+            <router-link to="/">热门搜索</router-link>
+            <router-link to="/">热门搜索</router-link>
+            <router-link to="/">热门搜索</router-link>
           </div>
-          <a class="logo-promiss"><img src="/static/img/navigation_shopping.png"></a>
         </div>
-      </div>
-      <div class="header-bottom">
-        <div class="header-bottom-info">
-          <div class="header-bottom-info-content clearfix">
-            <div class="left clearfix" onmouseover="mouseOver()" onmouseout="mouseOut()">
-              <a class="menu-href">全部商品类目</a>
-              <div v-show="isShow">
-                <div class="menu-list">
-                  <em class="icon-love-left"></em>
-                  <ul class="leftUl">
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                    <li class="leftUlLi">
-                      <span></span>
-                      <a class="bigKind up">热门</a>
-                      <ul class="smallUl">
-                        <li><a>魅惑美唇</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <em class="icon-love-right"></em>
+        <div class="search-info-content-miniCart-wrap clearfix floatR"
+             @mouseleave="hideShoppingCart" :class="{'hover':IsToggleShoppingCartDisplay}">
+          <div class="search-info-content-miniCart-main floatR" @mousemove="toggleShoppingCartDisplay">
+            <em class="shopping-bag" @mousemove-stop=""></em>
+            购物袋<span class="shopping-num">0</span>件
+          </div>
+          <div class="search-info-content-miniCart-list floatR">
+            <ul class="search-info-content-miniCart-itemWrap">
+              <li class="clearfix">
+                <div class="product-img floatL"><img class=" " src="/static/img/pr1.jpg"/></div>
+                <div class="search-info-content-miniCart-item-info floatL">
+                  <div class="p-0"><router-link to="/">克丽丝汀迪奥后台彩妆高光腮红盘</router-link></div>
+                  <div class="p-1">10g,001</div>
                 </div>
-                <div class="menu-list-content"></div>
-              </div>
-            </div>
-            <div class="right">
-              <ul>
-                <li><a>畅销榜单</a></li>
-                <li><a>独家发售</a></li>
-                <li><a>礼物套装</a></li>
-                <li><a>畅销榜单</a></li>
-                <li><a>畅销榜单</a></li>
-                <li><a>畅销榜单</a></li>
-              </ul>
+                <div class="search-info-content-miniCart-item-info-r floatR">
+                  <div class="a">￥<em>145.00</em>x<em>1</em></div>
+                  <div class="b"><router-link to="/" class="search-info-content-miniCart-item-delete">删除</router-link></div>
+                </div>
+              </li>
+              <li class="clearfix">
+                <div class="product-img floatL"><img class=" " src="/static/img/pr1.jpg"/></div>
+                <div class="search-info-content-miniCart-item-info floatL">
+                  <div class="p-0"><router-link to="/">克丽丝汀迪奥后台彩妆高光腮红盘</router-link></div>
+                  <div class="p-1">10g,001</div>
+                </div>
+                <div class="search-info-content-miniCart-item-info-r floatR">
+                  <div class="a">￥<em>145.00</em>x<em>1</em></div>
+                  <div class="b"><router-link to="/" class="search-info-content-miniCart-item-delete">删除</router-link></div>
+                </div>
+              </li>
+              <li class="clearfix">
+                <div class="product-img floatL"><img class=" " src="/static/img/pr1.jpg"/></div>
+                <div class="search-info-content-miniCart-item-info floatL">
+                  <div class="p-0"><router-link to="/">克丽丝汀迪奥后台彩妆高光腮红盘</router-link></div>
+                  <div class="p-1">10g,001</div>
+                </div>
+                <div class="search-info-content-miniCart-item-info-r floatR">
+                  <div class="a">￥<em>145.00</em>x<em>1</em></div>
+                  <div class="b"><router-link to="/" class="search-info-content-miniCart-item-delete">删除</router-link></div>
+                </div>
+              </li>
+              <li class="clearfix">
+                <div class="product-img floatL"><img class=" " src="/static/img/pr1.jpg"/></div>
+                <div class="search-info-content-miniCart-item-info floatL">
+                  <div class="p-0"><router-link to="/">克丽丝汀迪奥后台彩妆高光腮红盘</router-link></div>
+                  <div class="p-1">10g,001</div>
+                </div>
+                <div class="search-info-content-miniCart-item-info-r floatR">
+                  <div class="a">￥<em>145.00</em>x<em>1</em></div>
+                  <div class="b"><router-link to="/" class="search-info-content-miniCart-item-delete">删除</router-link></div>
+                </div>
+              </li>
+              <li class="clearfix">
+                <div class="product-img floatL"><img class=" " src="/static/img/pr1.jpg"/></div>
+                <div class="search-info-content-miniCart-item-info floatL">
+                  <div class="p-0"><router-link to="/">克丽丝汀迪奥后台彩妆高光腮红盘</router-link></div>
+                  <div class="p-1">10g,001</div>
+                </div>
+                <div class="search-info-content-miniCart-item-info-r floatR">
+                  <div class="a">￥<em>145.00</em>x<em>1</em></div>
+                  <div class="b"><router-link to="/" class="search-info-content-miniCart-item-delete">删除</router-link></div>
+                </div>
+              </li>
+              <li class="clearfix">
+                <div class="product-img floatL"><img class=" " src="/static/img/pr1.jpg"/></div>
+                <div class="search-info-content-miniCart-item-info floatL">
+                  <div class="p-0"><router-link to="/">克丽丝汀迪奥后台彩妆高光腮红盘</router-link></div>
+                  <div class="p-1">10g,001</div>
+                </div>
+                <div class="search-info-content-miniCart-item-info-r floatR">
+                  <div class="a">￥<em>145.00</em>x<em>1</em></div>
+                  <div class="b"><router-link to="/" class="search-info-content-miniCart-item-delete">删除</router-link></div>
+                </div>
+              </li>
+            </ul>
+            <div class="search-info-content-miniCart-total clearfix">
+              <span class="search-info-content-miniCart-total-span-first">共<em>1</em>件商品</span>
+              <span class="search-info-content-miniCart-total-span-second">共计<em>145.00</em></span>
+              <router-link to="/" class="search-info-content-miniCart-toCart">购物车</router-link>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="navigation-wrap">
+      <div class="navigation-content clearfix">
+        <div class="inPage floatL">全部商品类目</div>
+        <div class="navigation-info-content-menu-list">
+          <ul class="navigation-info-content-menu-Col">
+            <li>
+              <span class="title">热门</span>
+              <ul>
+                <li><router-link to="/">魅惑美唇</router-link></li>
+                <li><router-link to="/">塑造立体轮廓</router-link></li>
+                <li><router-link to="/">热销气垫</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <span class="title">功效</span>
+              <ul>
+                <li><router-link to="/">保湿补水</router-link></li>
+                <li><router-link to="/">底妆修容</router-link></li>
+                <li><router-link to="/">美白</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <span class="title">护肤</span>
+              <ul>
+                <li><router-link to="/">面膜</router-link></li>
+                <li><router-link to="/">美容仪器</router-link></li>
+                <li><router-link to="/">紧致立体轮廓</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <span class="title">彩妆</span>
+              <ul>
+                <li><router-link to="/">迪奥后台系列彩妆</router-link></li>
+                <li><router-link to="/">猫头鹰圣诞限量</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <span class="title">香水</span>
+              <ul>
+                <li><router-link to="/">新品香氛上市</router-link></li>
+                <li><router-link to="/">迪奥真我圣诞礼盒</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <span class="title">工具</span>
+              <ul>
+                <li><router-link to="/">美妆蛋套装</router-link></li>
+                <li><router-link to="/">丝芙兰豪华刷具套装</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <span class="title">男士护肤</span>
+              <ul>
+                <li><router-link to="/">清爽护肤不油腻</router-link></li>
+                <li><router-link to="/">冬季保湿精选</router-link></li>
+              </ul>
+            </li>
+            <li>
+              <span class="title">洗浴护体</span>
+              <ul>
+                <li><router-link to="/">洗浴润体</router-link></li>
+                <li><router-link to="/">冬季护手</router-link></li>
+                <li><router-link to="/">唇情蜜语</router-link></li>
+              </ul>
+            </li>
+            <li class="last">
+              <span class="title">美发护发</span>
+              <ul>
+                <li><router-link to="/">摆脱受损秀发</router-link></li>
+                <li><router-link to="/">滋润发丝改善毛躁</router-link></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <ul class="navigation-info-content-menu-Row floatL">
+          <li><router-link to="/">畅销榜单</router-link></li>
+          <li><router-link to="/">独家发售</router-link></li>
+          <li><router-link to="/">礼物套装</router-link></li>
+          <li><router-link to="/">全部品牌</router-link></li>
+          <li><router-link to="/">预约中心</router-link></li>
+          <li><router-link to="/">美力学院</router-link></li>
+        </ul>
+        <img class="search-info-content-shopping floatR" src="/static/img/navigation_shopping.png">
+      </div>
+    </div>
+  </div>
 </template>
 
 
 <script type="text/ecmascript-6">
-import 'bootstrap/dist/js/bootstrap.js';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'font-awesome/css/font-awesome.css';
+
 export default {
-  /*name: 'HeaderComponent'*/
+  name: 'HeaderComponent',
   data(){
-    let currentPathname=window.location.pathname=='/'?true:false;
     return {
-      isShow: currentPathname
+      IsToggleShoppingCartDisplay:false,
     }
   },
   methods: {
-    mouseOver(){
-      let currentPathname=window.location.pathname=='/'?true:false;
-      if(currentPathname!='/'){
-        isShow=true;
-      }
+    hideShoppingCart(){
+      this.IsToggleShoppingCartDisplay = false;
     },
-    mouseOut(){
-      let currentPathname=window.location.pathname=='/'?true:false;
-      if(currentPathname!='/'){
-        isShow=false;
+    toggleShoppingCartDisplay(event){
+      if(!this.IsToggleShoppingCartDisplay){
+        this.IsToggleShoppingCartDisplay = !this.IsToggleShoppingCartDisplay;
       }
+
     }
   }
 };
 </script>
 
-<style lang="stylus">
-  .header
-    .header-top
-      width: 100%
-      height: 30px
-      background: #000
-      .header-top-content
-        position: relative
-        width: 1190px
-        height: 30px
-        margin: 0 auto
-        .left
-          display: inline-block
-          float: left
-          width: 420px
-          height: 100%
-          margin: 0 12px
-          &>a
-            font-size: 12px
-            line-height: 30px
-            font-weight: 400
-            margin: 0 12px
-            color: #fff
-          &>i
-            display: inline-block
-            height: 16px
-            border-left: 1px solid #ccc
-            vertical-align: sub
-        .promiss-question
-          float: left
-          height: 30px
-          width: 230px
-          overflow: hidden
-          ul
-            li
-              font-size: 12px
-              line-height: 30px
-        .right
-          float: right
-          position: relative
-          height: 30px
-          line-height: 30px
-          font-size: 12px
-          span
-            font-size: 12px
-  .header-search
-    clear: both
-    min-width:1190px
-    z-index: 100
-    position: fixed
-    height: 84px
-    width: 100%
-    .header-search-content
-      position: relative
-      width: 1190px
-      padding: 24px 0 0
-      margin: 0 auto
-      .left
-        float: left
-        width: 320px
-        height: 36px
-      .center
-        float: left
-        height: 60px
-        z-index: 1
-        .input
-          float: left
-          width: 650px
-          height: 36px
-          input
-            display: inline-block
-            float: left
-            width: 540px
-            min-height: 34px
-          .icon
-            position: relative
-            float: left
-            width: 90px
-            height: 34px
-            background: #000
-            .fa-search
-              postion: absolute
-              color: #fff
-              line-height: 34px
-              padding: 0 38px
-        .words
-          ul
-            li
-              display: inline-block
-              padding: 0 4px
-              cursor: pointer
-              a
-                font-size: 12px
-                color: #acacac
-      .right
-        float: right
-        width: 209px
-        height: 36px
-        cursor: pointer
-        .cart
-          width: 188px
-          height: 34px
-          border: 1px solid #ddd
-          float: right
-          background-color: #fff
-          line-height: 34px
-          font-size: 16px
-          color: #666
-          text-align: center
-          a.cart-href
-            font-size: 16px
-            color: #000
-            em
-              display: inline-block
-              vertical-align: middle
-              width: 18px
-              height: 26px
-              margin-right: 10px
-              margin-left: 10px
-              background-image: url(/static/img/shopping_bag.png)
-              content: ""
-            span
-              font-size: 16px
-              color: #d1152a
-              padding:0 5px
-      .logo-promiss
-        position: absolute
-        right: 0
-        top: 78px
-  .header-bottom
-    min-width: 1190px
-    position: relative
-    margin-top: 84px
+<style lang="stylus" scoped>
+  .HeaderComponent{
+    background :#fff;
+  }
+  .top-wrap{
+    overflow:hidden;
+    background :#000;
+  }
+  .top-wrap .top-content{
+     width:1190px;
+     height:30px;
+     margin:0 auto;
+   }
+  .top-wrap .top-content .a,
+  .top-wrap .top-content .b{
+    font-size:12px;
+    float: left;
+    line-height:30px;
+  }
+  .top-wrap .a{
+    width: 420px;
+  }
+  .top-wrap .a a{
+    color:#fff;
+    text-decoration none;
+    margin :0 15px;
+  }
+  .top-wrap .a a:hover,
+  .top-wrap .homo-a:hover{
+    color:red;
+  }
+  .top-wrap .a .vertical-span{
+    display:inline-block;
+    border-left :1px solid #fff;
+    vertical-align:middle;
+    height:15px;
+    line-height :30px;
+  }
+  .top-wrap .b{
+    width:230px;
+    height:100%;
+  }
+  .top-wrap .c{
+    display:inline-block;
+    float: right;
+    font-size:12px;
+    line-height:30px;
 
-    .header-bottom-info
-      width: 100%
-      background-color: #fff
-      .header-bottom-info-content
-        width: 1190px
-        margin: 0 auto
-        position: relative
+  }
 
-        .left
-          float: left
-          width: 240px
-          /*height: 240px*/
-          line-height: 36px
-          background: url(/static/img/classified.png)
-          background-size: 100% 100%
-          .menu-href
-            margin-left: 15px
-            font-size: 16px
-            color: #fff
-          .menu-list
-            width: 240px
-            height: auto
-            margin: 0 auto
-            float: left
-            position: relative
-            background: rgb(255, 255, 255)
-            .icon-love-left
-              top: 30px
-              left: -37px
-              background-size: 100%
-              background-position: 0px 5px
-              width: 55px
-              height: 55px
-              /*z-index: -1*/
-              background-repeat: no-repeat
-              position: absolute
-              background-image: url(/static/img/navigation_sprite_wrap.png)
-              content: ""
-            .leftUl
-              min-height: 320px
-              height: 550px
-              box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px
-              display: block
-              margin-top: -3px
-              list-style-type: disc
-              margin-block-start: 1px
-              margin-block-end: 1em
-              margin-inline-start: 0px
-              margin-inline-end: 0px
-              .leftUlLi
-                display: block
-                background-color: rgb(255, 255, 255)
-                line-height: 20px
-                position: relative
-                padding: 8px 0px 8px 15px
-                border-bottom: 1px solid rgb(245, 245, 245)
-                vertical-align: bottom
-                list-style: none
-                .up
-                  font-weight: 700
-                  color: rgb(0, 0, 0)
-                  line-height: 22px
-                  font-size: 14px
-                  margin-right: 10px
-                  display: block
-                .smallUl
-                  li
-                    display: inline-block
-                    margin-right: 10px
-                    position: relative
-                    vertical-align: bottom
-                    a
-                      font-size: 12px
-                      color: rgb(138, 138, 138)
-                      margin-right: 0px
-                      line-height: 22px
-                      display: block
-            .icon-love-right
-              top: 315px
-              left: 197px
-              z-index: 1000
-              background-size: 200%
-              background-position: -29px -100px
-              width: 55px
-              height: 55px
-              background-repeat: no-repeat
-              position: absolute
-              background-image: url(/static/img/navigation_sprite_wrap.png)
-              content: ""
-          .menu-list-content
-            width: 950px
-            margin-left: 240px
-            height: 550px
-            box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px
-            box-sizing: border-box
-            display: none
-            position: relative
-            background: rgb(255, 255, 255)
-            padding: 32px 40px 40px 30px
-        .right
-          min-width: 760px
-          float: left
-          height: 36px
-          line-height: 42px
-          ul
-            padding-left: 40px
-            display: block
-            list-style-type: disc
-            // margin-block-start: 1em
-            margin-block-end: 1em
-            margin-inline-start: 0px
-            margin-inline-end: 0px
-            padding-inline-start: 40px
-            li
-              margin-right: 40px
-              display: inline-block
-              position: relative
-              vertical-align: bottom
-              list-style: none
-              text-align: -webkit-match-parent
-              a
-                font-size: 16px
-                color: #000
+  .sephora-logo{
+    padding:0 15px;
+  }
+  .top-wrap .d{
+
+  }
+  .top-wrap .c .d,
+  .top-wrap .c .e{
+    float:left;
+    line-height:30px;
+    font-size:12px;
+    margin :0 15px;
+  }
+  .top-wrap .c .d a,
+  .top-wrap .c .e a
+  .top-wrap .homo-a{
+    color:#fff;
+    text-decoration:none;
+  }
+  .top-wrap .c .d a:hover,
+  .top-wrap .c .e a:hover{
+    color: red;
+  }
+  .top-wrap .my-sephora{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    background: url(/static/img/my-sephora.png);
+    background-size: 100% 100%;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+  .search-wrap{
+    margin-bottom :5px;
+
+  }
+  .search-wrap .search-content{
+    width:1190px;
+    margin:0 auto;
+    padding-top:24px;
+  }
+  .search-wrap .search-content .search-info-content-logo{
+    margin-right :80px;
+  }
+  .search-info-content-inputBox{
+
+  }
+  .search-info-content-inputBox input[type=text]{
+    width: 540px;
+    height: 36px;
+    line-height: 34px;
+    padding-left: 20px;
+    font-size: 12px;
+    border:1px solid #c8c8c8;
+    border-right:none;
+  }
+  .search-info-content-inputBox button{
+    width :90px;
+    height :36px;
+    border :none;
+    background :#000;
+    color :#fff;
+    vertical-align: top;
+  }
+  .search-info-content-hotWord a{
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #acacac;
+    text-decoration none;
+  }
+  .search-info-content-hotWord a:hover{
+    color :red;
+  }
+  .search-info-content-miniCart-wrap{
+    width: 209px;
+    height: 36px;
+    cursor: pointer;
+    position: relative;
+  }
+  .search-info-content-miniCart-main{
+    width: 188px;
+    height: 35px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    line-height: 35px;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    box-sizing:unset;
+  }
+  .shopping-bag{
+    width: 18px;
+    height: 26px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url(/static/img/shopping_bag.png);
+    content: "";
+  }
+  .shopping-num{
+    color: #d1152a;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .search-info-content-miniCart-wrap.hover .search-info-content-miniCart-list{
+    display :block;
+  }
+  .search-info-content-miniCart-wrap.hover .search-info-content-miniCart-main{
+    border-bottom-color :#fff;
+  }
+  .search-info-content-miniCart-list{
+    display :none;
+    width :412px;
+    //border: 1px solid #ddd;
+    border-right :1px solid #ddd;
+    background-image :url(/static/img/search_minicart_hover_border_top.png);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    z-index :10;
+    position :relative;
+  }
+  .search-info-content-miniCart-total{
+    background-color: #f7f7f7;
+    padding: 8px 0;
+    border-left: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+  }
+  .search-info-content-miniCart-total span{
+    font-size: 14px;
+    margin-left: 20px;
+    color:#000;
+    line-height: 28px;
+  }
+  .search-info-content-miniCart-total em{
+    margin: 0 2px;
+    color: #000;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .search-info-content-miniCart-toCart{
+    width: 65px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    float: right;
+    margin-right: 16px;
+    text-decoration:none;
+  }
+  .search-info-content-miniCart-itemWrap{
+    background-color: #fff;
+    border-left: 1px solid #c8c8c8;
+    min-height: 20px;
+    max-height: 363px;
+    overflow-y: scroll;
+    margin:1px 0 0 0;
+    padding :15px;
+  }
+  .search-info-content-miniCart-itemWrap li{
+    background-color: #fff;
+    margin-bottom: 21px;
+    padding :15px;
+  }
+   .search-info-content-miniCart-itemWrap .product-img{
+     height:100%;
+   }
+  .search-info-content-miniCart-itemWrap .product-img img{
+    width :50px;
+    height :50px;
+    vertical-align :middle;
+  }
+  .search-info-content-miniCart-item-info {
+    width :180px;
+    height :50px;
+    font-size:12px;
+  }
+  .search-info-content-miniCart-item-info .p-0{
+    height :34px;
+    overflow:hidden;
+  }
+  .search-info-content-miniCart-item-info .p-0 a{
+    color :#000;
+    font-weight 400;
+    text-decoration :none;
+  }
+  .search-info-content-miniCart-item-info .p-1{
+    height :16px;
+    line-height 16px;
+    color :#000;
+    font-size:12px;
+    overflow:hidden;
+  }
+  .search-info-content-miniCart-item-info-r{
+    height: 50px;
+    text-align: right;
+    margin-right: 10px;
+    color :#000;
+    font-weight :400;
+    font-size :12px;
+  }
+  .search-info-content-miniCart-item-info-r em{
+    color :#000;
+    font-style :normal;
+  }
+  .search-info-content-miniCart-item-delete{
+    display :inline-block;
+    color:#000;
+    text-decoration :none;
+    margin-top :19px;
+  }
+  .search-info-content-miniCart-item-delete:hover{
+    color :red;
+  }
+  .search-info-content-miniCart-item-info-r a{
+
+  }
+  .navigation-wrap{
+
+  }
+  .navigation-content {
+    width :1190px;
+    margin :0 auto;
+    height: 36px;
+    line-height :36px;
+    position :relative;
+    z-index :9;
+  }
+  .navigation-content .inPage{
+    width: 240px;
+    height: 36px;
+    line-height: 36px;
+    background-image :url("/static/img/classified.png");
+    background-size: 100% 100%;
+    color :#fff;
+    font-weight :400;
+    padding-left: 15px;
+    font-size: 16px;
+    cursor :pointer;
+  }
+  .navigation-info-content-menu-Row{
+    display :block;
+    padding-left :40px;
+    min-width: 760px;
+    margin-bottom :0px;
+  }
+  .navigation-info-content-menu-Row li{
+    display:inline-block;
+    margin-right :40px;
+
+  }
+  .navigation-info-content-menu-Row li a{
+    color :#000;
+    font-size :16px;
+    text-decoration :none;
+  }
+  .navigation-info-content-menu-Row li a:hover{
+    color :red;
+  }
+  .search-info-content-shopping{
+    position :absolute;
+    width: 153px;
+    height: 40px;
+    cursor :pointer;
+    right :0px;
+    top:-6px;
+  }
+  .navigation-info-content-menu-list{
+    position :absolute;
+    top:36px;
+    width: 240px;
+    background: #fff;
+    min-height: 550px;
+
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+  }
+   .navigation-info-content-menu-Col{
+     margin-bottom:0px;
+   }
+  .navigation-info-content-menu-Col>li{
+    padding: 8px 0 8px 15px;
+    display: block;
+    background-color: #fff;
+    line-height: 20px;
+    border-bottom: 1px solid #f5f5f5;
+    position: relative;
+  }
+  .navigation-info-content-menu-Col>li.last{
+    border-bottom-color :#fff;
+  }
+   .navigation-info-content-menu-Col a{
+     text-decoration :none;
+     font-size: 12px;
+     color: #8a8a8a;
+   }
+  .navigation-info-content-menu-Col a:hover{
+    color :#dc002f;
+  }
+  .navigation-info-content-menu-Col>li>span{
+    color: #000;
+    line-height: 22px;
+    font-size: 14px;
+    margin-right: 10px;
+    display: block;
+  }
+  .navigation-info-content-menu-Col .title{
+    font-weight: 700;
+  }
+  .navigation-info-content-menu-Col li li{
+    display :inline-block;
+    margin-right :10px;
+  }
+
 </style>

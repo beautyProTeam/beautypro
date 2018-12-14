@@ -6,6 +6,10 @@
 
 <script type="text/ecmascript-6">
  import "./stylus/base.styl";
+ import 'bootstrap/dist/css/bootstrap.css';
+ import 'font-awesome/css/font-awesome.css';
+ import $ from 'jquery';
+ import 'bootstrap/dist/js/bootstrap.js';
 
 export default {
   /*components: {

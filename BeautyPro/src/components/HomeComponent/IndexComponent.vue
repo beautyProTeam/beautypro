@@ -251,5 +251,4 @@
   .wait-order-list li>.hr{
     border-bottom: 1px solid #f0f3ef;
   }
-
 </style>
