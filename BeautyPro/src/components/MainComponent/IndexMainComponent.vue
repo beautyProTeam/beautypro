@@ -1675,7 +1675,7 @@
     background :#f5f5f5;
   }
   .IndexMainComponent{
-
+    margin-bottom :80px;
   }
   .Hero{
     position :relative;
