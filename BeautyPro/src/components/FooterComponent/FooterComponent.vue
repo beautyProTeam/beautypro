@@ -58,8 +58,7 @@
     <div class="footer-declaration">
       <div class="box-content">
         <div class="footer-declaration-content">
-          <p>个人作品-毕业设计，本项目不做商业用途，仅供个人开发学习使用</p>
-          <p>由于数据来自于互联网收集，如有版权以及其他问题，请联系9999进行修改</p>
+          <p>毕业设计</p>
         </div>
       </div>
     </div>
@@ -81,6 +80,9 @@ export default {
     margin :0 auto;
     padding: 30px 0;
     position:relative;
+  }
+  .footer-info{
+    display :none;
   }
   .footer-info .footer-info-ico{
     width: 236px;
@@ -131,6 +133,7 @@ export default {
   }
   .footer-map{
     background :#fff;
+    display :none;
   }
   .footer-map .footer-map-content{
     min-height: 150px;
