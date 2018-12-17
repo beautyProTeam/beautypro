@@ -12,14 +12,14 @@
           <div class="d1">登录丝芙兰官网</div>
           <div class="d2"></div>
           <div class="d3">
-            <input type="text" placeholder="请输入邮箱">
+            <input type="text" placeholder="请输入邮箱" v-model="email" :name="email">
           </div>
           <div class="d3" style="margin-top: 20px;">
-            <input type="password" placeholder="请输入密码">
+            <input type="password" placeholder="请输入密码" v-model="password" :name="password">
           </div>
           <div class="d4"><router-link to="/">忘记密码？</router-link></div>
           <div class="d5">
-            <input type="submit" value="登陆">
+            <input type="submit" value="登录" @click="login">
           </div>
           <div class="d6">
             还没有账号？<router-link to="/register">免费注册</router-link>
@@ -33,11 +33,46 @@
 
 <script>
   import  FooterComponent from '../FooterComponent/FooterComponent';
+  import  Axios from 'axios';
+  import  qs from 'qs';
+  import router from "../../router/index.js";
     export default {
       name: "login-component",
       components:{
         "v-footer":FooterComponent,
       },
+      data(){
+        return {
+            email: '',
+            password: ''
+        }
+      },
+      methods: {
+        login(){
+          /*普通传参
+          var params = new URLSearchParams();
+          params.append("email",this.email);
+          params.append("password",this.password);
+          Axios.post('/api/login',params,{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+
+          }).catch((response) => {
+
+          });*/
+          Axios.post('/api/login',qs.stringify({email: this.email,password: this.password}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+            let respVal=response.data;
+            if(respVal!=""){
+              alert("登录成功");
+              router.push({path: '/'});
+            }else{
+              alert("用户或密码不存在");
+            }
+            console.log(response);
+          }).catch((response) => {
+            console.log(response);
+            alert("用户或密码不存在");
+          });
+        }
+      }
     }
 </script>
 
