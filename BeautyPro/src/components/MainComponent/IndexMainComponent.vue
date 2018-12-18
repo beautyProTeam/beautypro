@@ -1670,12 +1670,10 @@
 };
 </script>
 
-<style lang="stylus">
-  body{
-    background :#f5f5f5;
-  }
+<style lang="stylus" scoped>
   .IndexMainComponent{
-    margin-bottom :80px;
+    padding-bottom :80px;
+    background :#f5f5f5;
   }
   .Hero{
     position :relative;
@@ -1688,9 +1686,8 @@
     position :relative;
   }
   #HeroCarousel{
-    height 400px;
+    height:400px;
   }
-
   .weeklySpecial-info{
     margin-top: 10px;
   }
