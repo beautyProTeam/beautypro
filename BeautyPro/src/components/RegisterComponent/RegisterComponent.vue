@@ -69,7 +69,10 @@
       },
       methods: {
         regist(){
+          /*Axios.post('/apis/api/v1/regist',*/
+
           Axios.post('/api/regist',qs.stringify(this.user),
+            /*{email:this.email,password: this.password},*/
            ).then((response) => {
              console.log(response);
             if(response.status === 200 && response.data === 1){
@@ -81,7 +84,22 @@
             console.log(response);
             alert("注册失败");
           });
-
+         /* Axios({
+            method: 'post',
+            url: '/apis/api/v1/regist',
+            data: {
+              email: this.email,
+              password: this.password
+            },
+            contentType: "application/json; charset=utf-8",
+            headers: {'X-Requested-With': 'XMLHttpRequest'}
+          }).then((response) => {
+            if(response>0){
+            alert("注册成功");
+            }else{
+              alert("注册失败");
+            }
+          }).catch((response) => {alert("注册失败");});*/
         }
       }
     }
