@@ -12,6 +12,7 @@ import UpdateAddressComponent from '../components/HomeComponent/UpdateAddressCom
 import UpdateMyInfoComponent from '../components/HomeComponent/UpdateMyInfoComponent';
 import OrderHistoryComponent from '../components/HomeComponent/OrderHistoryComponent';
 import UpdateEmailComponent from '../components/HomeComponent/UpdateEmailComponent';
+import ProductListComponent from '../components/ProductListComponent/ProductListComponent';
 Vue.use(Router);
 
 export default new Router({
@@ -21,6 +22,7 @@ export default new Router({
     { path: '/', component: IndexComponent },
     { path: '/login', component: LoginComponent },
     { path: '/register', component: RegisterComponent },
+    { path: '/productlist', component: ProductListComponent },
     {
       path: '/home',
       component: HomeComponent,

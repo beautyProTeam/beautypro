@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header></v-header>
+    <v-header display="show"></v-header>
     <v-indexmain></v-indexmain>
     <v-footer></v-footer>
   </div>

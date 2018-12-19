@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="search-info-content-miniCart-wrap clearfix floatR"
-             @mouseleave="hideShoppingCart" :class="{'hover':IsToggleShoppingCartDisplay}">
+             @mouseleave="hideShoppingCart" :class="{'hover':isToggleShoppingCartDisplay}">
           <div class="search-info-content-miniCart-main floatR" @mousemove="toggleShoppingCartDisplay">
             <em class="shopping-bag" @mousemove-stop=""></em>
             购物袋<span class="shopping-num">0</span>件
@@ -126,80 +126,117 @@
         </div>
       </div>
     </div>
-    <div class="navigation-wrap">
+    <div class="navigation-wrap" :class="{'box-shadow':navigationWrapBoxShadow}">
       <div class="navigation-content clearfix">
-        <div class="inPage floatL">全部商品类目</div>
-        <div class="navigation-info-content-menu-list">
-          <ul class="navigation-info-content-menu-Col">
-            <li>
-              <span class="title">热门</span>
-              <ul>
-                <li><router-link to="/">魅惑美唇</router-link></li>
-                <li><router-link to="/">塑造立体轮廓</router-link></li>
-                <li><router-link to="/">热销气垫</router-link></li>
-              </ul>
-            </li>
-            <li>
-              <span class="title">功效</span>
-              <ul>
-                <li><router-link to="/">保湿补水</router-link></li>
-                <li><router-link to="/">底妆修容</router-link></li>
-                <li><router-link to="/">美白</router-link></li>
-              </ul>
-            </li>
-            <li>
-              <span class="title">护肤</span>
-              <ul>
-                <li><router-link to="/">面膜</router-link></li>
-                <li><router-link to="/">美容仪器</router-link></li>
-                <li><router-link to="/">紧致立体轮廓</router-link></li>
-              </ul>
-            </li>
-            <li>
-              <span class="title">彩妆</span>
-              <ul>
-                <li><router-link to="/">迪奥后台系列彩妆</router-link></li>
-                <li><router-link to="/">猫头鹰圣诞限量</router-link></li>
-              </ul>
-            </li>
-            <li>
-              <span class="title">香水</span>
-              <ul>
-                <li><router-link to="/">新品香氛上市</router-link></li>
-                <li><router-link to="/">迪奥真我圣诞礼盒</router-link></li>
-              </ul>
-            </li>
-            <li>
-              <span class="title">工具</span>
-              <ul>
-                <li><router-link to="/">美妆蛋套装</router-link></li>
-                <li><router-link to="/">丝芙兰豪华刷具套装</router-link></li>
-              </ul>
-            </li>
-            <li>
-              <span class="title">男士护肤</span>
-              <ul>
-                <li><router-link to="/">清爽护肤不油腻</router-link></li>
-                <li><router-link to="/">冬季保湿精选</router-link></li>
-              </ul>
-            </li>
-            <li>
-              <span class="title">洗浴护体</span>
-              <ul>
-                <li><router-link to="/">洗浴润体</router-link></li>
-                <li><router-link to="/">冬季护手</router-link></li>
-                <li><router-link to="/">唇情蜜语</router-link></li>
-              </ul>
-            </li>
-            <li class="last">
-              <span class="title">美发护发</span>
-              <ul>
-                <li><router-link to="/">摆脱受损秀发</router-link></li>
-                <li><router-link to="/">滋润发丝改善毛躁</router-link></li>
-              </ul>
-            </li>
-          </ul>
+        <div class="inPage floatL"
+             @mouseleave="hoverNavigationDisplay"
+             @mouseenter="mouseenterNavigationContent($event)">
+          <div>全部商品类目</div>
+          <div class="navigation-info-content-menu-list" @mouseleave="hoverNavigationDisplay" v-show="isDisplayNavigationContentMenu">
+            <ul class="navigation-info-content-menu-Col">
+              <li @mouseenter="hoverNavigationCol($event)">
+                <span class="title">热门</span>
+                <ul>
+                  <li><router-link to="/">魅惑美唇</router-link></li>
+                  <li><router-link to="/">塑造立体轮廓</router-link></li>
+                  <li><router-link to="/">热销气垫</router-link></li>
+                </ul>
+              </li>
+              <li @mouseenter="hoverNavigationCol($event)">
+                <span class="title">功效</span>
+                <ul>
+                  <li><router-link to="/">保湿补水</router-link></li>
+                  <li><router-link to="/">底妆修容</router-link></li>
+                  <li><router-link to="/">美白</router-link></li>
+                </ul>
+              </li>
+              <li @mouseenter="hoverNavigationCol($event)">
+                <span class="title">护肤</span>
+                <ul>
+                  <li><router-link to="/">面膜</router-link></li>
+                  <li><router-link to="/">美容仪器</router-link></li>
+                  <li><router-link to="/">紧致立体轮廓</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">彩妆</span>
+                <ul>
+                  <li><router-link to="/">迪奥后台系列彩妆</router-link></li>
+                  <li><router-link to="/">猫头鹰圣诞限量</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">香水</span>
+                <ul>
+                  <li><router-link to="/">新品香氛上市</router-link></li>
+                  <li><router-link to="/">迪奥真我圣诞礼盒</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">工具</span>
+                <ul>
+                  <li><router-link to="/">美妆蛋套装</router-link></li>
+                  <li><router-link to="/">丝芙兰豪华刷具套装</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">男士护肤</span>
+                <ul>
+                  <li><router-link to="/">清爽护肤不油腻</router-link></li>
+                  <li><router-link to="/">冬季保湿精选</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">洗浴护体</span>
+                <ul>
+                  <li><router-link to="/">洗浴润体</router-link></li>
+                  <li><router-link to="/">冬季护手</router-link></li>
+                  <li><router-link to="/">唇情蜜语</router-link></li>
+                </ul>
+              </li>
+              <li class="last">
+                <span class="title">美发护发</span>
+                <ul>
+                  <li><router-link to="/">摆脱受损秀发</router-link></li>
+                  <li><router-link to="/">滋润发丝改善毛躁</router-link></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="navigation-info-content-menu-list-content">
+              <div>
+                <div class="navigation-info-content-hover-info">
+                  <div class="navigation-info-content-hover-info-title">热门</div>
+                  <ul class="navigation-info-content-hover-info-category">
+                    <li>
+                      <ul>
+                        <li>
+                          <router-link to="/" class="navigation-info-content-hover-info-category-title">热门</router-link>
+                          <div class="navigation-info-content-hover-info-category-group">
+                            <router-link to="/">热门</router-link>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
+                  </ul>
+                  <div class="navigation-info-content-hover-info-logoAdPosition">
+                    <img class="">
+                    <img class="">
+                    <img class="">
+                    <img class="">
+                  </div>
+                </div>
+                <img class="navigation-info-content-hover-adPosition">
+              </div>
+            </div>
+          </div>
         </div>
+
         <ul class="navigation-info-content-menu-Row floatL">
           <li><router-link to="/">畅销榜单</router-link></li>
           <li><router-link to="/">独家发售</router-link></li>
@@ -216,21 +253,49 @@
 
 
 <script type="text/ecmascript-6">
-
+const categoryInfo = {
+  "0":{},
+};
 export default {
   name: 'HeaderComponent',
+  props:["display"],
   data(){
     return {
-      IsToggleShoppingCartDisplay:false,
+      isToggleShoppingCartDisplay:false,
+      isDisplayNavigationContentMenu:false,
+      navigationWrapBoxShadow:false,
+    }
+  },
+  beforeMount:function(){
+    console.log();
+    if(this.display == "show"){
+      this.isDisplayNavigationContentMenu = true;
+    }else{
+      this.navigationWrapBoxShadow = true;
     }
   },
   methods: {
     hideShoppingCart(){
-      this.IsToggleShoppingCartDisplay = false;
+      this.isToggleShoppingCartDisplay = false;
     },
     toggleShoppingCartDisplay(event){
-      if(!this.IsToggleShoppingCartDisplay){
-        this.IsToggleShoppingCartDisplay = !this.IsToggleShoppingCartDisplay;
+      if(!this.isToggleShoppingCartDisplay){
+        this.isToggleShoppingCartDisplay = !this.isToggleShoppingCartDisplay;
+      }
+    },
+    hoverNavigationCol(event){
+      console.log(event.target.nodeName);
+    },
+    mouseenterNavigationContent(event){
+      if(this.display == "hover" && this.isDisplayNavigationContentMenu == false){
+        this.isDisplayNavigationContentMenu = !this.isDisplayNavigationContentMenu;
+        console.log(event.target.nodeName);
+      }
+    },
+    hoverNavigationDisplay(event){
+      if(this.display == "hover" && this.isDisplayNavigationContentMenu == true){
+        this.isDisplayNavigationContentMenu = !this.isDisplayNavigationContentMenu;
+        console.log(event.target.nodeName);
       }
 
     }
@@ -511,6 +576,9 @@ export default {
   .navigation-wrap{
 
   }
+  .navigation-wrap.box-shadow{
+    box-shadow: 0px 2px 2px 0 rgba(0,0,0,.15);
+  }
   .navigation-content {
     width :1190px;
     margin :0 auto;
@@ -561,10 +629,10 @@ export default {
   .navigation-info-content-menu-list{
     position :absolute;
     top:36px;
+    left:0px;
     width: 240px;
     background: #fff;
     min-height: 550px;
-
     box-shadow: 0 0 10px rgba(0,0,0,.1);
   }
    .navigation-info-content-menu-Col{
@@ -604,4 +672,77 @@ export default {
     margin-right :10px;
   }
 
+  .navigation-info-content-menu-list-content{
+    position :absolute;
+    display :none;
+    width: 950px;
+    background: #fff;
+    top: 0px;
+    left: 240px;
+    height: 550px;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    padding: 32px 40px 40px 30px;
+    box-sizing: border-box;
+  }
+  .navigation-info-content-hover-info{
+    float: left;
+    width: 600px;
+  }
+  .navigation-info-content-hover-adPosition{
+    float: right;
+    width: 270px;
+    height: 470px;
+  }
+  .navigation-info-content-hover-info-title{
+    margin-bottom: 20px;
+    height: 39px;
+    padding-bottom: 17px;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    line-height: 39px;
+    font-weight: 400;
+    box-sizing: unset;
+  }
+  .navigation-info-content-hover-info-category{
+    height: 350px;
+    width: 600px;
+    float: left;
+    overflow: hidden;
+  }
+  .navigation-info-content-hover-info-category>li{
+    width: 160px;
+    margin-right: 40px;
+    min-height: 200px;
+    display: block;
+    float: left;
+  }
+  .navigation-info-content-hover-info-logoAdPosition{
+    padding: 0 0 50px;
+    float: left;
+  }
+  .navigation-info-content-hover-info-logoAdPosition img{
+    display: inline-block;
+    width: 135px;
+    height: 60px;
+    margin-right: 9px;
+  }
+  .navigation-info-content-hover-info-category-title{
+    color: #000;
+    font-size: 14px;
+    line-height: 18px;
+    width: 140px;
+    float: left;
+    text-decoration :none;
+  }
+  .navigation-info-content-hover-info-category-group a{
+    margin-right: 12px;
+    color: #8b8b8b;
+    line-height: 22px;
+    float: left;
+    text-decoration :none;
+  }
+  .navigation-info-content-hover-info-category-group a:hover{
+    color: #e00;
+  }
 </style>
