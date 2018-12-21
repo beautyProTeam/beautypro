@@ -12,7 +12,10 @@ import UpdateAddressComponent from '../components/HomeComponent/UpdateAddressCom
 import UpdateMyInfoComponent from '../components/HomeComponent/UpdateMyInfoComponent';
 import OrderHistoryComponent from '../components/HomeComponent/OrderHistoryComponent';
 import UpdateEmailComponent from '../components/HomeComponent/UpdateEmailComponent';
-import ProductListComponent from '../components/ProductListComponent/ProductListComponent';
+import ProductListComponent from '../components/ProductComponent/ProductListComponent';
+import ProductDetailsComponent from '../components/ProductComponent/ProductDetailsComponent';
+import AddToCartComponent from '../components/ShoppingCartComponent/AddToCartComponent';
+import ShoppingCartComponent from '../components/ShoppingCartComponent/ShoppingCartComponent';
 Vue.use(Router);
 
 export default new Router({
@@ -23,6 +26,9 @@ export default new Router({
     { path: '/login', component: LoginComponent },
     { path: '/register', component: RegisterComponent },
     { path: '/productlist', component: ProductListComponent },
+    { path: '/product', component: ProductDetailsComponent },
+    { path: '/addtocart', component: AddToCartComponent },
+    { path: '/shoppingcart', component: ShoppingCartComponent },
     {
       path: '/home',
       component: HomeComponent,
