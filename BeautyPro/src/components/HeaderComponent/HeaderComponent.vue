@@ -1,34 +1,12 @@
 <template>
+
   <div class="HeaderComponent">
-    <div class="top-wrap">
-      <div class="top-content">
-        <div class="a">
-          <span class="sephora-logo">欢迎来到丝芙兰</span>
-          <router-link to="/login">登录</router-link>
-          <span class="vertical-span"></span>
-          <router-link to="/register">免费注册</router-link>
-        </div>
-        <div class="b"></div>
-        <div class="c">
-          <div class="d">
-            <div class="my-sephora"></div>
-            <router-link to="/home" class="homo-a">我的丝芙兰</router-link>
-          </div>
-          <div class="e">
-            <router-link to="/">我的购物车</router-link>
-          </div>
-          <div class="e">
-            <router-link to="/">帮助中心</router-link>
-          </div>
-          <div class="e">
-            <router-link to="/">关于我们</router-link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <v-top-header></v-top-header>
     <div class="search-wrap">
       <div class="search-content clearfix">
-        <img class="search-info-content-logo floatL" src="/static/img/sep_top_Logo.png">
+        <router-link to="/">
+          <img class="search-info-content-logo floatL" src="/static/img/sep_top_Logo.png">
+        </router-link>
         <div class="search-info-content-searchWrap floatL">
           <div class="search-info-content-inputBox">
             <div class="input-box">
@@ -253,12 +231,16 @@
 
 
 <script type="text/ecmascript-6">
+ import TopHeaderComponent from '../HeaderComponent/TopHeaderComponent';
 const categoryInfo = {
   "0":{},
 };
 export default {
   name: 'HeaderComponent',
   props:["display"],
+  components:{
+   "v-top-header":TopHeaderComponent,
+  },
   data(){
     return {
       isToggleShoppingCartDisplay:false,
@@ -307,88 +289,8 @@ export default {
   .HeaderComponent{
     background :#fff;
   }
-  .top-wrap{
-    overflow:hidden;
-    background :#000;
-  }
-  .top-wrap .top-content{
-     width:1190px;
-     height:30px;
-     margin:0 auto;
-   }
-  .top-wrap .top-content .a,
-  .top-wrap .top-content .b{
-    font-size:12px;
-    float: left;
-    line-height:30px;
-  }
-  .top-wrap .a{
-    width: 420px;
-  }
-  .top-wrap .a a{
-    color:#fff;
-    text-decoration none;
-    margin :0 15px;
-  }
-  .top-wrap .a a:hover,
-  .top-wrap .homo-a:hover{
-    color:red;
-  }
-  .top-wrap .a .vertical-span{
-    display:inline-block;
-    border-left :1px solid #fff;
-    vertical-align:middle;
-    height:15px;
-    line-height :30px;
-  }
-  .top-wrap .b{
-    width:230px;
-    height:100%;
-  }
-  .top-wrap .c{
-    display:inline-block;
-    float: right;
-    font-size:12px;
-    line-height:30px;
-
-  }
-
-  .sephora-logo{
-    padding:0 15px;
-  }
-  .top-wrap .d{
-
-  }
-  .top-wrap .c .d,
-  .top-wrap .c .e{
-    float:left;
-    line-height:30px;
-    font-size:12px;
-    margin :0 15px;
-  }
-  .top-wrap .c .d a,
-  .top-wrap .c .e a
-  .top-wrap .homo-a{
-    color:#fff;
-    text-decoration:none;
-  }
-  .top-wrap .c .d a:hover,
-  .top-wrap .c .e a:hover{
-    color: red;
-  }
-  .top-wrap .my-sephora{
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin-right: 6px;
-    background: url(/static/img/my-sephora.png);
-    background-size: 100% 100%;
-    vertical-align: middle;
-    margin-top: -2px;
-  }
   .search-wrap{
     margin-bottom :5px;
-
   }
   .search-wrap .search-content{
     width:1190px;

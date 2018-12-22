@@ -16,6 +16,10 @@ import ProductListComponent from '../components/ProductComponent/ProductListComp
 import ProductDetailsComponent from '../components/ProductComponent/ProductDetailsComponent';
 import AddToCartComponent from '../components/ShoppingCartComponent/AddToCartComponent';
 import ShoppingCartComponent from '../components/ShoppingCartComponent/ShoppingCartComponent';
+import ShoppingCartSettlementComponent from '../components/ShoppingCartComponent/ShoppingCartSettlementComponent';
+import OrderDetailsComponent from '../components/OrderDetailsComponent/OrderDetailsComponent';
+import AboutUsComponent from '../components/AboutUsComponent/AboutUsComponent';
+import HelpCenterComponent from '../components/HelpCenterComponent/HelpCenterComponent';
 Vue.use(Router);
 
 export default new Router({
@@ -29,6 +33,10 @@ export default new Router({
     { path: '/product', component: ProductDetailsComponent },
     { path: '/addtocart', component: AddToCartComponent },
     { path: '/shoppingcart', component: ShoppingCartComponent },
+    { path: '/shoppingcartsettlement', component: ShoppingCartSettlementComponent },
+    { path: '/orderdetails', component: OrderDetailsComponent },
+    { path: '/aboutus', component: AboutUsComponent },
+    { path: '/helpcenter', component: HelpCenterComponent },
     {
       path: '/home',
       component: HomeComponent,
