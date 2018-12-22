@@ -7,7 +7,7 @@
             <label>呢称</label>
           </div>
           <div class="mc">
-            <input type="text" placeholder="请输入呢称">
+            <input type="text" placeholder="请输入呢称"  :name="nickname" v-model="nickname">
           </div>
         </div>
         <div class="box clearfix">
@@ -15,8 +15,8 @@
             <label>性别</label>
           </div>
           <div class="mc">
-            <label class="sex-box"><input type="radio" name="sex">先生</label>
-            <label class="sex-box"><input type="radio" name="sex">女士</label>
+            <label class="sex-box"><input type="radio" :name="sex" v-model="sex" value="1">先生</label>
+            <label class="sex-box"><input type="radio" :name="sex" v-model="sex" value="2">女士</label>
           </div>
         </div>
         <div class="box clearfix">
@@ -24,18 +24,40 @@
             <label>手机号</label>
           </div>
           <div class="mc">
-            <input type="text" placeholder="请输入手机号">
+            <input type="text" placeholder="请输入手机号" :name="phonenum" v-model="phonenum">
           </div>
         </div>
-        <router-link to="/home" class="confirmUpdateBtn">确定修改</router-link>
+        <router-link to="/home" class="confirmUpdateBtn" @click="updateUser">确定修改</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+    /*import Axios from 'axios';*/
     export default {
-        name: "UpdateMyInfoComponent"
+        name: "UpdateMyInfoComponent",
+        data(){
+          return {
+            nickname: nickname,
+            sex: sex,
+            phonenum: phonenum
+          }
+        },
+        methods: {
+          updateUser(){
+            var param=this.$qs.stringify({
+              nickname: this.nickname,
+              sex: this.sex,
+              phonenum: this.phonenum
+            });
+            this.$axios.put("/api/user",param).then((resp) => {
+              router.push({path:'/home',query:{nickname: resp.nickname,phonenum: resp.phonenum,sex: resp.sex}});
+            }).catch((resp) => {
+              alert("修改失败");
+            });
+          }
+        }
     }
 </script>
 
