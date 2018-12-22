@@ -75,7 +75,7 @@ export default {
   .footer-info{
     background :#fff;
   }
-  .box-content{
+  .FooterComponent .box-content{
     width :1190px;
     margin :0 auto;
     padding: 30px 0;
