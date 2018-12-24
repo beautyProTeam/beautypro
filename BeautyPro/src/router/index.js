@@ -20,6 +20,8 @@ import ShoppingCartSettlementComponent from '../components/ShoppingCartComponent
 import OrderDetailsComponent from '../components/OrderDetailsComponent/OrderDetailsComponent';
 import AboutUsComponent from '../components/AboutUsComponent/AboutUsComponent';
 import HelpCenterComponent from '../components/HelpCenterComponent/HelpCenterComponent';
+import OrderSuccessComponent from '../components/ShoppingCartComponent/OrderSuccessComponent';
+
 Vue.use(Router);
 
 export default new Router({
@@ -37,6 +39,7 @@ export default new Router({
     { path: '/orderdetails', component: OrderDetailsComponent },
     { path: '/aboutus', component: AboutUsComponent },
     { path: '/helpcenter', component: HelpCenterComponent },
+    { path: '/ordersuccess', component: OrderSuccessComponent },
     {
       path: '/home',
       component: HomeComponent,
