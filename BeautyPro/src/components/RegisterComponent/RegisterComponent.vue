@@ -49,8 +49,6 @@
 
 <script>
   import  FooterComponent from '../FooterComponent/FooterComponent';
-  import  Axios from 'axios';
-  import  qs from 'qs';
     export default {
       name: "RegisterComponent",
       components:{
@@ -71,7 +69,7 @@
         regist(){
           /*Axios.post('/apis/api/v1/regist',*/
 
-          Axios.post('/api/regist',qs.stringify(this.user),
+          this.$axios.post('/api/regist',this.$qs.stringify(this.user),
             /*{email:this.email,password: this.password},*/
            ).then((response) => {
              console.log(response);

@@ -29,7 +29,28 @@
 
 <script type="text/ecmascript-6">
     export default {
-        name: "TopHeaderComponent"
+        name: "TopHeaderComponent",
+        created(){
+          this.getRedis();
+        },
+        methods: {
+          getRedis(){
+            var data={
+              key: 'USER',
+              cookieName: 'userid',
+              //hashkey: this.getCookie('userid')
+            };
+            this.$axios.get('/api/redis',this.$qs.stringify(data),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((resp) => {
+                var user=resp.data;
+                if(user){
+                  console.log(user.nickname);
+                }
+            }).catch((resp) => {
+
+            });
+          }
+        }
+
     }
 </script>
 

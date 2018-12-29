@@ -33,8 +33,6 @@
 
 <script>
   import  FooterComponent from '../FooterComponent/FooterComponent';
-  import  Axios from 'axios';
-  import  qs from 'qs';
   import router from "../../router/index.js";
   export default {
     name: "login-component",
@@ -58,7 +56,7 @@
         }).catch((response) => {
 
         });*/
-        Axios.post('/api/login',qs.stringify({email: this.email,password: this.password}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+        this.$axios.post('/api/login',this.$qs.stringify({email: this.email,password: this.password}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
           let respVal = response.data;
         if(respVal!=""){
           alert("登录成功");
