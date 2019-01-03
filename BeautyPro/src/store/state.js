@@ -1,17 +1,8 @@
 import Vue from 'vue';
 import axios from 'axios';
 
-/*let user;
-try{
-  if(localStorage.userGlobal)
-  {
-    user = localStorage.userGlobal;
-  }
-}catch(e){
-
-}*/
 let userGlobal;
-function getRedisUser(){
+export function getRedisUser(){
   var data={
     key: 'USER',
     cookieName: 'userid',
@@ -25,46 +16,12 @@ function getRedisUser(){
   }).catch((resp) => {
     userGlobal = null;
   });
+
+  return userGlobal;
 }
-getRedisUser();
-try{
-  if(localStorage.userGlobal)
-  {
-    userGlobal = localStorage.userGlobal;
-  }
-}catch(e){
-    userGlobal = null;
-}
+//userGlobal = getRedisUser();
+var state = {
+  userGlobal: getRedisUser()
+};
+export default state
 
-export default {
-  userGlobal: userGlobal
-}
-/*export default {
-  data(){
-    return {
-      userGlobal: {}
-    };
-  },
-  created(){
-    this.getRedisUser();
-  },
-  methods: {
-    getRedisUser(){
-      var data={
-        key: 'USER',
-        cookieName: 'userid',
-        //hashkey: this.getCookie('userid')
-      };
-      this.$axios.get('/api/redis',{params: data}).then((resp) => {
-        this.userGlobal=resp.data;
-        if(this.userGlobal){
-          console.log(this.userGlobal.nickname);
-
-        }
-      }).catch((resp) => {
-
-      });
-    }
-  },
-
-}*/

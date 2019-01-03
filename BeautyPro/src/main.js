@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.prototype.$axios=Axios;
 Vue.prototype.$qs=qs;
-Vue.prototype.$store=store;
+/*Vue.prototype.$store=store;*/
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
