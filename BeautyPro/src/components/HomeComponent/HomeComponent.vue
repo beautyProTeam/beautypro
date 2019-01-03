@@ -32,6 +32,10 @@
       methods:{
 
       },
+      created(){
+        console.log("thishome");
+        console.log(this);
+      },
       components:{
         'v-header': HeaderComponent,
         'v-footer': FooterComponent

@@ -12,7 +12,8 @@
       <div class="mc clearfix">
         <div class="c">
           <label>呢称</label>
-          <p>123456789@qq.com</p>
+          <!--<p>123456789@qq.com</p>-->
+          <p>{{user.nickname}}</p>
         </div>
         <div class="c">
           <label>性别</label>
@@ -132,9 +133,14 @@
 <script>
 
     export default {
-        name: "index-component",
+      name: "index-component",
+      props: ['user'],
       components:{
       },
+      created() {
+        console.log("this:");
+        console.log(this);
+      }
     }
 </script>
 

@@ -3,9 +3,14 @@
     <div class="top-content">
       <div class="a">
         <router-link to="/" class="sephora-logo">欢迎来到丝芙兰</router-link>
-        <router-link to="/login">登录</router-link>
-        <span class="vertical-span"></span>
-        <router-link to="/register">免费注册</router-link>
+        <span v-if="user == null">
+          <router-link to="/login">登录</router-link>
+          <span class="vertical-span"></span>
+          <router-link to="/register">免费注册</router-link>
+        </span>
+        <span v-else>
+          <router-link to="/home">{{user.nickname}}</router-link>
+        </span>
       </div>
       <div class="b"></div>
       <div class="c">
@@ -30,6 +35,11 @@
 <script type="text/ecmascript-6">
     export default {
         name: "TopHeaderComponent",
+        data(){
+          return {
+            user:{}
+          }
+        },
         created(){
           this.getRedis();
         },
@@ -40,10 +50,11 @@
               cookieName: 'userid',
               //hashkey: this.getCookie('userid')
             };
-            this.$axios.get('/api/redis',this.$qs.stringify(data),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((resp) => {
-                var user=resp.data;
-                if(user){
+            this.$axios.get('/api/redis',{params: data}).then((resp) => {
+               this.user=resp.data;
+                if(this.user){
                   console.log(user.nickname);
+
                 }
             }).catch((resp) => {
 
