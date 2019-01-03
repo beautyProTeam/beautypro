@@ -13,7 +13,7 @@
         <div class="c">
           <label>呢称</label>
           <!--<p>123456789@qq.com</p>-->
-          <p>{{user.nickname}}</p>
+          <!--<p>{{user.nickname}}</p>-->
         </div>
         <div class="c">
           <label>性别</label>
@@ -134,13 +134,21 @@
 
     export default {
       name: "index-component",
-      props: ['user'],
-      components:{
+      data(){
+        return {
+
+        }
       },
-      created() {
-        console.log("this:");
-        console.log(this);
+      created(){
+        console.log("this userGlobal");
+        console.log(this.$store.state.userGlobal);
+        console.log(this.$store);
+        console.log(this.$store.state);
+        console.log("end");
+      },
+      components:{
       }
+
     }
 </script>
 

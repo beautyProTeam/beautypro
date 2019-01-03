@@ -53,11 +53,11 @@
             this.$axios.get('/api/redis',{params: data}).then((resp) => {
                this.user=resp.data;
                 if(this.user){
-                  console.log(user.nickname);
+                  console.log(this.user.nickname);
 
                 }
             }).catch((resp) => {
-
+                  this.user=null;
             });
           }
         }
