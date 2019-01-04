@@ -1,5 +1,9 @@
 import Vue from 'vue';
 import axios from 'axios';
+var state = {
+  userGlobal: getRedisUser()
+};
+export default state
 
 let userGlobal;
 export function getRedisUser(){
@@ -8,20 +12,18 @@ export function getRedisUser(){
     cookieName: 'userid',
   };
   axios.get('/api/redis',{params: data}).then((resp) => {
-    userGlobal=resp.data;
-    if(userGlobal){
-      console.log(userGlobal.nickname);
-
+    state.userGlobal=resp.data;
+    if(state.userGlobal!=""){
+      console.log(state.userGlobal.nickname);
+    }else{
+      state.userGlobal = null;
     }
   }).catch((resp) => {
-    userGlobal = null;
+    state.userGlobal = null;
   });
 
-  return userGlobal;
 }
-//userGlobal = getRedisUser();
-var state = {
-  userGlobal: getRedisUser()
-};
-export default state
+
+
+
 

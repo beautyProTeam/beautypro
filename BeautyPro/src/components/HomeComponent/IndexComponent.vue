@@ -13,19 +13,23 @@
         <div class="c">
           <label>呢称</label>
           <!--<p>123456789@qq.com</p>-->
-          <!--<p>{{user.nickname}}</p>-->
+          <p>{{user.nickname}}</p>
         </div>
         <div class="c">
           <label>性别</label>
-          <p>女士</p>
+          <!--<p>女士</p>-->
+          <p v-if="user.sex == 1">男</p>
+          <p v-else>女</p>
         </div>
         <div class="c">
           <label>手机号</label>
-          <p>123456789@qq.com</p>
+          <!--<p>123456789@qq.com</p>-->
+          <p>{{user.phonenum}}</p>
         </div>
         <div class="c">
           <label>邮箱</label>
-          <p>123456789@qq.com</p>
+         <!-- <p>123456789@qq.com</p>-->
+          <p>{{user.email}}</p>
         </div>
 
         <div class="c">
@@ -136,14 +140,13 @@
       name: "index-component",
       data(){
         return {
-
+          user: {}
         }
       },
       created(){
+        this.user=this.$store.state.userGlobal;
         console.log("this userGlobal");
         console.log(this.$store.state.userGlobal);
-        console.log(this.$store);
-        console.log(this.$store.state);
         console.log("end");
       },
       components:{

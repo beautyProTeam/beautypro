@@ -59,6 +59,7 @@
         this.$axios.post('/api/login',this.$qs.stringify({email: this.email,password: this.password}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
           let respVal = response.data;
         if(respVal!=""){
+          this.$store.state.userGlobal=respVal;
           alert("登录成功");
           router.push({path: '/'});
         }else{

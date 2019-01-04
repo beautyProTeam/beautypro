@@ -3,7 +3,7 @@
     <div class="top-content">
       <div class="a">
         <router-link to="/" class="sephora-logo">欢迎来到丝芙兰</router-link>
-        <span v-if="user == null">
+        <span v-if="user == null ">
           <router-link to="/login">登录</router-link>
           <span class="vertical-span"></span>
           <router-link to="/register">免费注册</router-link>
@@ -41,10 +41,13 @@
           }
         },
         created(){
-          this.getRedis();
+          /*this.getRedis();*/
+          this.user=this.$store.state.userGlobal;
+          console.log("usershifou wei kong ");
+          console.log(this.user);
         },
         methods: {
-          getRedis(){
+         /* getRedis(){
             var data={
               key: 'USER',
               cookieName: 'userid',
@@ -59,7 +62,7 @@
             }).catch((resp) => {
                   this.user=null;
             });
-          }
+          }*/
         }
 
     }

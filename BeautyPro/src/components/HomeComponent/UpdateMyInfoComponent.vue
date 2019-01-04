@@ -39,9 +39,9 @@
         name: "UpdateMyInfoComponent",
         data(){
           return {
-            nickname: nickname,
-            sex: sex,
-            phonenum: phonenum
+            nickname: '',
+            sex: 1,
+            phonenum: ''
           }
         },
         methods: {
@@ -52,9 +52,14 @@
               phonenum: this.phonenum
             });
             this.$axios.put("/api/user",param).then((resp) => {
-              router.push({path:'/home',query:{nickname: resp.nickname,phonenum: resp.phonenum,sex: resp.sex}});
+              if(resp.data>0){
+                router.push({path:'/home'});
+              }else{
+                alert("修改信息失败");
+              }
+
             }).catch((resp) => {
-              alert("修改失败");
+              alert("修改信息失败");
             });
           }
         }
