@@ -10,6 +10,8 @@
         </span>
         <span v-else>
           <router-link to="/home">{{user.nickname}}</router-link>
+          <span class="vertical-span"></span>
+          <a @click="logout">注销</a>
         </span>
       </div>
       <div class="b"></div>
@@ -42,11 +44,21 @@
         },
         created(){
           /*this.getRedis();*/
-          this.user=this.$store.state.userGlobal;
+          this.user=JSON.stringify(this.$store.state.userGlobal);
           console.log("usershifou wei kong ");
           console.log(this.user);
         },
         methods: {
+          logout(){
+            this.$axios.get('/api/logout').then((resp) =>{
+              var flag=resp.data;
+              if(flag==0){
+                alert("您还没有登录");
+              }else if(flag==1){
+                this.$store.commit('setUserGlobal',null);
+              }
+            })
+          }
          /* getRedis(){
             var data={
               key: 'USER',

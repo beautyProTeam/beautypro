@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 var state = {
-  userGlobal: getRedisUser()
+  userGlobal: getRedisUser() || localStorage.getItem('userGlobal')
 };
 export default state
 

@@ -18,6 +18,10 @@
       'v-header': HeaderComponent,
       'v-indexmain': IndexMainComponent,
       'v-footer': FooterComponent
+    },
+    created(){
+      console.log("首页=>user");
+      console.log(JSON.stringify(this.$store.state.userGlobal));
     }
   }
 </script>
