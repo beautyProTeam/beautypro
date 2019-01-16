@@ -1656,7 +1656,18 @@
 
 <script type="text/ecmascript-6">
   export default {
-  name: 'IndexMainComponent',
+    name: 'IndexMainComponent',
+    data(){
+      return {
+        user: {}
+      }
+    },
+    created(){
+      /*this.getRedis();*/
+      this.user=this.$store.state.userGlobal;
+      console.log("user shou ye");
+      console.log(this.user);
+    },
     methods:{
      showBrandMask(event){
        event.target.classList.add("hover");

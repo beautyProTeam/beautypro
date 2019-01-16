@@ -21,7 +21,7 @@
     },
     created(){
       console.log("首页=>user");
-      console.log(JSON.stringify(this.$store.state.userGlobal));
+      console.log(this.$store.state.userGlobal);
     }
   }
 </script>

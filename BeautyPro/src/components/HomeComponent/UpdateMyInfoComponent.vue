@@ -26,8 +26,11 @@
           <div class="mc">
             <input type="text" placeholder="请输入手机号" :name="phonenum" v-model="phonenum">
           </div>
+          <div class="updateUid">
+            <input type="hidden" :name="updateUid" v-model="updateUid">
+          </div>
         </div>
-        <router-link to="/home" class="confirmUpdateBtn" @click="updateUser">确定修改</router-link>
+        <a class="confirmUpdateBtn" @click="updateUser()">确定修改</a>
       </div>
     </div>
   </div>
@@ -39,20 +42,25 @@
         name: "UpdateMyInfoComponent",
         data(){
           return {
-            nickname: '',
-            sex: 1,
-            phonenum: ''
+            nickname: this.$store.state.userGlobal.nickname,
+            sex: this.$store.state.userGlobal.sex,
+            phonenum: this.$store.state.userGlobal.phonenum,
+            updateUid: this.$store.state.userGlobal.id
           }
         },
         methods: {
           updateUser(){
-            var param=this.$qs.stringify({
+            var data=this.$qs.stringify({
               nickname: this.nickname,
               sex: this.sex,
-              phonenum: this.phonenum
+              phonenum: this.phonenum,
+              updateUid: this.updateUid
             });
-            this.$axios.put("/api/user",param).then((resp) => {
+            this.$axios.post("/api/user/update",data).then((resp) => {
               if(resp.data>0){
+                this.$store.state.userGlobal.nickname=this.nickname;
+                this.$store.state.userGlobal.sex=this.sex;
+                this.$store.state.userGlobal.phonenum=this.phonenum;
                 router.push({path:'/home'});
               }else{
                 alert("修改信息失败");

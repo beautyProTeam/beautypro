@@ -19,7 +19,7 @@ export function getRedisUser(){
       state.userGlobal = null;
     }
   }).catch((resp) => {
-    state.userGlobal = null;
+    /*state.userGlobal = null;*/
   });
 
 }
