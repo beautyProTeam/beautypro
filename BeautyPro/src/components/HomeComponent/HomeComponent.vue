@@ -5,7 +5,7 @@
       <div class="home-wrap clearfix">
         <div class="menu">
           <p class="dt">个人中心</p>
-          <p class="top"><router-link to="/home">首页</router-link></p>
+          <p class="top"><router-link to="/home" v-bind:user="user">首页</router-link></p>
           <hr>
           <p class="dt">订单中心</p>
           <p class="top"><router-link to="/home/orderhistory">我的订单</router-link></p>
@@ -29,12 +29,22 @@
   import FooterComponent from '../FooterComponent/FooterComponent';
     export default {
       name: "HomeComponent",
+      data(){
+        return {
+          user: {}
+        }
+      },
       methods:{
 
       },
       created(){
         console.log("thishome");
         console.log(this);
+        if (typeof(this.$store.state.userGlobal) == 'string') {
+          this.user=JSON.parse(this.$store.state.userGlobal);
+        }else if(typeof(this.$store.state.userGlobal) == 'object'){
+          this.user=this.$store.state.userGlobal;
+        }
       },
       components:{
         'v-header': HeaderComponent,

@@ -3,7 +3,7 @@
     <div class="top-content">
       <div class="a">
         <router-link to="/" class="sephora-logo">欢迎来到丝芙兰</router-link>
-        <span v-if="user == null">
+        <span v-if="user == '' || user == null">
           <router-link to="/login">登录</router-link>
           <span class="vertical-span"></span>
           <router-link to="/register">免费注册</router-link>
@@ -44,11 +44,14 @@
         },
         created(){
           /*this.getRedis();*/
-          //this.user=this.$store.state.userGlobal;
-          this.user=this.$store.state.userGlobal;
+          if (typeof(this.$store.state.userGlobal) == 'string') {
+            this.user=JSON.parse(this.$store.state.userGlobal);
+          }else if(typeof(this.$store.state.userGlobal) == 'object'){
+            this.user=this.$store.state.userGlobal;
+          }
           console.log("user");
           console.log(localStorage.getItem('userGlobal'));
-          console.log(this.$store.state.userGlobal);
+          console.log(JSON.parse(this.$store.state.userGlobal).nickname);
         },
         methods: {
           logout(){
@@ -57,7 +60,13 @@
               if(flag==0){
                 alert("您还没有登录");
               }else if(flag==1){
-                this.$store.commit('setUserGlobal',null);
+                if (typeof(this.$store.state.userGlobal) == 'string') {
+                  this.$store.commit('setUserGlobal',null);
+                }else if(typeof(this.$store.state.userGlobal) == 'object'){
+                  this.$store.commit('setUserGlobal','');
+                }
+
+                //router.push(router.currentRoute.name);
               }
             })
           }

@@ -19,7 +19,7 @@
           <label>性别</label>
           <!--<p>女士</p>-->
           <p v-if="user.sex == 1">男</p>
-          <p v-else>女</p>
+          <p v-else-if="user.sex == 2">女</p>
         </div>
         <div class="c">
           <label>手机号</label>
@@ -138,16 +138,20 @@
 
     export default {
       name: "index-component",
+      props: ['user'],
       data(){
         return {
-          user: {}
+          /*user: {}*/
         }
       },
       created(){
-        this.user=this.$store.state.userGlobal;
-        console.log("this userGlobal");
-        console.log(this.$store.state.userGlobal);
-        console.log("end");
+        /*if (typeof(this.$store.state.userGlobal) == 'string') {
+          this.user=JSON.parse(this.$store.state.userGlobal);
+        }else if(typeof(this.$store.state.userGlobal) == 'object'){
+          this.user=this.$store.state.userGlobal;
+        }*/
+        console.log("个人主页");
+        console.log(user);
       },
       components:{
       }
