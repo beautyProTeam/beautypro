@@ -58,10 +58,10 @@
         });*/
         this.$axios.post('/api/login',this.$qs.stringify({email: this.email,password: this.password}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
           let respVal = response.data;
-        if(respVal!=""){
+        if(respVal){
           /*this.$store.state.userGlobal=respVal;*/
           // 将登录名使用vuex传递到index页面
-          this.$store.commit('setUserGlobal',JSON.stringify(respVal));
+          this.$store.commit('setUserGlobal',respVal);
           alert("登录成功");
           router.push({path: '/'});
         }else{

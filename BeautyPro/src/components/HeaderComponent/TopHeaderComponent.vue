@@ -43,15 +43,11 @@
           }
         },
         created(){
-          /*this.getRedis();*/
-          if (typeof(this.$store.state.userGlobal) == 'string') {
-            this.user=JSON.parse(this.$store.state.userGlobal);
-          }else if(typeof(this.$store.state.userGlobal) == 'object'){
-            this.user=this.$store.state.userGlobal;
+          this.user=this.$store.state.userGlobal;
+          if (typeof(this.user) == 'string'){
+            this.$store.state.userGlobal=JSON.parse(this.$store.state.userGlobal);
+            this.user=JSON.parse(this.user);
           }
-          console.log("user");
-          console.log(localStorage.getItem('userGlobal'));
-          console.log(JSON.parse(this.$store.state.userGlobal).nickname);
         },
         methods: {
           logout(){
@@ -60,32 +56,12 @@
               if(flag==0){
                 alert("您还没有登录");
               }else if(flag==1){
-                if (typeof(this.$store.state.userGlobal) == 'string') {
                   this.$store.commit('setUserGlobal',null);
-                }else if(typeof(this.$store.state.userGlobal) == 'object'){
-                  this.$store.commit('setUserGlobal','');
-                }
-
-                //router.push(router.currentRoute.name);
+                location.reload();
               }
             })
           }
-         /* getRedis(){
-            var data={
-              key: 'USER',
-              cookieName: 'userid',
-              //hashkey: this.getCookie('userid')
-            };
-            this.$axios.get('/api/redis',{params: data}).then((resp) => {
-               this.user=resp.data;
-                if(this.user){
-                  console.log(this.user.nickname);
 
-                }
-            }).catch((resp) => {
-                  this.user=null;
-            });
-          }*/
         }
 
     }

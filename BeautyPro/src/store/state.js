@@ -18,7 +18,7 @@ export function getRedisUser(){
   };
   axios.get('/api/redis',{params: data}).then((resp) => {
     state.userGlobal=resp.data;
-    if(state.userGlobal!=""){
+    if(state.userGlobal){
       console.log(state.userGlobal.nickname);
     }else{
       //state.userGlobal = null;

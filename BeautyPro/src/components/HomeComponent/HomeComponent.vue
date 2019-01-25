@@ -38,13 +38,7 @@
 
       },
       created(){
-        console.log("thishome");
-        console.log(this);
-        if (typeof(this.$store.state.userGlobal) == 'string') {
-          this.user=JSON.parse(this.$store.state.userGlobal);
-        }else if(typeof(this.$store.state.userGlobal) == 'object'){
-          this.user=this.$store.state.userGlobal;
-        }
+
       },
       components:{
         'v-header': HeaderComponent,

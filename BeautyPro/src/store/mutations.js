@@ -4,6 +4,6 @@ export default {
   setUserGlobal: (state,value) => {
     state.userGlobal = value;
     // 把登录的用户保存到localStorage中，防止页面刷新，导致vuex重新启动，用户名就成为初始值（初始值为空）的情况
-    localStorage.setItem('userGlobal', value);
+    localStorage.setItem('userGlobal', JSON.stringify(value));
   }
 }
