@@ -22,7 +22,7 @@
               <div class="errorTip"></div>
               <p>验证码</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
-                <input type="text" placeholder="请输入验证码" value="" style="width: 298px;">
+                <input type="text" placeholder="请输入验证码" value="" style="width: 298px;" @click="sendEmailCode" @blur="enterNext()">
               </div>
               <div class="errorTip"></div>
               <p>输入密码</p>
@@ -67,10 +67,7 @@
       },
       methods: {
         regist(){
-          /*Axios.post('/apis/api/v1/regist',*/
-
           this.$axios.post('/api/regist',this.$qs.stringify(this.user),
-            /*{email:this.email,password: this.password},*/
            ).then((response) => {
              console.log(response);
             if(response.status === 200 && response.data === 1){
@@ -82,22 +79,27 @@
             console.log(response);
             alert("注册失败");
           });
-         /* Axios({
-            method: 'post',
-            url: '/apis/api/v1/regist',
-            data: {
-              email: this.email,
-              password: this.password
-            },
-            contentType: "application/json; charset=utf-8",
-            headers: {'X-Requested-With': 'XMLHttpRequest'}
-          }).then((response) => {
-            if(response>0){
-            alert("注册成功");
+
+        },
+        sendEmailCode(){
+          var data=this.$qs.stringify({
+            username: this.user.email
+          });
+          this.$axios.post("/api/validate/email",data).then((resp) => {
+            console.log("邮箱验证码");
+            console.log(resp.data);
+            if(resp.data=="1"){
+              alert("验证码已发往你当前的邮箱");
+              event.keyCode=9;
             }else{
-              alert("注册失败");
+              alert("验证码发送失败");
             }
-          }).catch((response) => {alert("注册失败");});*/
+          }).catch((resp) => {
+            alert("验证码发送失败");
+          });
+        },
+        enterNext(){
+          event.keyCode=9;
         }
       }
     }

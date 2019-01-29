@@ -42,7 +42,7 @@
 </template>
 
 <script>
-    /*import Axios from 'axios';*/
+    import router from "../../router/index.js";
     export default {
         name: "UpdateMyInfoComponent",
         created(){
@@ -77,6 +77,7 @@
                 this.user.sex=this.sex;
                 this.user.phonenum=this.phonenum;
                 this.$store.commit('setUserGlobal',this.user);
+                router.push({path:'/home'});
               }else{
                 alert("修改信息失败");
               }

@@ -7,9 +7,9 @@
             <label>原邮箱</label>
           </div>
           <div class="mc">
-            <input type="text" disabled>
+            <input type="text" disabled :name="originEmail" v-model="originEmail">
           </div>
-          <button class="sendEmailBtn">发送验证码</button>
+          <button class="sendEmailBtn" @click="sendValidateCodeByEmail">发送验证码</button>
         </div>
         <div class="box clearfix">
           <div class="mt">
@@ -35,7 +35,30 @@
 
 <script>
     export default {
-        name: "UpdateEmailComponent"
+        name: "UpdateEmailComponent",
+        created(){
+          this.user=this.$store.state.userGlobal;
+        },
+        data(){
+          return {
+            user:{},
+            originEmail:this.$store.state.userGlobal.email
+          }
+        },
+        methods: {
+          sendValidateCodeByEmail(){
+            var data=this.$qs.stringify({
+              username: this.originEmail
+            });
+            this.$axios.post("/api/validate/email",data).then((resp) => {
+              console.log("邮箱验证码");
+              console.log(resp.data);
+
+            }).catch((resp) => {
+              alert("验证码发送失败");
+            });
+          }
+        }
     }
 </script>
 
