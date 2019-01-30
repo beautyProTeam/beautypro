@@ -22,8 +22,10 @@
               <div class="errorTip"></div>
               <p>验证码</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
-                <input type="text" placeholder="请输入验证码" value="" style="width: 298px;" @click="sendEmailCode" @blur="enterNext()">
+                <input type="text" placeholder="请输入验证码" value="" style="width: 298px;" :name="user.validateCode" v-model="user.validateCode">
               </div>
+              <button class="sendEmailCode" @click="sendEmailCode" id="sendCode">发送验证码</button>
+              <button class="timeBack" @click="" id="timeBack" hidden></button>
               <div class="errorTip"></div>
               <p>输入密码</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
@@ -32,7 +34,7 @@
               <div class="errorTip"></div>
               <p>确认密码</p>
               <div class="SepBaseInput-chen" style="width: 300px;">
-                <input type="password" placeholder="请再次输入密码" value="" style="width: 298px;">
+                <input type="password" placeholder="请再次输入密码" value="" style="width: 298px;" :name="confirmPass" v-model="confirmPass">
               </div>
               <div class="errorTip"></div>
               <div class="confirmButton2" @click="regist">注册</div>
@@ -58,48 +60,64 @@
         return {
           user: {
             email: '',
-            password: ''/*,
-            nickname: '',
+            password: '',
+            validateCode: '',
+            /*nickname: '',
             phonenum: '',
             updateUser: 0*/
-          }
+          },
+          confirmPass:''
         }
       },
       methods: {
         regist(){
-          this.$axios.post('/api/regist',this.$qs.stringify(this.user),
-           ).then((response) => {
-             console.log(response);
-            if(response.status === 200 && response.data === 1){
-              alert("注册成功");
-            }else{
+          if(this.user.password!=this.confirmPass){
+            alert("密码输入不一致");
+          }else{
+            this.$axios.post('/api/regist',this.$qs.stringify(this.user),
+            ).then((response) => {
+              console.log(response);
+              if(response.status === 200){
+                alert(response.data);
+              }
+            }).catch((response) => {
+              console.log(response);
               alert("注册失败");
-            }
-          }).catch((response) => {
-            console.log(response);
-            alert("注册失败");
-          });
+            });
+          }
+
 
         },
         sendEmailCode(){
+          $(".sendEmailCode").hide();
+          $(".timeBack").show();
+          /*var code = $("#code");
+          code.attr("disabled","disabled");
+          setTimeout(function(){
+            code.css("opacity","0.8");
+          },1000)*/
+          var time = 60;
+          var set=setInterval(function(){
+            if(time>0){
+              time=--time;
+              $(".timeBack").html("("+time+")秒后重新获取");
+            }
+          }, 1000);
+
+          setTimeout(function(){
+            $(".timeBack").hide();
+            //$(".sendEmailCode").html("重新获取验证码");
+            $(".sendEmailCode").show();
+            clearInterval(set);
+          }, 60000);
           var data=this.$qs.stringify({
             username: this.user.email
           });
           this.$axios.post("/api/validate/email",data).then((resp) => {
-            console.log("邮箱验证码");
-            console.log(resp.data);
-            if(resp.data=="1"){
-              alert("验证码已发往你当前的邮箱");
-              event.keyCode=9;
-            }else{
-              alert("验证码发送失败");
-            }
+            alert(resp.data);
           }).catch((resp) => {
-            alert("验证码发送失败");
+            alert(resp.data);
           });
-        },
-        enterNext(){
-          event.keyCode=9;
         }
       }
     }
@@ -246,4 +264,29 @@
   .SepBaseInput-chen input:hover {
     border-bottom: 1px solid #000;
   }
+  .sendEmailCode{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+    float: left;
+    border: none;
+    background: black;
+    color: white!important;
+  }
+  .timeBack{
+    background: #80808036;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+    float: left;
+    border: none;
+    color: black!important;
+    font-size: 12px;
+  }
+  .sendEmailCode:hover{
+    opacity: 0.8;
+  }
+
 </style>

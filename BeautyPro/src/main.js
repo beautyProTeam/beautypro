@@ -8,6 +8,7 @@ import qs from 'qs';
 
 Vue.config.productionTip = false;
 Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+Axios.defaults.withCredentials=true;
 Vue.prototype.$axios=Axios;
 Vue.prototype.$qs=qs;
 /*Vue.prototype.$store=store;*/
