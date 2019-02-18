@@ -74,7 +74,7 @@
           if(this.user.password!=this.confirmPass){
             alert("密码输入不一致");
           }else{
-            this.$axios.post('/api/regist',this.$qs.stringify(this.user),
+            this.$axios.post('http://localhost:8088/BeautyProServer/api/v1/regist',this.$qs.stringify(this.user),
             ).then((response) => {
               console.log(response);
               if(response.status === 200){
@@ -113,7 +113,7 @@
           var data=this.$qs.stringify({
             username: this.user.email
           });
-          this.$axios.post("/api/validate/email",data).then((resp) => {
+          this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/validate/email",data).then((resp) => {
             alert(resp.data);
           }).catch((resp) => {
             alert(resp.data);

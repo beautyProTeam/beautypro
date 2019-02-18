@@ -50,7 +50,7 @@
             var data=this.$qs.stringify({
               username: this.originEmail
             });
-            this.$axios.post("/api/validate/email",data).then((resp) => {
+            this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/validate/email",data).then((resp) => {
               console.log("邮箱验证码");
               console.log(resp.data);
 

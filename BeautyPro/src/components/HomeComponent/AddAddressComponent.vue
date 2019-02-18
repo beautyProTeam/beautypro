@@ -6,7 +6,7 @@
           <label>联系人</label>
         </div>
         <div class="c">
-          <input type="text" placeholder="请输入联系人">
+          <input type="text" placeholder="请输入联系人" :name="nickname" v-model="nickname">
         </div>
       </div>
       <div class="box clearfix">
@@ -14,7 +14,7 @@
           <label>联系号码</label>
         </div>
         <div class="c">
-          <input type="text" placeholder="请输入联系号码" maxlength="12">
+          <input type="text" placeholder="请输入联系号码" maxlength="12" :name="phonenum" v-model="phonenum">
         </div>
       </div>
       <div class="box clearfix">
@@ -41,7 +41,7 @@
           <label>详细地址</label>
         </div>
         <div class="c2">
-          <textarea placeholder="请输入详细地址"></textarea>
+          <textarea placeholder="请输入详细地址" :name="address" v-model="address"></textarea>
         </div>
       </div>
       <div class="box clearfix">
@@ -52,14 +52,36 @@
           <label><input type="checkbox">设为默认地址</label>
         </div>
       </div>
-      <router-link to="/home/address" class="addAddressBtn">确认添加</router-link>
+      <router-link to="/home/address" class="addAddressBtn" @click="addPlace">确认添加</router-link>
     </div>
   </div>
 </template>
 
 <script>
     export default {
-        name: "AddAddressComponent"
+        name: "AddAddressComponent",
+        created(){
+          var data={
+            pid: 0
+          };
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/area",{params:data}).then((resp) => {
+            console.log(resp.data);
+          }).catch((resp) => {
+
+          });
+        },
+        data(){
+          return {
+            nickname: '',
+            phonenum: '',
+            address: ''
+          }
+        },
+        methods: {
+          addPlace(){
+
+          }
+        }
     }
 </script>
 

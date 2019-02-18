@@ -11,6 +11,8 @@ Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 Axios.defaults.withCredentials=true;
 Vue.prototype.$axios=Axios;
 Vue.prototype.$qs=qs;
+//开启debug模式
+Vue.config.debug = true;
 /*Vue.prototype.$store=store;*/
 /* eslint-disable no-new */
 new Vue({

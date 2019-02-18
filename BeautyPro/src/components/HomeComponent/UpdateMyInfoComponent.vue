@@ -71,7 +71,7 @@
               phonenum: this.phonenum,
               updateUid: this.updateUid
             });
-            this.$axios.post("/api/user/update",data).then((resp) => {
+            this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/user/update",data).then((resp) => {
               if(resp.data>0){
                 this.user.nickname=this.nickname;
                 this.user.sex=this.sex;
@@ -81,7 +81,6 @@
               }else{
                 alert("修改信息失败");
               }
-
             }).catch((resp) => {
               alert("修改信息失败");
             });

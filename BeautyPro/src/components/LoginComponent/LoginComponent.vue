@@ -56,7 +56,7 @@
         }).catch((response) => {
 
         });*/
-        this.$axios.post('/api/login',this.$qs.stringify({email: this.email,password: this.password}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+        this.$axios.post('http://localhost:8088/BeautyProServer/api/v1/login',this.$qs.stringify({email: this.email,password: this.password}),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
           let respVal = response.data;
         if(respVal){
           /*this.$store.state.userGlobal=respVal;*/
