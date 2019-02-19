@@ -51,12 +51,12 @@
         },
         methods: {
           logout(){
-            this.$axios.get('/api/logout').then((resp) =>{
+            this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/logout').then((resp) =>{
               var flag=resp.data;
               if(flag==0){
                 alert("您还没有登录");
               }else if(flag==1){
-                  this.$store.commit('setUserGlobal',null);
+                this.$store.commit('setUserGlobal',null);
                 location.reload();
               }
             })

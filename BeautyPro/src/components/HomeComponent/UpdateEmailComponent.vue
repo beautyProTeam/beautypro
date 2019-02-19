@@ -24,16 +24,18 @@
             <label>新邮箱</label>
           </div>
           <div class="mc">
-            <input type="text" placeholder="请输入邮箱">
+            <input type="text" placeholder="请输入邮箱" :name="newEmail" v-model="newEmail">
           </div>
         </div>
-        <router-link to="/home" class="confirmUpdateBtn">确定修改</router-link>
+        <!--<router-link to="/home" class="confirmUpdateBtn" @click="updateEmailAccount">确定修改</router-link>-->
+        <button class="confirmUpdateBtn" @click="updateEmailAccount">确定修改</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import router from "../../router/index.js";
     export default {
         name: "UpdateEmailComponent",
         created(){
@@ -42,7 +44,8 @@
         data(){
           return {
             user:{},
-            originEmail:this.$store.state.userGlobal.email
+            originEmail:this.$store.state.userGlobal.email,
+            newEmail:''
           }
         },
         methods: {
@@ -53,9 +56,27 @@
             this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/validate/email",data).then((resp) => {
               console.log("邮箱验证码");
               console.log(resp.data);
-
+              alert(resp.data);
             }).catch((resp) => {
               alert("验证码发送失败");
+            });
+          },
+          updateEmailAccount(){
+            var data=this.$qs.stringify({
+              email: this.newEmail
+            });
+            this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/user/select",data).then((resp) => {
+              console.log(resp.data);
+              if(resp.data==1){
+                this.user=this.$store.state.userGlobal.email;
+                this.user.email=this.newEmail;
+                this.$store.commit('setUserGlobal',this.user);
+                router.push({path: '/home'});
+              }else if (resp.data!=0){
+                alert(resp.data);
+              }
+            }).catch((resp) => {
+              alert("请求失败");
             });
           }
         }

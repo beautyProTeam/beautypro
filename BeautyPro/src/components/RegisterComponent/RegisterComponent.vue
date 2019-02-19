@@ -51,6 +51,7 @@
 
 <script>
   import  FooterComponent from '../FooterComponent/FooterComponent';
+  import router from "../../router/index.js";
     export default {
       name: "RegisterComponent",
       components:{
@@ -79,6 +80,12 @@
               console.log(response);
               if(response.status === 200){
                 alert(response.data);
+                if(response.data=='改邮箱已被注册'){
+                  location.reload();
+                }else if(response.data=='注册成功'){
+                  router.push({path: '/login'});
+                }
+
               }
             }).catch((response) => {
               console.log(response);

@@ -16,7 +16,7 @@ export function getRedisUser(){
     key: 'USER',
     cookieName: 'userid',
   };
-  axios.get('/api/redis',{params: data}).then((resp) => {
+  axios.get('http://localhost:8088/BeautyProServer/api/v1/redis',{params: data}).then((resp) => {
     state.userGlobal=resp.data;
     if(state.userGlobal){
       console.log(state.userGlobal.nickname);
