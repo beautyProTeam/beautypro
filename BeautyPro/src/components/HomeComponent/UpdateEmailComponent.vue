@@ -67,13 +67,20 @@
             });
             this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/user/select",data).then((resp) => {
               console.log(resp.data);
-              if(resp.data==1){
+             /* if(resp.data==1){
                 this.user=this.$store.state.userGlobal.email;
                 this.user.email=this.newEmail;
                 this.$store.commit('setUserGlobal',this.user);
                 router.push({path: '/home'});
               }else if (resp.data!=0){
                 alert(resp.data);
+              }*/
+              if(resp.data.email){
+                this.$store.commit('setUserGlobal',resp.data);
+                router.push({path:'/home'});
+              }else{
+                alert("该邮箱还未注册,请您先注册");
+                router.push({path:'/register'});
               }
             }).catch((resp) => {
               alert("请求失败");

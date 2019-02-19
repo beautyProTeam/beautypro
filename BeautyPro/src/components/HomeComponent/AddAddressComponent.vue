@@ -64,7 +64,7 @@
           var data={
             pid: 0
           };
-          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/area",{params:data}).then((resp) => {
+          this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/area",this.$qs.stringify(data)).then((resp) => {
             console.log(resp.data);
           }).catch((resp) => {
 
