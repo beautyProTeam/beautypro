@@ -17,6 +17,10 @@ export default {
     'v-main': MainComponent,
     'v-footer': FooterComponent
   }*/
+  created(){
+
+  }
+
 };
 </script>
 

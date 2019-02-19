@@ -22,17 +22,29 @@
           <label>所在地区</label>
         </div>
         <div class="c2">
-          <select>
+          <select id="province">
             <option>请选择</option>
+            <option v-for="option in options" v-bind:value="option.id">
+              {{ option.name }}
+            </option>
           </select>
-          <select>
+          <select id="city">
             <option>请选择</option>
+            <option v-for="option in citys" v-bind:value="option.id">
+              {{ option.name }}
+            </option>
           </select>
-          <select>
+          <select id="country">
             <option>请选择</option>
+            <option v-for="option in countrys" v-bind:value="option.id">
+              {{ option.name }}
+            </option>
           </select>
-          <select>
+          <select id="hometown">
             <option>请选择</option>
+            <option v-for="option in hometowns" v-bind:value="option.id">
+              {{ option.name }}
+            </option>
           </select>
         </div>
       </div>
@@ -61,14 +73,28 @@
     export default {
         name: "AddAddressComponent",
         created(){
-          var data={
+          console.log("省");
+          console.log(window.Area.province);
+          console.log("市");
+          console.log(window.Area.city);
+         /* var provinces=this.$province;
+          for (var i=0;i<provinces.length;i++){
+
+          }*/
+          /*var data=this.$qs.stringify({
             pid: 0
-          };
-          this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/area",this.$qs.stringify(data)).then((resp) => {
+          });
+          this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/area",data).then((resp) => {
             console.log(resp.data);
+            var rows=resp.data;
+            if(rows.length>0){
+              for(var i=0;i<rows.length;i++){
+
+              }
+            }
           }).catch((resp) => {
 
-          });
+          });*/
         },
         data(){
           return {
@@ -80,6 +106,24 @@
         methods: {
           addPlace(){
 
+          }
+        },
+        computed:{
+          options:function(){
+            var provinces=window.Area.province;
+            return provinces;
+          },
+          citys:function(){
+            var citys=window.Area.city;
+            return citys;
+          },
+          countrys:function(){
+            var countrys=window.Area.country;
+            return countrys;
+          },
+          hometowns:function(){
+            var hometowns=window.Area.hometown;
+            return hometowns;
           }
         }
     }
