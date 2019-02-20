@@ -12,6 +12,7 @@ Axios.defaults.withCredentials=true;
 Vue.prototype.$axios=Axios;
 Vue.prototype.$qs=qs;
 window.Area={};
+window.addresses=[];
 //开启debug模式
 Vue.config.debug = true;
 /*Vue.prototype.$store=store;*/

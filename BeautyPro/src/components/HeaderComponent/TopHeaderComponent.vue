@@ -55,6 +55,7 @@
               var flag=resp.data;
               if(flag==0){
                 alert("您还没有登录");
+                location.reload();
               }else if(flag==1){
                 this.$store.commit('setUserGlobal',null);
                 location.reload();

@@ -6,7 +6,7 @@
           <label>联系人</label>
         </div>
         <div class="c">
-          <input type="text" placeholder="请输入联系人" :name="nickname" v-model="nickname">
+          <input type="text" placeholder="请输入联系人" :name="realname" v-model="realname">
         </div>
       </div>
       <div class="box clearfix">
@@ -14,7 +14,7 @@
           <label>联系号码</label>
         </div>
         <div class="c">
-          <input type="text" placeholder="请输入联系号码" maxlength="12" :name="phonenum" v-model="phonenum">
+          <input type="text" placeholder="请输入联系号码" maxlength="12" :name="telphone" v-model="telphone">
         </div>
       </div>
       <div class="box clearfix">
@@ -22,27 +22,27 @@
           <label>所在地区</label>
         </div>
         <div class="c2">
-          <select id="province">
+          <select id="province" @change="changeSheng($event)" >
             <option>请选择</option>
-            <option v-for="option in options" v-bind:value="option.id">
+            <option v-for="option in options" v-bind:value="option.name" v-model="sheng" :name="sheng">
               {{ option.name }}
             </option>
           </select>
-          <select id="city">
+          <select id="city" @change="changeShi($event)">
             <option>请选择</option>
-            <option v-for="option in citys" v-bind:value="option.id">
+            <option v-for="option in citys" v-bind:value="option.name" v-model="shi"  :name="shi">
               {{ option.name }}
             </option>
           </select>
-          <select id="country">
+          <select id="country" @change="changeSecondShi($event)">
             <option>请选择</option>
-            <option v-for="option in countrys" v-bind:value="option.id">
+            <option v-for="option in countrys" v-bind:value="option.name" v-model="secondshi"  :name="secondshi">
               {{ option.name }}
             </option>
           </select>
-          <select id="hometown">
+          <select id="hometown" @change="changeZheng($event)">
             <option>请选择</option>
-            <option v-for="option in hometowns" v-bind:value="option.id">
+            <option v-for="option in hometowns" v-bind:value="option.name" v-model="zheng"  :name="zheng">
               {{ option.name }}
             </option>
           </select>
@@ -53,7 +53,7 @@
           <label>详细地址</label>
         </div>
         <div class="c2">
-          <textarea placeholder="请输入详细地址" :name="address" v-model="address"></textarea>
+          <textarea placeholder="请输入详细地址" :name="detailaddress" v-model="detailaddress"></textarea>
         </div>
       </div>
       <div class="box clearfix">
@@ -64,48 +64,63 @@
           <label><input type="checkbox">设为默认地址</label>
         </div>
       </div>
-      <router-link to="/home/address" class="addAddressBtn" @click="addPlace">确认添加</router-link>
+      <!--<router-link to="/home/address" class="addAddressBtn" @click="addPlace">确认添加</router-link>-->
+      <button class="addAddressBtn" @click="addPlace">确认添加</button>
     </div>
   </div>
 </template>
 
 <script>
+  import router from "../../router/index.js";
     export default {
         name: "AddAddressComponent",
         created(){
-          console.log("省");
-          console.log(window.Area.province);
-          console.log("市");
-          console.log(window.Area.city);
-         /* var provinces=this.$province;
-          for (var i=0;i<provinces.length;i++){
-
-          }*/
-          /*var data=this.$qs.stringify({
-            pid: 0
-          });
-          this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/area",data).then((resp) => {
-            console.log(resp.data);
-            var rows=resp.data;
-            if(rows.length>0){
-              for(var i=0;i<rows.length;i++){
-
-              }
-            }
-          }).catch((resp) => {
-
-          });*/
+          this.user=this.$store.state.userGlobal;
         },
         data(){
           return {
-            nickname: '',
-            phonenum: '',
-            address: ''
+            user:{},
+            realname: '',
+            telphone: '',
+            detailaddress: '',
+            sheng: '',
+            shi: '',
+            secondshi: '',
+            zheng: ''
           }
         },
         methods: {
           addPlace(){
-
+            let address=this.sheng+' '+this.shi+' '+this.secondshi+' '+this.zheng+' '+this.detailaddress;
+            let data=this.$qs.stringify({
+              realname: this.realname,
+              telphone: this.telphone,
+              defaultAddress: 2,//不是默认地址
+              uid: this.user.id,
+              address: address
+            });
+            this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/address",data).then((resp) => {
+              if(resp.data>0){
+                router.push({path:'/home/address'});
+              }else{
+                alert("地址添加失败");
+              }
+            }).catch((resp) => {
+              alert("请求失败");
+            });
+          },
+          changeSheng(event){
+           // this.sheng = event.target.value; //获取ID，即option对应的ID值
+            this.sheng = event.target.value;
+          },
+          changeShi(event){
+            this.shi=event.target.value;
+          },
+          changeSecondShi(event){
+            this.secondshi=event.target.value;
+          },
+          changeZheng(event){
+            this.zheng=event.target.value;
           }
         },
         computed:{

@@ -19,6 +19,7 @@ export function getRedisUser(){
   };
   axios.get('http://localhost:8088/BeautyProServer/api/v1/redis',{params: data}).then((resp) => {
     state.userGlobal=resp.data;
+
     if(state.userGlobal){
       console.log(state.userGlobal.nickname);
     }else{
@@ -73,6 +74,7 @@ export function getRedisUser(){
   }).catch((resp) => {
     alert("请求失败");
   });
+
 }
 
 

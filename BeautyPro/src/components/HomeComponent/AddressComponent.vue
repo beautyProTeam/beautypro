@@ -37,12 +37,52 @@
       <div class="c">详细地址详细地址详细地址详细地址详细地址详细地址详细地址详细地址详细地址</div>
     </div>
     <router-link to="/home/address/add" class="addAddressBtn">新增地址</router-link>
+
+    <div  v-for="address in addresses">
+      <div class="box">
+        <div class="h clearfix">
+          <p class="name"><b>{{address.realname}}</b></p>
+          <p class="number"><b>{{address.telphone}}</b></p>
+          <p class="opt">
+            <router-link to="/home/address">设为默认</router-link>
+            <router-link to="/home/address">删除</router-link>
+            <router-link to="/home/address/update">修改</router-link>
+          </p>
+        </div>
+        <div class="c">{{address.address}}</div>
+      </div>
+    </div>
+
+    <router-link to="/home/address/add" class="addAddressBtn">新增地址</router-link>
   </div>
+
 </template>
 
 <script>
     export default {
-        name: "AddressComponent"
+        name: "AddressComponent",
+        created() {
+          this.user=this.$store.state.userGlobal;
+          var addressInfo={
+            uid: this.user.id
+          }
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/address/list",{params:addressInfo}).then((resp) => {
+            var rows=resp.data;
+            if(rows.length>0){
+              window.addresses=rows;
+              console.log(window.addresses);
+            }
+          }).catch((resp) => {
+            alert("请求失败");
+          });
+
+        },
+        computed:{
+          addresses:function(){
+            var addresses=window.addresses;
+            return addresses;
+          },
+        }
     }
 </script>
 
