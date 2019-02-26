@@ -243,7 +243,7 @@ export default {
   },
   created(){
     this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
-      alert(resp.data);
+      window.kindmap=resp.data;
     }).catch((resp) => {
       alert("请求失败");
     });
@@ -287,6 +287,11 @@ export default {
         console.log(event.target.nodeName);
       }
 
+    }
+  },
+  computed:{
+    getKinds: function(){
+      return window.kindmap;
     }
   }
 };
