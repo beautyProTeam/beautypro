@@ -241,6 +241,13 @@ export default {
   components:{
    "v-top-header":TopHeaderComponent,
   },
+  created(){
+    this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
+      alert(resp.data);
+    }).catch((resp) => {
+      alert("请求失败");
+    });
+  },
   data(){
     return {
       isToggleShoppingCartDisplay:false,
