@@ -207,7 +207,7 @@
               </li>
             </ul>
 
-            <div class="navigation-info-content-menu-list-content">
+            <div class="navigation-info-content-menu-list-content" v-show="isToggleMenuContentDisplay">
               <div>
                 <div class="navigation-info-content-hover-info">
                   <div class="navigation-info-content-hover-info-title">热门</div>
@@ -307,6 +307,7 @@ export default {
       isToggleShoppingCartDisplay:false,
       isDisplayNavigationContentMenu:false,
       navigationWrapBoxShadow:false,
+      isToggleMenuContentDisplay:false
     }
   },
   beforeMount:function(){
@@ -328,6 +329,7 @@ export default {
     },
     hoverNavigationCol(event){
       console.log(event.target.nodeName);
+      this.isToggleMenuContentDisplay = true;
     },
     mouseenterNavigationContent(event){
       if(this.display == "hover" && this.isDisplayNavigationContentMenu == false){
@@ -340,6 +342,7 @@ export default {
         this.isDisplayNavigationContentMenu = !this.isDisplayNavigationContentMenu;
         console.log(event.target.nodeName);
       }
+      this.isToggleMenuContentDisplay = false;
 
     }
   },
@@ -645,7 +648,7 @@ export default {
 
   .navigation-info-content-menu-list-content{
     position :absolute;
-    display :none;
+   /* display :none;*/
     width: 950px;
     background: #fff;
     top: 0px;
