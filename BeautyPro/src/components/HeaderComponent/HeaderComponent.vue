@@ -199,7 +199,7 @@
               </li>
             </ul>
             <ul class="navigation-info-content-menu-Col">
-              <li v-for="kind in getKindsCopy" v-bind:value="kind.id">
+              <li v-for="kind in kindsCopy" v-bind:value="kind.id">
                 <span class="title" v-bind:value="kind.id">{{kind.name}}</span>
                 <ul>
                   <li  v-for="small in kind.smallkind" v-bind:value="small.id"><router-link to="/">{{small.name}}</router-link></li>
@@ -264,40 +264,47 @@ const categoryInfo = {
 };
 export default {
   name: 'HeaderComponent',
-  props:["display","kindcopy"],
+  props:["display"],
   components:{
    "v-top-header":TopHeaderComponent,
   },
   created(){
-    /*this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
-      window.kindmap=resp.data;
-      var kinds=window.kindmap;
-      for(var k in kinds){
-        var cata=Object.keys(kinds[k]);
-        if(!JSON.parse(cata[0])["smallkind"]){
-          var kcopy=JSON.parse(cata[0]);
-          kcopy["smallkind"]=kinds[k][cata[0]];
-          kinds[k]=kcopy;
-        }else{
-          kinds[k]=JSON.parse(cata[0]);
-        }
+    let _this= this;
+    if ( window.kindcopy == undefined || window.kindcopy.length == 0) {
+      this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
+        window.kindmap=resp.data;
+        var kinds=window.kindmap;
+        for(var k in kinds){
+          var cata=Object.keys(kinds[k]);
+          if(!JSON.parse(cata[0])["smallkind"]){
+            var kcopy=JSON.parse(cata[0]);
+            kcopy["smallkind"]=kinds[k][cata[0]];
+            kinds[k]=kcopy;
+          }else{
+            kinds[k]=JSON.parse(cata[0]);
+          }
 
-      }
-      window.kindmap=kinds;
-      var kindscopy=kinds;
-      for(var i=0;i<kindscopy.length;i++){
-        var sk=kindscopy[i].smallkind;
-        var skcopy=[];
-        for(var j=0;j<3;j++){
-          skcopy.push(sk[j]);
         }
-        kindscopy[i].smallkind=skcopy;
-      }
-      window.kindcopy=kindscopy;
-      console.log(window.kindmap);
-    }).catch((resp) => {
-      alert("请求失败");
-    });*/
+        window.kindmap=kinds;
+        var kindscopy=kinds;
+        for(var i=0;i<kindscopy.length;i++){
+          var sk=kindscopy[i].smallkind;
+          var skcopy=[];
+          for(var j=0;j<3;j++){
+            skcopy.push(sk[j]);
+          }
+          kindscopy[i].smallkind=skcopy;
+        }
+        window.kindcopy=kindscopy;
+        _this.kindsCopy = kindscopy
+        console.log(window.kindmap);
+      }).catch((resp) => {
+        alert("请求失败");
+      });
+    } else {
+      _this.kindsCopy = window.kindcopy;
+    }
+
 
 
 
@@ -307,7 +314,8 @@ export default {
       isToggleShoppingCartDisplay:false,
       isDisplayNavigationContentMenu:false,
       navigationWrapBoxShadow:false,
-      isToggleMenuContentDisplay:false
+      isToggleMenuContentDisplay:false,
+      kindsCopy:[]
     }
   },
   beforeMount:function(){
@@ -351,7 +359,8 @@ export default {
       return window.kindmap;
     },
     getKindsCopy: function(){
-      return this.kindcopy;
+      /*return this.kindcopy;*/
+      return window.kindcopy;
     }
   }
 };

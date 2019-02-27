@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header display="show" v-bind:kindcopy="kindcopy"></v-header>
+    <v-header display="show"></v-header>
     <v-indexmain v-bind:brandsCopy="brandsCopy"></v-indexmain>
     <v-footer></v-footer>
   </div>
@@ -21,14 +21,14 @@
     },
     data(){
       return {
-        kindcopy: window.kindcopy,
-        brandsCopy:  window.brandsCopy
+        brandsCopy:  []
       }
     },
     created(){
+      let _this = this;
       console.log("首页=>user");
       console.log(this.$store.state.userGlobal);
-      this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
+      /*this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
         window.kindmap=resp.data;
         var kinds=window.kindmap;
         for(var k in kinds){
@@ -53,10 +53,11 @@
           kindscopy[i].smallkind=skcopy;
         }
         window.kindcopy=kindscopy;
+        _this.kindcopy = kindscopy;
         console.log(window.kindmap);
       }).catch((resp) => {
         alert("请求失败");
-      });
+      });*/
 
       this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
         window.brandlist=resp.data;
@@ -65,6 +66,7 @@
           brandCopy.push(resp.data[i]);
         }
         window.brandsCopy=brandCopy;
+        _this.brandsCopy = brandCopy;
       }).catch((resp) => {
         alert("请求失败");
       });

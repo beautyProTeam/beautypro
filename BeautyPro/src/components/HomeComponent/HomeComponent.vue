@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header></v-header>
+    <v-header display="hover"></v-header>
     <div class="home-component">
       <div class="home-wrap clearfix">
         <div class="menu">
