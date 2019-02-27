@@ -81,7 +81,7 @@
             </div>
             <div class="brand-body-content-right floatL">
               <ul>
-                <li @mouseenter="showBrandMask" @mouseleave="hideBrandMask">
+                <!--<li @mouseenter="showBrandMask" @mouseleave="hideBrandMask">
                   <img src="/static/img/brand/brandName1.png">
                   <div class="module_tabGroupList_hover">
                     <div class="module_tabGroupList_banner">丝芙兰</div>
@@ -190,6 +190,13 @@
                   <img src="/static/img/brand/brandName16.png">
                   <div class="module_tabGroupList_hover">
                     <div class="module_tabGroupList_banner">娇韵诗</div>
+                    <a href="javascript:;">点击查看</a>
+                  </div>
+                </li>-->
+                <li @mouseenter="showBrandMask" @mouseleave="hideBrandMask" v-for="brand in brandsCopy">
+                  <img :src="brand.imgUrl">
+                  <div class="module_tabGroupList_hover">
+                    <div class="module_tabGroupList_banner">{{brand.name}}</div>
                     <a href="javascript:;">点击查看</a>
                   </div>
                 </li>
@@ -1667,6 +1674,16 @@
       this.user=this.$store.state.userGlobal;
       console.log("user shou ye");
       console.log(this.user);
+      this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
+        window.brandlist=resp.data;
+        var brandCopy=[];
+        for(var i=0;i<16;i++){
+          brandCopy.push(resp.data[i]);
+        }
+        window.brandsCopy=brandCopy;
+      }).catch((resp) => {
+        alert("请求失败");
+      });
     },
     methods:{
      showBrandMask(event){
@@ -1676,6 +1693,14 @@
       hideBrandMask(event){
         event.target.classList.remove("hover");
         console.log(event);
+      }
+    },
+    computed:{
+      brands:function(){
+        return window.brandlist;
+      },
+      brandsCopy:function(){
+        return window.brandsCopy;
       }
     }
 };

@@ -198,62 +198,11 @@
                 </ul>
               </li>
             </ul>
-            <ul class="navigation-info-content-menu-Col" v-for="kind in getKindsCopy">
-              <!--<li @mouseenter="hoverNavigationCol($event)">
-                <span class="title">护肤</span>
+            <ul class="navigation-info-content-menu-Col">
+              <li v-for="kind in getKindsCopy" v-bind:value="kind.id">
+                <span class="title" v-bind:value="kind.id">{{kind.name}}</span>
                 <ul>
-                  <li><router-link to="/">面膜</router-link></li>
-                  <li><router-link to="/">美容仪器</router-link></li>
-                  <li><router-link to="/">紧致立体轮廓</router-link></li>
-                </ul>
-              </li>
-              <li>
-                <span class="title">彩妆</span>
-                <ul>
-                  <li><router-link to="/">迪奥后台系列彩妆</router-link></li>
-                  <li><router-link to="/">猫头鹰圣诞限量</router-link></li>
-                </ul>
-              </li>
-              <li>
-                <span class="title">香水</span>
-                <ul>
-                  <li><router-link to="/">新品香氛上市</router-link></li>
-                  <li><router-link to="/">迪奥真我圣诞礼盒</router-link></li>
-                </ul>
-              </li>
-              <li>
-                <span class="title">工具</span>
-                <ul>
-                  <li><router-link to="/">美妆蛋套装</router-link></li>
-                  <li><router-link to="/">丝芙兰豪华刷具套装</router-link></li>
-                </ul>
-              </li>
-              <li>
-                <span class="title">男士护肤</span>
-                <ul>
-                  <li><router-link to="/">清爽护肤不油腻</router-link></li>
-                  <li><router-link to="/">冬季保湿精选</router-link></li>
-                </ul>
-              </li>
-              <li>
-                <span class="title">洗浴护体</span>
-                <ul>
-                  <li><router-link to="/">洗浴润体</router-link></li>
-                  <li><router-link to="/">冬季护手</router-link></li>
-                  <li><router-link to="/">唇情蜜语</router-link></li>
-                </ul>
-              </li>
-              <li class="last">
-                <span class="title">美发护发</span>
-                <ul>
-                  <li><router-link to="/">摆脱受损秀发</router-link></li>
-                  <li><router-link to="/">滋润发丝改善毛躁</router-link></li>
-                </ul>
-              </li>-->
-              <li v-bind:value="kind.id">
-                <span class="title">{{kind.name}}</span>
-                <ul v-for="small in kind.smallkind">
-                  <li v-bind:value="small.id"><router-link to="/">{{small.name}}</router-link></li>
+                  <li  v-for="small in kind.smallkind" v-bind:value="small.id"><router-link to="/">{{small.name}}</router-link></li>
                 </ul>
               </li>
             </ul>
@@ -349,6 +298,9 @@ export default {
     }).catch((resp) => {
       alert("请求失败");
     });
+
+
+
   },
   data(){
     return {
