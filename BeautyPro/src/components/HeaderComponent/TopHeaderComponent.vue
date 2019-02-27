@@ -35,6 +35,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import router from "../../router/index.js";
     export default {
         name: "TopHeaderComponent",
         data(){
@@ -55,9 +56,11 @@
               var flag=resp.data;
               if(flag==0){
                 alert("您还没有登录");
-                location.reload();
+                router.push({path:'/login'});
               }else if(flag==1){
                 this.$store.commit('setUserGlobal',null);
+                /*alert("您当前尚未登录,请先登录");
+                router.push({path:'/login'});*/
                 location.reload();
               }
             })

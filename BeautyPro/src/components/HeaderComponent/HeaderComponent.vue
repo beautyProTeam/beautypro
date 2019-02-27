@@ -264,12 +264,12 @@ const categoryInfo = {
 };
 export default {
   name: 'HeaderComponent',
-  props:["display"],
+  props:["display","kindcopy"],
   components:{
    "v-top-header":TopHeaderComponent,
   },
   created(){
-    this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
+    /*this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
       window.kindmap=resp.data;
       var kinds=window.kindmap;
       for(var k in kinds){
@@ -297,7 +297,7 @@ export default {
       console.log(window.kindmap);
     }).catch((resp) => {
       alert("请求失败");
-    });
+    });*/
 
 
 
@@ -351,7 +351,7 @@ export default {
       return window.kindmap;
     },
     getKindsCopy: function(){
-      return window.kindcopy;
+      return this.kindcopy;
     }
   }
 };

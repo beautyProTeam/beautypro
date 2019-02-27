@@ -193,7 +193,7 @@
                     <a href="javascript:;">点击查看</a>
                   </div>
                 </li>-->
-                <li @mouseenter="showBrandMask" @mouseleave="hideBrandMask" v-for="brand in brandsCopy">
+                <li @mouseenter="showBrandMask" @mouseleave="hideBrandMask" v-for="brand in brandslistCopy">
                   <img :src="brand.imgUrl">
                   <div class="module_tabGroupList_hover">
                     <div class="module_tabGroupList_banner">{{brand.name}}</div>
@@ -1664,6 +1664,7 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'IndexMainComponent',
+    props: ["brandsCopy"],
     data(){
       return {
         user: {}
@@ -1674,7 +1675,7 @@
       this.user=this.$store.state.userGlobal;
       console.log("user shou ye");
       console.log(this.user);
-      this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
+      /*this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
         window.brandlist=resp.data;
         var brandCopy=[];
         for(var i=0;i<16;i++){
@@ -1683,7 +1684,7 @@
         window.brandsCopy=brandCopy;
       }).catch((resp) => {
         alert("请求失败");
-      });
+      });*/
     },
     methods:{
      showBrandMask(event){
@@ -1699,8 +1700,8 @@
       brands:function(){
         return window.brandlist;
       },
-      brandsCopy:function(){
-        return window.brandsCopy;
+      brandslistCopy:function(){
+        return this.brandsCopy;
       }
     }
 };
