@@ -111,7 +111,7 @@
              @mouseenter="mouseenterNavigationContent($event)">
           <div>全部商品类目</div>
           <div class="navigation-info-content-menu-list" @mouseleave="hoverNavigationDisplay" v-show="isDisplayNavigationContentMenu">
-            <ul class="navigation-info-content-menu-Col">
+            <!--<ul class="navigation-info-content-menu-Col" v-for="kind in getKindsCopy">
               <li @mouseenter="hoverNavigationCol($event)">
                 <span class="title">热门</span>
                 <ul>
@@ -179,7 +179,85 @@
                   <li><router-link to="/">滋润发丝改善毛躁</router-link></li>
                 </ul>
               </li>
+            </ul>-->
+            <ul class="navigation-info-content-menu-Col">
+              <li @mouseenter="hoverNavigationCol($event)">
+                <span class="title">热门</span>
+                <ul>
+                  <li><router-link to="/">魅惑美唇</router-link></li>
+                  <li><router-link to="/">塑造立体轮廓</router-link></li>
+                  <li><router-link to="/">热销气垫</router-link></li>
+                </ul>
+              </li>
+              <li @mouseenter="hoverNavigationCol($event)">
+                <span class="title">功效</span>
+                <ul>
+                  <li><router-link to="/">保湿补水</router-link></li>
+                  <li><router-link to="/">底妆修容</router-link></li>
+                  <li><router-link to="/">美白</router-link></li>
+                </ul>
+              </li>
             </ul>
+            <ul class="navigation-info-content-menu-Col" v-for="kind in getKindsCopy">
+              <!--<li @mouseenter="hoverNavigationCol($event)">
+                <span class="title">护肤</span>
+                <ul>
+                  <li><router-link to="/">面膜</router-link></li>
+                  <li><router-link to="/">美容仪器</router-link></li>
+                  <li><router-link to="/">紧致立体轮廓</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">彩妆</span>
+                <ul>
+                  <li><router-link to="/">迪奥后台系列彩妆</router-link></li>
+                  <li><router-link to="/">猫头鹰圣诞限量</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">香水</span>
+                <ul>
+                  <li><router-link to="/">新品香氛上市</router-link></li>
+                  <li><router-link to="/">迪奥真我圣诞礼盒</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">工具</span>
+                <ul>
+                  <li><router-link to="/">美妆蛋套装</router-link></li>
+                  <li><router-link to="/">丝芙兰豪华刷具套装</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">男士护肤</span>
+                <ul>
+                  <li><router-link to="/">清爽护肤不油腻</router-link></li>
+                  <li><router-link to="/">冬季保湿精选</router-link></li>
+                </ul>
+              </li>
+              <li>
+                <span class="title">洗浴护体</span>
+                <ul>
+                  <li><router-link to="/">洗浴润体</router-link></li>
+                  <li><router-link to="/">冬季护手</router-link></li>
+                  <li><router-link to="/">唇情蜜语</router-link></li>
+                </ul>
+              </li>
+              <li class="last">
+                <span class="title">美发护发</span>
+                <ul>
+                  <li><router-link to="/">摆脱受损秀发</router-link></li>
+                  <li><router-link to="/">滋润发丝改善毛躁</router-link></li>
+                </ul>
+              </li>-->
+              <li v-bind:value="kind.id">
+                <span class="title">{{kind.name}}</span>
+                <ul v-for="small in kind.smallkind">
+                  <li v-bind:value="small.id"><router-link to="/">{{small.name}}</router-link></li>
+                </ul>
+              </li>
+            </ul>
+
             <div class="navigation-info-content-menu-list-content">
               <div>
                 <div class="navigation-info-content-hover-info">
@@ -244,6 +322,30 @@ export default {
   created(){
     this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
       window.kindmap=resp.data;
+      var kinds=window.kindmap;
+      for(var k in kinds){
+        var cata=Object.keys(kinds[k]);
+        if(!JSON.parse(cata[0])["smallkind"]){
+          var kcopy=JSON.parse(cata[0]);
+          kcopy["smallkind"]=kinds[k][cata[0]];
+          kinds[k]=kcopy;
+        }else{
+          kinds[k]=JSON.parse(cata[0]);
+        }
+
+      }
+      window.kindmap=kinds;
+      var kindscopy=kinds;
+      for(var i=0;i<kindscopy.length;i++){
+        var sk=kindscopy[i].smallkind;
+        var skcopy=[];
+        for(var j=0;j<3;j++){
+          skcopy.push(sk[j]);
+        }
+        kindscopy[i].smallkind=skcopy;
+      }
+      window.kindcopy=kindscopy;
+      console.log(window.kindmap);
     }).catch((resp) => {
       alert("请求失败");
     });
@@ -292,6 +394,9 @@ export default {
   computed:{
     getKinds: function(){
       return window.kindmap;
+    },
+    getKindsCopy: function(){
+      return window.kindcopy;
     }
   }
 };
