@@ -272,8 +272,9 @@ export default {
     let _this= this;
     if ( window.kindcopy == undefined || window.kindcopy.length == 0) {
       this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmall').then((resp) => {
-        window.kindmap=resp.data;
-        var kinds=window.kindmap;
+        /*window.kindmap=resp.data;
+        var kinds=window.kindmap;*/
+        var kinds=resp.data;
         for(var k in kinds){
           var cata=Object.keys(kinds[k]);
           if(!JSON.parse(cata[0])["smallkind"]){
@@ -305,6 +306,39 @@ export default {
       _this.kindsCopy = window.kindcopy;
     }
 
+    var _that=this;
+    if ( window.kinddetails == undefined || window.kinddetails.length == 0) {
+      this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/kindToSmallToDetail').then((resp) => {
+        var kinddetails=resp.data;
+        for(var k in kinddetails){
+          var cata=Object.keys(kinddetails[k]);
+          if(!JSON.parse(cata[0])["smallkind"]){
+            var kcopy=JSON.parse(cata[0]);
+            kcopy["smallkind"]=kinddetails[k][cata[0]];
+            var kcopysmallKind=kcopy["smallkind"];
+            for(var smk in kcopysmallKind){
+              var smkcata=Object.keys(kcopysmallKind[smk]);
+              if(!JSON.parse(smkcata[0])["kinddetail"]){
+                var smkcopy=JSON.parse(smkcata[0]);
+                smkcopy["kinddetail"]=kcopysmallKind[smk][smkcata[0]];
+                kcopysmallKind[smk]=smkcopy;
+              }else{
+                kcopysmallKind[smk]=JSON.parse(smkcata[0])
+              }
+            }
+            kinddetails[k]=kcopysmallKind;
+          }else{
+            kinddetails[k]=JSON.parse(cata[0]);
+          }
+        }
+        window.kinddetails=kinddetails;
+        _that.kinddetails=kinddetails;
+      }).catch((resp) => {
+        alert("请求失败");
+      });
+    }else{
+      _that.kinddetails=kinddetails;
+    }
 
 
 
@@ -315,7 +349,8 @@ export default {
       isDisplayNavigationContentMenu:false,
       navigationWrapBoxShadow:false,
       isToggleMenuContentDisplay:false,
-      kindsCopy:[]
+      kindsCopy:[],
+      kinddetails:[]
     }
   },
   beforeMount:function(){
@@ -361,6 +396,9 @@ export default {
     getKindsCopy: function(){
       /*return this.kindcopy;*/
       return window.kindcopy;
+    },
+    getKindDetails: function(){
+      return window.kinddetails;
     }
   }
 };

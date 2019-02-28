@@ -1664,10 +1664,10 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'IndexMainComponent',
-    props: ["brandsCopy"],
     data(){
       return {
-        user: {}
+        user: {},
+        brandsCopy: []
       }
     },
     created(){
@@ -1675,16 +1675,22 @@
       this.user=this.$store.state.userGlobal;
       console.log("user shou ye");
       console.log(this.user);
-      /*this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
-        window.brandlist=resp.data;
-        var brandCopy=[];
-        for(var i=0;i<16;i++){
-          brandCopy.push(resp.data[i]);
-        }
-        window.brandsCopy=brandCopy;
-      }).catch((resp) => {
-        alert("请求失败");
-      });*/
+      let _this= this;
+      if ( window.brandsCopy == undefined || window.brandsCopy.length == 0) {
+        this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
+          window.brandlist = resp.data;
+          var brandCopy = [];
+          for (var i = 0; i < 16; i++) {
+            brandCopy.push(resp.data[i]);
+          }
+          window.brandsCopy = brandCopy;
+          _this.brandsCopy = brandCopy;
+        }).catch((resp) => {
+          alert("请求失败");
+        });
+      }  else {
+        _this.brandsCopy= window.brandsCopy;
+      }
     },
     methods:{
      showBrandMask(event){
@@ -1701,7 +1707,7 @@
         return window.brandlist;
       },
       brandslistCopy:function(){
-        return this.brandsCopy;
+        return window.brandsCopy;
       }
     }
 };

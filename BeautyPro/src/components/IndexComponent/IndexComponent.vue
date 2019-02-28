@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-header display="show"></v-header>
-    <v-indexmain v-bind:brandsCopy="brandsCopy"></v-indexmain>
+    <v-indexmain></v-indexmain>
     <v-footer></v-footer>
   </div>
 </template>
@@ -21,7 +21,7 @@
     },
     data(){
       return {
-        brandsCopy:  []
+
       }
     },
     created(){
@@ -59,7 +59,7 @@
         alert("请求失败");
       });*/
 
-      this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
+      /*this.$axios.get('http://localhost:8088/BeautyProServer/api/v1/brand').then((resp) => {
         window.brandlist=resp.data;
         var brandCopy=[];
         for(var i=0;i<16;i++){
@@ -69,7 +69,7 @@
         _this.brandsCopy = brandCopy;
       }).catch((resp) => {
         alert("请求失败");
-      });
+      });*/
     }
   }
 </script>
