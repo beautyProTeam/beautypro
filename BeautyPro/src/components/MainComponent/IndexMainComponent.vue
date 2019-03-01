@@ -193,10 +193,10 @@
                     <a href="javascript:;">点击查看</a>
                   </div>
                 </li>-->
-                <li @mouseenter="showBrandMask" @mouseleave="hideBrandMask" v-for="brand in brandslistCopy">
-                  <img :src="brand.imgUrl">
+                <li @mouseenter="showBrandMask" @mouseleave="hideBrandMask" v-for="b in brandslistCopy">
+                  <img v-bind:src="b.imgUrl">
                   <div class="module_tabGroupList_hover">
-                    <div class="module_tabGroupList_banner">{{brand.name}}</div>
+                    <div class="module_tabGroupList_banner">{{b.name}}</div>
                     <a href="javascript:;">点击查看</a>
                   </div>
                 </li>

@@ -181,7 +181,7 @@
               </li>
             </ul>-->
             <ul class="navigation-info-content-menu-Col">
-              <li @mouseenter="hoverNavigationCol($event)">
+              <li @mouseenter="hoverNavigationCol($event)" v-bind:value="0">
                 <span class="title">热门</span>
                 <ul>
                   <li><router-link to="/">魅惑美唇</router-link></li>
@@ -189,7 +189,7 @@
                   <li><router-link to="/">热销气垫</router-link></li>
                 </ul>
               </li>
-              <li @mouseenter="hoverNavigationCol($event)">
+              <li @mouseenter="hoverNavigationCol($event)" v-bind:value="1">
                 <span class="title">功效</span>
                 <ul>
                   <li><router-link to="/">保湿补水</router-link></li>
@@ -239,6 +239,7 @@
                 <img class="navigation-info-content-hover-adPosition">
               </div>
             </div>-->
+
             <div class="navigation-info-content-menu-list-content" v-show="isToggleMenuContentDisplay">
               <div>
                 <div class="navigation-info-content-hover-info">
@@ -257,13 +258,13 @@
 
                   </ul>
                   <div class="navigation-info-content-hover-info-logoAdPosition">
-                    <img class="">
-                    <img class="">
-                    <img class="">
-                    <img class="">
+                    <img class="" src="/static/img/brand/brandName1.png">
+                    <img class="" src="/static/img/brand/brandName2.png">
+                    <img class="" src="/static/img/brand/brandName3.png">
+                    <img class="" src="/static/img/brand/brandName4.png">
                   </div>
                 </div>
-                <img class="navigation-info-content-hover-adPosition">
+                <img class="navigation-info-content-hover-adPosition" src="/static/img/hp_navigationtool_20181213.jpg">
               </div>
             </div>
 
