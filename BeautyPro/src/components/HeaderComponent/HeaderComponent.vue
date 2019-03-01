@@ -199,7 +199,7 @@
               </li>
             </ul>
             <ul class="navigation-info-content-menu-Col">
-              <li v-for="kind in kindsCopy" v-bind:value="kind.id">
+              <li v-for="kind in kindsCopy" v-bind:value="kind.id" @mouseenter="hoverNavigationCol($event)">
                 <span class="title" v-bind:value="kind.id">{{kind.name}}</span>
                 <ul>
                   <li  v-for="small in kind.smallkind" v-bind:value="small.id"><router-link to="/">{{small.name}}</router-link></li>
@@ -207,16 +207,16 @@
               </li>
             </ul>
 
-            <div class="navigation-info-content-menu-list-content" v-show="isToggleMenuContentDisplay">
+            <!--<div class="navigation-info-content-menu-list-content" v-show="isToggleMenuContentDisplay">
               <div>
                 <div class="navigation-info-content-hover-info">
-                  <div class="navigation-info-content-hover-info-title">热门</div>
+                  <div class="navigation-info-content-hover-info-title">热门</div>&lt;!&ndash;热门&ndash;&gt;
                   <ul class="navigation-info-content-hover-info-category">
-                    <li>
+                    <li  v-for="k in KIND.smallkind">
                       <ul>
                         <li>
                           <router-link to="/" class="navigation-info-content-hover-info-category-title">热门</router-link>
-                          <div class="navigation-info-content-hover-info-category-group">
+                          <div class="navigation-info-content-hover-info-category-group" v-for="kd in k.kinddetail">
                             <router-link to="/">热门</router-link>
                           </div>
                         </li>
@@ -238,7 +238,37 @@
                 </div>
                 <img class="navigation-info-content-hover-adPosition">
               </div>
+            </div>-->
+            <div class="navigation-info-content-menu-list-content" v-show="isToggleMenuContentDisplay">
+              <div>
+                <div class="navigation-info-content-hover-info">
+                  <div class="navigation-info-content-hover-info-title">{{KIND.name}}</div><!--热门-->
+                  <ul class="navigation-info-content-hover-info-category">
+                    <li  v-for="k in KIND.smallkind">
+                      <ul>
+                        <li>
+                          <router-link to="/" class="navigation-info-content-hover-info-category-title">{{k.name}}</router-link>
+                          <div class="navigation-info-content-hover-info-category-group" v-for="kd in k.kinddetail">
+                            <router-link to="/">{{kd.detailName}}</router-link>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+
+                  </ul>
+                  <div class="navigation-info-content-hover-info-logoAdPosition">
+                    <img class="">
+                    <img class="">
+                    <img class="">
+                    <img class="">
+                  </div>
+                </div>
+                <img class="navigation-info-content-hover-adPosition">
+              </div>
             </div>
+
+
+
           </div>
         </div>
 
@@ -315,24 +345,27 @@ export default {
           if(!JSON.parse(cata[0])["smallkind"]){
             var kcopy=JSON.parse(cata[0]);
             kcopy["smallkind"]=kinddetails[k][cata[0]];
-            var kcopysmallKind=kcopy["smallkind"];
-            for(var smk in kcopysmallKind){
-              var smkcata=Object.keys(kcopysmallKind[smk]);
-              if(!JSON.parse(smkcata[0])["kinddetail"]){
-                var smkcopy=JSON.parse(smkcata[0]);
-                smkcopy["kinddetail"]=kcopysmallKind[smk][smkcata[0]];
-                kcopysmallKind[smk]=smkcopy;
-              }else{
-                kcopysmallKind[smk]=JSON.parse(smkcata[0])
+            kinddetails[k]=kcopy;
+            var kdetailcopy=kinddetails[k];
+            if(!kdetailcopy["smallkind"]["kinddetail"]){
+              var ksmalls=kdetailcopy["smallkind"];
+              for(var m in ksmalls){
+                var ksmalldetails=Object.keys(ksmalls[m]);
+                var ksKey=JSON.parse(ksmalldetails[0]);
+                ksKey["kinddetail"]=ksmalls[m][ksmalldetails[0]];
+                ksmalls[m]=ksKey;
               }
+              kdetailcopy["smallkind"]=ksmalls;
+            }else{
+              kdetailcopy["smallkind"]=JSON.parse(ksmalldetails[0]);
             }
-            kinddetails[k]=kcopysmallKind;
+            kinddetails[k]=kdetailcopy;
           }else{
             kinddetails[k]=JSON.parse(cata[0]);
           }
         }
         window.kinddetails=kinddetails;
-        _that.kinddetails=kinddetails;
+        _that.kinddetails=window.kinddetails;
       }).catch((resp) => {
         alert("请求失败");
       });
@@ -350,7 +383,8 @@ export default {
       navigationWrapBoxShadow:false,
       isToggleMenuContentDisplay:false,
       kindsCopy:[],
-      kinddetails:[]
+      kinddetails:[],
+      KIND: '',
     }
   },
   beforeMount:function(){
@@ -370,8 +404,20 @@ export default {
         this.isToggleShoppingCartDisplay = !this.isToggleShoppingCartDisplay;
       }
     },
+    showKindDetail(event){
+
+    },
     hoverNavigationCol(event){
       console.log(event.target.nodeName);
+
+      var kind_id=event.target.value;
+      var kds=window.kinddetails;
+      for(var i in kds){
+        if(kind_id==kds[i].id){
+          this.KIND=kds[i];
+          break;
+        }
+      }
       this.isToggleMenuContentDisplay = true;
     },
     mouseenterNavigationContent(event){
@@ -715,6 +761,7 @@ export default {
     height: 470px;
   }
   .navigation-info-content-hover-info-title{
+    color: black;
     margin-bottom: 20px;
     height: 39px;
     padding-bottom: 17px;
