@@ -250,7 +250,8 @@
                         <li>
                           <router-link to="/" class="navigation-info-content-hover-info-category-title">{{k.name}}</router-link>
                           <div class="navigation-info-content-hover-info-category-group" v-for="kd in k.kinddetail">
-                            <router-link to="/">{{kd.detailName}}</router-link>
+                            <!--<router-link to="/">{{kd.detailName}}</router-link>-->
+                            <a href="javascript:;" @click="getProductsBykdid(kd.id)">{{kd.detailName}}</a>
                           </div>
                         </li>
                       </ul>
@@ -290,6 +291,7 @@
 
 <script type="text/ecmascript-6">
  import TopHeaderComponent from '../HeaderComponent/TopHeaderComponent';
+ import router from "../../router/index.js";
 const categoryInfo = {
   "0":{},
 };
@@ -386,6 +388,10 @@ export default {
       kindsCopy:[],
       kinddetails:[],
       KIND: '',
+      /*brandsBykdid:[],
+      kindsBykdid:[],
+      smallKindsBykdid:[],
+      kindDetailsBykdid:[]*/
     }
   },
   beforeMount:function(){
@@ -434,6 +440,69 @@ export default {
       }
       this.isToggleMenuContentDisplay = false;
 
+    },
+    getProductsBykdid(kdid){
+      router.push({path:'/productlist',query:{kindDetailId:kdid}});
+      /*this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:{kindDetailId:kdid}}).then((resp) => {
+        var goodList=resp.data;
+        var brandArr=[],kindArr=[],smallKindArr=[],kindDetailArr=[];
+        for(var i in goodList){
+          let brand=goodList[i].brand;
+          let kind=goodList[i].kind;
+          let smallKind=goodList[i].smallkind;
+          let kindDetail=goodList[i].kindDetail;
+          brandArr.push(brand.id);
+          kindArr.push(kind.id);
+          smallKindArr.push(smallKind.id);
+          kindDetailArr.push(kindDetail.id);
+        }
+        brandArr=Array.from(new Set(brandArr));
+        kindArr=Array.from(new Set(kindArr));
+        smallKindArr=Array.from(new Set(smallKindArr));
+        kindDetailArr=Array.from(new Set(kindDetailArr));
+        var brandJsonList=[];
+        for(var i in goodList){
+          for(var j in brandArr){
+            if (goodList[i].brand.id == brandArr[j]){
+              brandJsonList.push(goodList[i].brand);
+              break;
+            }
+          }
+        }
+        this.brandsBykdid=brandJsonList;
+        var smallKindJsonList=[];
+        for(var i in goodList){
+          for(var j in smallKindArr){
+            if (goodList[i].smallKind.id == smallKindArr[j]){
+              smallKindJsonList.push(goodList[i].smallKind);
+              break;
+            }
+          }
+        }
+        this.smallKindsBykdid=smallKindJsonList;
+        var kindJsonList=[];
+        for(var i in goodList){
+          for(var j in kindArr){
+            if (goodList[i].kind.id == kindArr[j]){
+              kindJsonList.push(goodList[i].kind);
+              break;
+            }
+          }
+        }
+        this.kindsBykdid=kindJsonList;
+        var kindDetailJsonList=[];
+        for(var i in goodList){
+          for(var j in kindDetailArr){
+            if (goodList[i].kindDetail.id == kindDetailArr[j]){
+              kindDetailJsonList.push(goodList[i].kindDetail);
+              break;
+            }
+          }
+        }
+        this.kindDetailsBykdid=kindDetailJsonList;
+      }).catch((resp) => {
+        alert("请求失败");
+      });*/
     }
   },
   computed:{

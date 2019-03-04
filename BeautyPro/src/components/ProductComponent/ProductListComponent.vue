@@ -332,10 +332,110 @@
   import HeaderComponent from '../HeaderComponent/HeaderComponent';
   import FooterComponent from '../FooterComponent/FooterComponent';
     export default {
-        name: "ProductListComponent",
+      name: "ProductListComponent",
       components:{
         'v-header': HeaderComponent,
         'v-footer': FooterComponent
+      },
+      created(){
+        if(this.$route.query.kindDetailId){
+          this.kindDetailId=this.$route.query.kindDetailId;
+
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:{kindDetailId:this.kindDetailId}}).then((resp) => {
+            var brandIds=[],kindIds=[],smallKinds=[],kindDetailIds=[];
+            var goodList=resp.data;
+
+            for(var i in goodList){
+              brandIds.push(goodList[i].brand_id);
+              kindIds.push(goodList[i].kind_id);
+              smallKinds.push(goodList[i].small_kind_id);
+              kindDetailIds.push(goodList[i].kind_detail_id);
+            }
+            brandIds=Array.from(new Set(brandIds));
+            kindIds=Array.from(new Set(kindIds));
+            smallKinds=Array.from(new Set(smallKinds));
+            kindDetailIds=Array.from(new Set(kindDetailIds));
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/brands/ids",{params:{brandIds:brandIds}}).then((resp) => {
+              var brands=resp.data;
+            }).catch((resp) => {});
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1//kinds/ids",{params:{kindIds:kindIds}}).then((resp) => {}).catch((resp) => {});
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1//smallKinds/ids",{params:{smallKindIds:smallKinds}}).then((resp) => {}).catch((resp) => {});
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1//kindDetails/ids",{params:{kindDetailIds:this.kindDetailIds}}).then((resp) => {}).catch((resp) => {});
+          }).catch((resp) =>{});
+          /*this.kindDetailId=this.$route.query.kindDetailId;
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:{kindDetailId:this.kindDetailId}}).then((resp) => {
+            var goodList=resp.data;
+            var brandArr=[],kindArr=[],smallKindArr=[],kindDetailArr=[];
+            for(var i in goodList){
+              let brand=goodList[i].brand;
+              let kind=goodList[i].kind;
+              let smallKind=goodList[i].smallkind;
+              let kindDetail=goodList[i].kindDetail;
+              brandArr.push(brand.id);
+              kindArr.push(kind.id);
+              smallKindArr.push(smallKind.id);
+              kindDetailArr.push(kindDetail.id);
+            }
+            brandArr=Array.from(new Set(brandArr));
+            kindArr=Array.from(new Set(kindArr));
+            smallKindArr=Array.from(new Set(smallKindArr));
+            kindDetailArr=Array.from(new Set(kindDetailArr));
+            var brandJsonList=[];
+            for(var i in goodList){
+              for(var j in brandArr){
+                if (goodList[i].brand.id == brandArr[j]){
+                  brandJsonList.push(goodList[i].brand);
+                  break;
+                }
+              }
+            }
+            this.brandsBykdid=brandJsonList;
+            var smallKindJsonList=[];
+            for(var i in goodList){
+              for(var j in smallKindArr){
+                if (goodList[i].smallKind.id == smallKindArr[j]){
+                  smallKindJsonList.push(goodList[i].smallKind);
+                  break;
+                }
+              }
+            }
+            this.smallKindsBykdid=smallKindJsonList;
+            var kindJsonList=[];
+            for(var i in goodList){
+              for(var j in kindArr){
+                if (goodList[i].kind.id == kindArr[j]){
+                  kindJsonList.push(goodList[i].kind);
+                  break;
+                }
+              }
+            }
+            this.kindsBykdid=kindJsonList;
+            var kindDetailJsonList=[];
+            for(var i in goodList){
+              for(var j in kindDetailArr){
+                if (goodList[i].kindDetail.id == kindDetailArr[j]){
+                  kindDetailJsonList.push(goodList[i].kindDetail);
+                  break;
+                }
+              }
+            }
+            this.kindDetailsBykdid=kindDetailJsonList;
+          }).catch((resp) => {
+            alert("请求失败");
+          });*/
+        }else{
+
+        }
+
+      },
+      data(){
+        return {
+          kindDetailId:0,//由其他组件传过来的参数
+          brandsBykdid:[],
+          kindsBykdid:[],
+          smallKindsBykdid:[],
+          kindDetailsBykdid:[]
+        }
       }
     }
 </script>
@@ -650,3 +750,4 @@
     border: none;
   }
 </style>
+
