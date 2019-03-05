@@ -343,8 +343,8 @@
             <a v-for="(index,p) in getPages" href="javascript:;" @click="getGoodByPage($event)">{{index}}</a>
             <router-link to="/" class="next">下一页 ></router-link>
             <div class="module-pagination-go">
-              到第<input type="text" class="module-pagination-go-input" autocomplete="false" autocapitalize="false">页
-              <input type="submit" value="确定" class="module-pagination-go-submit">
+              到第<input type="text" class="module-pagination-go-input" autocomplete="false" autocapitalize="false" v-model="pointPage">页
+              <input type="submit" value="确定" class="module-pagination-go-submit" @click="confirmPageGood">
             </div>
           </div>
         </div>
@@ -424,7 +424,8 @@
           smallKindsBykdid:[],
           kindDetailsBykdid:[],
           goodsBykdid:[],
-          pages:0
+          pages:0,
+          pointPage:0
         }
       },
       methods:{
@@ -440,7 +441,22 @@
             var result=resp.data;
             this.goodsBykdid=result.rows;
           }).catch((resp) => {
-            alert("分类详细获取失败!");
+            alert("商品获取失败!");
+          });
+        },
+        confirmPageGood(){
+          let pageNum=this.pointPage;
+          var data={
+            currentPage: pageNum,
+            offset: parseInt((pageNum-1)*10),
+            limit: parseInt(10),
+            kindDetailId: this.$route.query.kindDetailId
+          }
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:data}).then((resp) => {
+            var result=resp.data;
+            this.goodsBykdid=result.rows;
+          }).catch((resp) => {
+            alert("商品获取失败!");
           });
         }
       },
@@ -476,7 +492,8 @@
             pages.push(i);
           }
           return pages;
-        }
+        },
+
       }
     }
 </script>
