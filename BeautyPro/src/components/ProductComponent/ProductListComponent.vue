@@ -15,7 +15,7 @@
               <div class="filter_title">品牌</div>
               <div class="filter_if">
                 <ul class="brand-list clearfix">
-                  <li>
+                  <!--<li>
                     <router-link to="/">
                       <img src="/static/img/sephoracollection_144X60.png">
                     </router-link>
@@ -63,6 +63,12 @@
                   <li>
                     <router-link to="/">
                       <img src="/static/img/sephoracollection_144X60.png">
+                    </router-link>
+                  </li>-->
+                  <li v-for="brand in getBrandsLimit10" v-bind:value="brand.id">
+                    <router-link to="/">
+                      <!--<img src="/static/img/sephoracollection_144X60.png">-->
+                      <img :src="brand.imgUrl">
                     </router-link>
                   </li>
                 </ul>
@@ -81,13 +87,14 @@
               <div class="filter_title">分类</div>
               <div class="filter_if">
                 <ul class="classification-list">
-                  <li><router-link to="/">护肤</router-link></li>
+                  <!--<li><router-link to="/">护肤</router-link></li>
                   <li><router-link to="/">彩妆</router-link></li>
                   <li><router-link to="/">香水</router-link></li>
                   <li><router-link to="/">工具</router-link></li>
                   <li><router-link to="/">男士护肤</router-link></li>
                   <li><router-link to="/">洗浴护体</router-link></li>
-                  <li><router-link to="/">美发护发</router-link></li>
+                  <li><router-link to="/">美发护发</router-link></li>-->
+                  <li v-for="kind in getKinds" :value="kind.id"><router-link to="/">{{kind.name}}</router-link></li>
                 </ul>
               </div>
               <div class="brand_btn">
@@ -126,7 +133,7 @@
       <div class="cate_prod_cont">
         <div class="cate_prod">
           <ul class="cate_prod clearfix">
-            <li>
+            <!--<li>
               <div class="p_cont">
                 <div class="p-img">
                   <router-link to="/">
@@ -304,6 +311,25 @@
                   </router-link>
                 </div>
                 <div class="p_discount">￥695.00</div>
+              </div>
+            </li>-->
+            <li v-for="good in getGoods">
+              <div class="p_cont">
+                <div class="p-img">
+                  <router-link to="/">
+                    <!--<img src="/static/img/pr1.jpg">-->
+                    <img :src="good.imgUrl">
+                    <div class="p_buy">立即购买</div>
+                  </router-link>
+                </div>
+                <div class="p_tags">新品</div>
+                <div class="p_brandEn">CLARINS</div>
+                <div class="p_productCN">
+                  <router-link to="/">
+                   {{good.name}}
+                  </router-link>
+                </div>
+                <div class="p_discount">￥{{good.price}}</div>
               </div>
             </li>
           </ul>
@@ -313,8 +339,8 @@
         <div class="pignation-bg">
           <div class="pignation-place">
             <router-link to="/" class="prev">< 上一页</router-link>
-            <router-link to="/" class="current">1</router-link>
-            <router-link to="/">2</router-link>
+            <!--<router-link to="/" class="current">1</router-link>-->
+            <a v-for="(index,p) in getPages" href="javascript:;" @click="getGoodByPage($event)">{{index}}</a>
             <router-link to="/" class="next">下一页 ></router-link>
             <div class="module-pagination-go">
               到第<input type="text" class="module-pagination-go-input" autocomplete="false" autocapitalize="false">页
@@ -342,87 +368,49 @@
           this.kindDetailId=this.$route.query.kindDetailId;
 
           this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:{kindDetailId:this.kindDetailId}}).then((resp) => {
-            var brandIds=[],kindIds=[],smallKinds=[],kindDetailIds=[];
-            var goodList=resp.data;
-
+            var brandIdList=[],kindIds=[],smallKinds=[],kindDetailIds=[];
+            var totalPage=resp.data.totalPage;
+            this.pages=totalPage;
+            var goodList=resp.data.rows;
+            this.goodsBykdid=goodList;
             for(var i in goodList){
-              brandIds.push(goodList[i].brand_id);
+              brandIdList.push(goodList[i].brand_id);
               kindIds.push(goodList[i].kind_id);
               smallKinds.push(goodList[i].small_kind_id);
               kindDetailIds.push(goodList[i].kind_detail_id);
             }
-            brandIds=Array.from(new Set(brandIds));
+            brandIdList=Array.from(new Set(brandIdList));
             kindIds=Array.from(new Set(kindIds));
             smallKinds=Array.from(new Set(smallKinds));
             kindDetailIds=Array.from(new Set(kindDetailIds));
-            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/brands/ids",{params:{brandIds:brandIds}}).then((resp) => {
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/brands/ids",{params:{brandIds:brandIdList}}).then((resp) => {
               var brands=resp.data;
-            }).catch((resp) => {});
-            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1//kinds/ids",{params:{kindIds:kindIds}}).then((resp) => {}).catch((resp) => {});
-            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1//smallKinds/ids",{params:{smallKindIds:smallKinds}}).then((resp) => {}).catch((resp) => {});
-            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1//kindDetails/ids",{params:{kindDetailIds:this.kindDetailIds}}).then((resp) => {}).catch((resp) => {});
-          }).catch((resp) =>{});
-          /*this.kindDetailId=this.$route.query.kindDetailId;
-          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:{kindDetailId:this.kindDetailId}}).then((resp) => {
-            var goodList=resp.data;
-            var brandArr=[],kindArr=[],smallKindArr=[],kindDetailArr=[];
-            for(var i in goodList){
-              let brand=goodList[i].brand;
-              let kind=goodList[i].kind;
-              let smallKind=goodList[i].smallkind;
-              let kindDetail=goodList[i].kindDetail;
-              brandArr.push(brand.id);
-              kindArr.push(kind.id);
-              smallKindArr.push(smallKind.id);
-              kindDetailArr.push(kindDetail.id);
-            }
-            brandArr=Array.from(new Set(brandArr));
-            kindArr=Array.from(new Set(kindArr));
-            smallKindArr=Array.from(new Set(smallKindArr));
-            kindDetailArr=Array.from(new Set(kindDetailArr));
-            var brandJsonList=[];
-            for(var i in goodList){
-              for(var j in brandArr){
-                if (goodList[i].brand.id == brandArr[j]){
-                  brandJsonList.push(goodList[i].brand);
-                  break;
-                }
-              }
-            }
-            this.brandsBykdid=brandJsonList;
-            var smallKindJsonList=[];
-            for(var i in goodList){
-              for(var j in smallKindArr){
-                if (goodList[i].smallKind.id == smallKindArr[j]){
-                  smallKindJsonList.push(goodList[i].smallKind);
-                  break;
-                }
-              }
-            }
-            this.smallKindsBykdid=smallKindJsonList;
-            var kindJsonList=[];
-            for(var i in goodList){
-              for(var j in kindArr){
-                if (goodList[i].kind.id == kindArr[j]){
-                  kindJsonList.push(goodList[i].kind);
-                  break;
-                }
-              }
-            }
-            this.kindsBykdid=kindJsonList;
-            var kindDetailJsonList=[];
-            for(var i in goodList){
-              for(var j in kindDetailArr){
-                if (goodList[i].kindDetail.id == kindDetailArr[j]){
-                  kindDetailJsonList.push(goodList[i].kindDetail);
-                  break;
-                }
-              }
-            }
-            this.kindDetailsBykdid=kindDetailJsonList;
-          }).catch((resp) => {
-            alert("请求失败");
-          });*/
+              this.brandsBykdid=brands;
+            }).catch((resp) => {
+              alert("品牌获取失败!");
+            });
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/kinds/ids",{params:{kindIds:kindIds}}).then((resp) => {
+              var kinds=resp.data;
+              this.kindsBykdid=kinds;
+            }).catch((resp) => {
+              alert("总分类获取失败!");
+            });
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/smallKinds/ids",{params:{smallKindIds:smallKinds}}).then((resp) => {
+              var smallKinds=resp.data;
+              this.smallKindsBykdid=smallKinds;
+            }).catch((resp) => {
+              alert("次类别获取失败!");
+            });
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/kindDetails/ids",{params:{kindDetailIds:this.kindDetailIds}}).then((resp) => {
+              var kindDetails=resp.data;
+              this.kindDetailsBykdid=kindDetails;
+            }).catch((resp) => {
+              alert("分类详细获取失败!");
+            });
+          }).catch((resp) =>{
+            alert("商品列表获取失败!");
+          });
+
         }else{
 
         }
@@ -434,7 +422,60 @@
           brandsBykdid:[],
           kindsBykdid:[],
           smallKindsBykdid:[],
-          kindDetailsBykdid:[]
+          kindDetailsBykdid:[],
+          goodsBykdid:[],
+          pages:0
+        }
+      },
+      methods:{
+        getGoodByPage(event){
+          var pageNum=parseInt(event.target.innerText);
+          var data={
+            currentPage: pageNum,
+            offset: parseInt((pageNum-1)*10),
+            limit: parseInt(10),
+            kindDetailId: this.$route.query.kindDetailId
+          }
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:data}).then((resp) => {
+            var result=resp.data;
+            this.goodsBykdid=result.rows;
+          }).catch((resp) => {
+            alert("分类详细获取失败!");
+          });
+        }
+      },
+      computed:{
+        getBrands(){
+          return this.brandsBykdid;
+        },
+        getBrandsLimit10(){
+          var bs=this.brandsBykdid;
+          var bsnews=[];
+          for(var i=0;i<10;i++){
+            bsnews.push(bs[i]);
+          }
+          return bsnews;
+        },
+        getGoodsLimit10(){
+          var gs=this.goodsBykdid;
+          var gsnews=[];
+          for(var i=0;i<10;i++){
+            gsnews.push(gs[i]);
+          }
+          return gsnews;
+        },
+        getGoods(){
+          return this.goodsBykdid;;
+        },
+        getKinds(){
+          return this.kindsBykdid;
+        },
+        getPages(){
+          var pages=[];
+          for(var i=1;i<7;i++){
+            pages.push(i);
+          }
+          return pages;
         }
       }
     }
