@@ -10,21 +10,27 @@
       <div class="box-content">
         <div class="product-details-box clearfix">
           <div class="productImageChange">
-            <img src="/static/img/pr1.jpg">
+            <!--<img src="/static/img/pr1.jpg">-->
+            <img :src="gooddetail.imgUrl">
           </div>
           <div class="ProductMainMixture">
             <div class="title">
               <div class="testBox">
-                <h1>SK-II护肤精华露肌因光蕴环彩钻白精华礼盒</h1>
-                <p>SK-II PITERA™ ESSENCE AND GENOPTICS AURA</p>
-                <p>价值：3160，优惠折扣：21%。修护力量 快速渗透 提亮润肤 提拉紧致</p>
+                <!--<h1>SK-II护肤精华露肌因光蕴环彩钻白精华礼盒</h1>-->
+                <h1>{{gooddetail.name}}</h1>
+                <!--<p>SK-II PITERA™ ESSENCE AND GENOPTICS AURA</p>-->
+                <p>{{gooddetail.enName}}</p>
+                <!--<p>价值：3160，优惠折扣：21%。修护力量 快速渗透 提亮润肤 提拉紧致</p>-->
+                <p>{{gooddetail.subName}}</p>
               </div>
-              <img alt="SK-II" title="SK-II" class="logo" src="/static/img/skii_144X60.png">
+              <!--<img alt="SK-II" title="SK-II" class="logo" src="/static/img/skii_144X60.png">-->
+              <img alt="SK-II" title="SK-II" class="logo" :src="brand.imgUrl">
             </div>
             <div class="price">
               <p class="one">价格</p>
               <p class="two">￥</p>
-              <p class="three">2490</p>
+              <!--<p class="three">2490</p>-->
+              <p>{{gooddetail.price}}</p>
               <span class="tig">新品</span>
             </div>
             <div class="capacityElse clearfix">
@@ -36,18 +42,18 @@
             <div class="fourButton clearfix">
               <div class="number">
                 <div class="numberBox">
-                  <input type="text" class="txt20" value="1">
+                  <input type="text" class="txt20" value="1" v-model="goodCount">
                 </div>
                 <div class="arrow">
-                  <div class="topArrow curPoint">
+                  <div class="topArrow curPoint" @click="addCount">
                     <div class="icon1"></div>
                   </div>
-                  <div class="bottomArrow">
+                  <div class="bottomArrow" @click="reduceCount">
                     <div class="icon2"></div>
                   </div>
                 </div>
               </div>
-              <div class="addCartButton yes">
+              <div class="addCartButton yes" @click="addToCart">
                 <p>加入购物车</p>
                 <div class="icon"></div>
               </div>
@@ -114,27 +120,38 @@
           </ul>
           <div class="leftLine">
             <div class="sku clearfix">
-              <span>规格: 套装</span>
-              <span>货号: 458067</span>
+              <!--<span>规格: 套装</span>
+              <span>货号: 458067</span>-->
+              <span>规格: {{gooddetail.guige}}</span>
+              <span>货号: {{gooddetail.huohao}}</span>
             </div>
             <div class="skuDetail">
               <ul>
                 <li>
                   <div class="title"><div class="icon"></div>产品功效</div>
-                  <div class="text">
+                  <!--<div class="text">
                     "1.护肤精华露230ml:让肌肤晶莹剔透。为肌肤打好基础，改善肌肤，让脸上的问题淡化，肌肤变细致 2.SK-II肌因光蕴环采钻白精华露30ml：提亮肤色淡化隐藏斑，保湿抗氧化，改善肤色问题。 3.SK-II护肤洁面霜20g: 把污垢包裹然后带走，去除老旧角质和不需要的油脂，性质温和，用后肌肤滋润光滑不紧绷。 4.微肌因赋活修护精华霜15g:从根源提升紧致度，细致肌肤，紧实毛孔，改善肌肤。 "
+                  </div>-->
+                  <div class="text">
+                    {{gooddetail.effect}}
                   </div>
                 </li>
                 <li>
                   <div class="title"><div class="icon"></div>主要成分</div>
-                  <div class="text">
+                  <!--<div class="text">
                     "1.护肤精华露230ml:“神仙水”每瓶含大量的天然酵母萃取物PITERA，同步提升5大美肌维度，肌肤晶莹剔透。 2.SK-II肌因光蕴环采钻白精华露30ml：西梅萃取精华，改善斑点暗黄泛红，令肌肤透亮白皙。 3.护肤洁面霜20g*2:蕴含SK-II Pitera、水解亚麻子提取物及保湿成分 4.微肌因赋活修护精华霜15g*2:富含Pitera，滋润修护肌肤。 "
+                  </div>-->
+                  <div class="text">
+                    {{gooddetail.mainContain}}
                   </div>
                 </li>
                 <li>
                   <div class="title"><div class="icon"></div>产地</div>
-                  <div class="text">
+                  <!--<div class="text">
                     火星
+                  </div>-->
+                  <div class="text">
+                   {{gooddetail.productAddress}}
                   </div>
                 </li>
               </ul>
@@ -167,6 +184,9 @@
                 便于您了解市场行情和价格变动。但是，由于地区、时间和行情波动因素，这些价格的实际情况可能与本店标注的其他价格信息有所不同。
               </p>
             </div>
+            <div class="desktopHtml">
+              <iframe :src="gooddetail.desktopHtml" width="100%" height="100%" frameborder="0" id="myIframe"></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -178,11 +198,78 @@
 <script>
   import HeaderComponent from '../HeaderComponent/HeaderComponent';
   import FooterComponent from '../FooterComponent/FooterComponent';
+  import $ from 'jquery';
+  import router from "../../router/index.js";
     export default {
-        name: "ProductDetailsComponent",
+      name: "ProductDetailsComponent",
       components:{
         'v-header': HeaderComponent,
         'v-footer': FooterComponent
+      },
+      data(){
+        return {
+          goodId:0,//由其他组件传过来的参数
+          gooddetail:{},
+          brand:{},
+          goodCount: 1
+        }
+
+      },
+      created(){
+        if(this.$route.query.goodId){
+          this.goodId=this.$route.query.goodId;
+          var data={
+            goodId: this.goodId
+          };
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/brand",{params:data}).then((resp) => {
+            if(resp.data.length>0){
+             let brandlist= resp.data;
+             this.brand=brandlist[0];
+            }
+          }).catch((resp) => {
+            alert("请求失败");
+          });
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/goodinfo",{params:data}).then((resp) => {
+            let goodinfolist=resp.data;
+            if(goodinfolist.length>0){
+              this.gooddetail=goodinfolist[0];
+            }
+
+          }).catch((resp) => {
+             alert("获取商品详情失败");
+          });
+        }
+
+      },
+      methods:{
+        addToCart(){
+          /*this.goodId*/
+          if(this.gooddetail){
+            let gooddetailcopy=this.gooddetail;
+            gooddetailcopy["goodCount"]=this.goodCount;
+            var data={
+              key: window.loginUser.id,
+              goods: gooddetailcopy
+            };
+            this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/redis/goodsInCart",this.$qs.stringify(data)).then((resp) => {
+
+            }).catch((resp)=> {
+              alert("请求失败");
+            });
+            router.push({path:"/addtocart",query:{onegood:gooddetailcopy}});
+          }
+        },
+        addCount(){
+          this.goodCount++
+        },
+        reduceCount(){
+          if (this.goodCount>1){
+            this.goodCount--;
+          }
+        }
+      },
+      mounted() {
+
       }
     }
 </script>

@@ -9,7 +9,7 @@
               <i class="icon"></i>
               <h3>商品已成功加入购物车！</h3>
             </div>
-            <div class="p-item clearfix">
+            <!--<div class="p-item clearfix">
               <div class="p-img">
                 <router-link to="/">
                   <img src="/static/img/pr1.jpg">
@@ -24,6 +24,33 @@
                 <div class="p-extra">
                   <span class="txt" title="中宁枸杞100g">颜色：中宁枸杞100g</span>
                   <span class="txt">/  数量：1</span>
+                </div>
+              </div>
+              <div class="success-btns">
+                <router-link to="/" class="btn-tobback">返回</router-link>
+                <router-link to="/" class="btn-addtocart">去购物车结算</router-link>
+              </div>
+            </div>-->
+            <div class="p-item clearfix" v-for="gic in goodsInCart">
+              <div class="p-img">
+                <router-link to="/">
+                  <!--<img src="/static/img/pr1.jpg">-->
+                  <img :src="gic.imgUrl">
+                </router-link>
+              </div>
+              <div class="p-info">
+                <div class="p-name">
+                  <!--<router-link to="/">
+                    禾煜 宁夏中宁枸杞100g 枸杞子 苟杞 南北干货特产 泡茶 煲汤羹煮粥
+                  </router-link>-->
+                  <router-link to="/">
+                    {{gic.name}}
+                  </router-link>
+                </div>
+                <div class="p-extra">
+                  <span class="txt" title="中宁枸杞100g">颜色：中宁枸杞100g</span>
+                  <!--<span class="txt">/  数量：1</span>-->
+                  <span class="txt">/  数量：{{gic.goodCount}}</span>
                 </div>
               </div>
               <div class="success-btns">
@@ -274,11 +301,35 @@
 <script>
   import HeaderComponent from '../HeaderComponent/HeaderComponent';
   import FooterComponent from '../FooterComponent/FooterComponent';
+  import router from "../../router/index.js";
     export default {
-        name: "AddToCartComponent",
+      name: "AddToCartComponent",
       components:{
         'v-header': HeaderComponent,
         'v-footer': FooterComponent
+      },
+      created(){
+        if(this.$route.query.onegood){
+          this.onegood.push(this.$route.query.onegood);
+          if(!window.cartCount){
+            window.cartCount=this.onegood;
+          }else{
+            window.cartCount.push(this.$route.query.onegood)
+          }
+        }else{
+
+        }
+
+      },
+      data(){
+        return{
+          onegood:[]
+        }
+      },
+      computed:{
+        goodsInCart(){
+          return window.cartCount;
+        }
       }
     }
 </script>

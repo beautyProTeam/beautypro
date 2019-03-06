@@ -313,21 +313,21 @@
                 <div class="p_discount">￥695.00</div>
               </div>
             </li>-->
-            <li v-for="good in getGoods">
+            <li v-for="good in getGoods" v-bind:value="good.id">
               <div class="p_cont">
                 <div class="p-img">
-                  <router-link to="/">
+                  <a href="javascript:;" @click="getGoodDetail(good.id,$event)">
                     <!--<img src="/static/img/pr1.jpg">-->
                     <img :src="good.imgUrl">
-                    <div class="p_buy">立即购买</div>
-                  </router-link>
+                    <div class="p_buy" @click="getGoodDetail(good.id,$event)">立即购买</div>
+                  </a>
                 </div>
                 <div class="p_tags">新品</div>
                 <div class="p_brandEn">CLARINS</div>
                 <div class="p_productCN">
-                  <router-link to="/">
+                  <a href="javascript:;" @click="getGoodDetail(good.id,$event)">
                    {{good.name}}
-                  </router-link>
+                  </a>
                 </div>
                 <div class="p_discount">￥{{good.price}}</div>
               </div>
@@ -338,10 +338,10 @@
       <div class="pignation_wrap">
         <div class="pignation-bg">
           <div class="pignation-place">
-            <router-link to="/" class="prev">< 上一页</router-link>
+            <a to="/" class="prev" href="javascript:;" @click="prevPage($event)">< 上一页</a>
             <!--<router-link to="/" class="current">1</router-link>-->
             <a v-for="(index,p) in getPages" href="javascript:;" @click="getGoodByPage($event)">{{index}}</a>
-            <router-link to="/" class="next">下一页 ></router-link>
+            <a to="/" class="next" href="javascript:;" @click="nextPage($event)">下一页 ></a>
             <div class="module-pagination-go">
               到第<input type="text" class="module-pagination-go-input" autocomplete="false" autocapitalize="false" v-model="pointPage">页
               <input type="submit" value="确定" class="module-pagination-go-submit" @click="confirmPageGood">
@@ -357,6 +357,7 @@
 <script>
   import HeaderComponent from '../HeaderComponent/HeaderComponent';
   import FooterComponent from '../FooterComponent/FooterComponent';
+  import router from "../../router/index.js";
     export default {
       name: "ProductListComponent",
       components:{
@@ -371,6 +372,7 @@
             var brandIdList=[],kindIds=[],smallKinds=[],kindDetailIds=[];
             var totalPage=resp.data.totalPage;
             this.pages=totalPage;
+            this.currentPage=resp.data.currentPage;
             var goodList=resp.data.rows;
             this.goodsBykdid=goodList;
             for(var i in goodList){
@@ -424,13 +426,16 @@
           smallKindsBykdid:[],
           kindDetailsBykdid:[],
           goodsBykdid:[],
-          pages:0,
-          pointPage:0
+          pages:1,
+          pointPage:1,
+          currentPage: 1
         }
       },
       methods:{
         getGoodByPage(event){
           var pageNum=parseInt(event.target.innerText);
+          this.pointPage=pageNum;
+          this.currentPage=pageNum;
           var data={
             currentPage: pageNum,
             offset: parseInt((pageNum-1)*10),
@@ -446,6 +451,7 @@
         },
         confirmPageGood(){
           let pageNum=this.pointPage;
+          this.currentPage=pageNum;
           var data={
             currentPage: pageNum,
             offset: parseInt((pageNum-1)*10),
@@ -458,6 +464,51 @@
           }).catch((resp) => {
             alert("商品获取失败!");
           });
+        },
+        prevPage(event){
+          var pageNum=parseInt(this.currentPage);
+          if(pageNum==1){
+            this.pointPage=pageNum;
+          }else{
+            this.pointPage=pageNum - 1 ;
+            var data={
+              currentPage: pageNum - 1,
+              offset: parseInt((pageNum-1 -1 )*10),
+              limit: parseInt(10),
+              kindDetailId: this.$route.query.kindDetailId
+            }
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:data}).then((resp) => {
+              var result=resp.data;
+              this.goodsBykdid=result.rows;
+            }).catch((resp) => {
+              alert("商品获取失败!");
+            });
+          }
+
+        },
+        nextPage(event){
+          var pageNum=parseInt(this.currentPage);
+          if(pageNum==this.pages){
+            this.pointPage=pageNum;
+          }else{
+            this.pointPage=pageNum + 1 ;
+            var data={
+              currentPage: pageNum + 1,
+              offset: parseInt((pageNum-1 + 1 )*10),
+              limit: parseInt(10),
+              kindDetailId: this.$route.query.kindDetailId
+            }
+            this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good",{params:data}).then((resp) => {
+              var result=resp.data;
+              this.goodsBykdid=result.rows;
+            }).catch((resp) => {
+              alert("商品获取失败!");
+            });
+          }
+        },
+        getGoodDetail(goodid,event){
+          let good_id=goodid;
+          router.push({path:'/product',query:{goodId:good_id}});
         }
       },
       computed:{
