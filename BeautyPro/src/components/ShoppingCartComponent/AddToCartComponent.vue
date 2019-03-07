@@ -32,6 +32,9 @@
               </div>
             </div>-->
             <div class="p-item clearfix" v-for="gic in goodsInCart">
+              <div class="p-checkbox">
+                <input type="checkbox" @change="checkGood(gic,$event)"/>
+              </div>
               <div class="p-img">
                 <router-link to="/">
                   <!--<img src="/static/img/pr1.jpg">-->
@@ -54,9 +57,17 @@
                 </div>
               </div>
               <div class="success-btns">
-                <router-link to="/" class="btn-tobback">返回</router-link>
-                <router-link to="/" class="btn-addtocart">去购物车结算</router-link>
+                <!--<router-link to="/" class="btn-tobback">返回</router-link>-->
+                <router-link to="/" class="btn-addtocart" @click="payCart(gic)">去购物车结算</router-link>
               </div>
+            </div>
+            <!--总结算-->
+            <div class="success-btn-second">
+              <div style="float:left" class="checkboxAll">
+                <input type="checkbox" class="allChecked"/>全选
+              </div>
+              <router-link to="/" class="btn-tobback">返回</router-link>
+              <router-link to="/" class="btn-addtocart" @click="payCartSum">总结算</router-link>
             </div>
           </div>
         </div>
@@ -321,6 +332,19 @@
         }
 
       },
+      methods:{
+        payCart(goodinfo){
+          router.push({path:'/shoppingcart',query:{moneyGood:goodinfo}});
+        },
+        payCartSum(){
+
+         /* router.push({path:'/shoppingcart',query:{moneyGood:}});*/
+        },
+        checkGood(gic,event){
+          event.target.checked
+          console.log(event);
+        }
+      },
       data(){
         return{
           onegood:[],//需要添加到购物车的商品详情
@@ -378,6 +402,11 @@
   .p-item{
 
   }
+  .p-item .p-checkbox{
+    float: left;
+    line-height: 70px;
+    margin-right: 10px;
+  }
   .p-item .p-img{
     float: left;
     margin-right: 10px;
@@ -388,7 +417,7 @@
     height: 60px;
   }
   .p-item .p-info{
-    width: 820px;
+    width: 810px;
     float: left;
   }
   .p-item .p-name a{
@@ -429,6 +458,35 @@
     color: #fff;
   }
   .p-item .success-btns .btn-addtocart:hover{
+    background: #c91623;
+  }
+  .success-btn-second{
+    margin-top:30px;
+  }
+  .success-btn-second .checkboxAll {
+    margin-right:20px;
+  }
+  .success-btn-second .checkboxAll .allChecked{
+    vertical-align: top;
+    margin-right: 5px;
+  }
+  .success-btn-second .btn-tobback{
+    background: #fff;
+    color: #E2231A;
+    border: 1px solid #fff;
+    padding: 10px 30px;
+    margin-right:20px;
+  }
+  .success-btn-second .btn-tobback:hover{
+    border-color: #E2231A;
+  }
+  .success-btn-second .btn-addtocart{
+    background: #E2231A;
+    border: 1px solid #E2231A;
+    color: #fff;
+    padding: 10px 40px;
+  }
+  .success-btn-second .btn-addtocart:hover{
     background: #c91623;
   }
   .SecondFloor-wrap{
