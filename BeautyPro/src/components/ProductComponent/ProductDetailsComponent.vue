@@ -184,8 +184,7 @@
                 便于您了解市场行情和价格变动。但是，由于地区、时间和行情波动因素，这些价格的实际情况可能与本店标注的其他价格信息有所不同。
               </p>
             </div>
-            <div class="desktopHtml">
-              <iframe :src="gooddetail.desktopHtml" width="100%" height="100%" frameborder="0" id="myIframe"></iframe>
+            <div class="desktopHtml" v-html="gooddetail.desktopHtml">
             </div>
           </div>
         </div>
@@ -211,7 +210,8 @@
           goodId:0,//由其他组件传过来的参数
           gooddetail:{},
           brand:{},
-          goodCount: 1
+          goodCount: 1,
+          good:{}
         }
 
       },
@@ -229,6 +229,7 @@
           }).catch((resp) => {
             alert("请求失败");
           });
+
           this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/goodinfo",{params:data}).then((resp) => {
             let goodinfolist=resp.data;
             if(goodinfolist.length>0){
@@ -238,7 +239,21 @@
           }).catch((resp) => {
              alert("获取商品详情失败");
           });
+
+
+          this.$axios.get("http://localhost:8088/BeautyProServer/api/v1/good/condition",{params:{id:this.goodId}}).then((resp) => {
+            let goodlist=resp.data;
+            if(goodlist.length>0){
+              var g=goodlist[0];
+              this.good=g;
+            }
+
+          }).catch((resp) => {
+            alert("获取商品失败");
+          });
+
         }
+
 
       },
       methods:{
@@ -247,16 +262,26 @@
           if(this.gooddetail){
             let gooddetailcopy=this.gooddetail;
             gooddetailcopy["goodCount"]=this.goodCount;
+            let gooddetailcp11=this.good;
+            let goodnew={};
+            goodnew["good"]=gooddetailcp11;
+            goodnew["cartCount"]=this.goodCount;
             var data={
               key: window.loginUser.id,
-              goods: gooddetailcopy
+              goodCart: goodnew
             };
             this.$axios.post("http://localhost:8088/BeautyProServer/api/v1/redis/goodsInCart",this.$qs.stringify(data)).then((resp) => {
-
+                let saveResult=resp.data;
+                if(saveResult==1){
+                  router.push({path:"/addtocart",query:{onegood:gooddetailcopy,good:this.good}});
+                }else{
+                  alert("您暂未登录");
+                  router.push({path:"/login"});
+                }
             }).catch((resp)=> {
               alert("请求失败");
             });
-            router.push({path:"/addtocart",query:{onegood:gooddetailcopy}});
+
           }
         },
         addCount(){

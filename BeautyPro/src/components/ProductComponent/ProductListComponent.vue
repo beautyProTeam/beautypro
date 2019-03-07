@@ -94,14 +94,14 @@
                   <li><router-link to="/">男士护肤</router-link></li>
                   <li><router-link to="/">洗浴护体</router-link></li>
                   <li><router-link to="/">美发护发</router-link></li>-->
-                  <li v-for="kind in getKinds" :value="kind.id"><router-link to="/">{{kind.name}}</router-link></li>
+                  <li v-for="kind in getKinds"><router-link to="/">{{kind.name}}</router-link></li>
                 </ul>
               </div>
               <div class="brand_btn">
                 <span class="show_more">更多</span>
               </div>
             </li>
-            <li class="clearfix">
+            <!--<li class="clearfix">
               <div class="filter_title">功效</div>
               <div class="filter_if">
                 <ul class="efficacy-list">
@@ -117,7 +117,7 @@
               <div class="brand_btn">
                 <span class="show_more">更多</span>
               </div>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>
@@ -508,6 +508,7 @@
         },
         getGoodDetail(goodid,event){
           let good_id=goodid;
+
           router.push({path:'/product',query:{goodId:good_id}});
         }
       },

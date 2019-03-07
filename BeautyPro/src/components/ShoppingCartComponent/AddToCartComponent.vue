@@ -323,7 +323,8 @@
       },
       data(){
         return{
-          onegood:[]
+          onegood:[],//需要添加到购物车的商品详情
+          good:{}//需要添加到购物车的商品
         }
       },
       computed:{
@@ -346,7 +347,7 @@
     margin: 0 auto;
   }
   .success-wrap{
-    height: 145px;
+    height: auto;
     padding-top: 10px;
     padding-bottom: 40px;
     box-sizing: unset;

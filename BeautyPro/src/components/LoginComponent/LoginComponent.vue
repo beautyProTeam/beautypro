@@ -62,6 +62,7 @@
           /*this.$store.state.userGlobal=respVal;*/
           // 将登录名使用vuex传递到index页面
           this.$store.commit('setUserGlobal',respVal);
+          window.loginUser=respVal;
           alert("登录成功");
           router.push({path: '/'});
         }else{
